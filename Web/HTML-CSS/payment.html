@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="payment.css">
+	<link rel="stylesheet" href="dark-theme.css">
+</head>
+<body>
+<main>
+	<div class="container">
+		<div class="card">
+			<form>
+				<header class="center">
+					<h2>
+						Paiement par Carte <br> Bancaire
+					</h2>
+				</header>
+
+				<div class="form-item">
+					<label for="card-number">Numéro de Carte</label> <br>
+					<input type="text" id="card-number" placeholder="**** **** **** ****" required>
+				</div>
+
+				<div class="form-item">
+					<label for="name">Nom du titulaire</label> <br>
+					<input type="text" id="name" placeholder="Nom complet" required>
+				</div>
+
+				<div class="form-item test">
+					<div>
+						<label for="exp-date">Date d'expiration</label>
+						<input type="text" id="exp-date" placeholder="MM / AA" required>
+					</div>
+
+					<div>
+						<label for="ccv">CCV</label>
+						<input type="text" id="ccv" placeholder="***" required>
+					</div>
+				</div>
+
+				<div class="center form-item">
+					<button type="submit">Payer</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</main>
+</body>
+</html>
