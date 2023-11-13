@@ -1,7 +1,26 @@
 body {
-    background-color: #ef89e7;
-    color: whitesmoke;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 1) 0%, rgba(228, 141, 13, 1) 9%, rgba(217, 255, 2, 1) 18%, rgba(0, 255, 6, 1) 27%, rgba(0, 127, 255, 1) 36%, rgba(199, 71, 255, 1) 45%, rgba(255, 0, 0, 1) 54%, rgba(228, 141, 13, 1) 63%, rgba(217, 255, 2, 1) 72%, rgba(0, 255, 6, 1) 81%, rgba(0, 127, 255, 1) 90%, rgba(199, 71, 255, 1) 100%);
+    background-size: 400% 400%;
+    -webkit-animation: gradient 4s linear infinite;
 }
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 100% 0
+    }
+    100% {
+        background-position: 45% 99%
+    }
+}
+
+/**applies the gradient to the text
+/** :not(body) {*/
+/*    background: linear-gradient(45deg, rgba(255, 0, 0, 1) 0%, rgba(228, 141, 13, 1) 9%, rgba(217, 255, 2, 1) 18%, rgba(0, 255, 6, 1) 27%, rgba(0, 127, 255, 1) 36%, rgba(199, 71, 255, 1) 45%, rgba(255, 0, 0, 1) 54%, rgba(228, 141, 13, 1) 63%, rgba(217, 255, 2, 1) 72%, rgba(0, 255, 6, 1) 81%, rgba(0, 127, 255, 1) 90%, rgba(199, 71, 255, 1) 100%);*/
+/*    background-size: 400% 400%;*/
+/*    -webkit-animation: gradient 4s linear infinite;*/
+/*    -webkit-background-clip: text;*/
+/*    -webkit-text-fill-color: transparent;*/
+/*}*/
 
 header {
     justify-content: center;
@@ -16,4 +35,9 @@ header a {
 nav a {
     margin-right: 10px;
     margin-left: 10px;
+    display: inline-block;
+}
+
+nav a:hover {
+    transform: scale(1.5);
 }
