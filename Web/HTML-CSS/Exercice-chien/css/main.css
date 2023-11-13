@@ -1,0 +1,19 @@
+body {
+    background-color: #ef89e7;
+    color: whitesmoke;
+}
+
+header {
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+}
+
+header a {
+    all: unset
+}
+
+nav a {
+    margin-right: 10px;
+    margin-left: 10px;
+}

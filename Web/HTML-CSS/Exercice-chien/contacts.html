@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contacts</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/contacts.css">
+</head>
+<body>
+
+<header>
+	<h1>
+		John Doe
+	</h1>
+
+	<nav>
+		<h2>Accueil
+		</h2>
+		<a href="index.html">Accueil</a>
+		<a href="horaires.html">Horaires</a>
+		<a href="contacts.html">Contacts</a>
+	</nav>
+</header>
+
+<main>
+	<section>
+		<form method="post">
+			<fieldset>
+				<legend>
+					Qui etes vous?
+				</legend>
+
+				<label for="nom"> Nom:
+					<input type="text" placeholder="Martin" id="nom">
+				</label>
+				<br>
+
+				<label for="prenom"> Prénom :
+					<input type="text" placeholder="John" id="prenom">
+				</label>
+				<br>
+
+				<label for="date"> Date de naissance :
+					<input type="date" id="date">
+				</label>
+				<br>
+
+				<label> Genre :</label>
+
+
+				<input type="radio" name="genre" id="homme" value="homme">
+				<label for="homme">Homme</label>
+
+				<input type="radio" name="genre" id="femme" value="femme">
+				<label for="femme">Femme</label>
+
+				<input type="radio" name="genre" id="autre" value="autre">
+				<label for="autre">Autre</label>
+
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					Sujet de vos questions
+				</legend>
+
+				<label for="urgent"> Est ce urgent?
+					<input type="checkbox" id="urgent">
+				</label>
+				<br>
+
+				<label for="type">
+					Type de problème :
+					<select name="type" id="type">
+						<optgroup label="Compte">
+							<option value="dog">Je n'arrive pas a acceder a mon compte</option>
+							<option value="cat">Je crois que j'ai été piraté</option>
+							<option value="hamster">Je n'arrive pas a changer de mot de passe</option>
+							<option value="hamster">J'ai perdu mes identifiants</option>
+						</optgroup>
+						<optgroup label="Achat">
+							<option value="parrot">Je n'arrive pas a confirmer mon achat</option>
+							<option value="macaw">J'aimerai avoir des nouvelles de ma livraison</option>
+						</optgroup>
+					</select>
+				</label>
+
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					Commentaire
+				</legend>
+
+				<label for="commentaire">Notes :</label>
+				<br>
+
+				<textarea type="text" placeholder="Commentaire" id="commentaire" rows="8"> 
+				</textarea>
+
+			</fieldset>
+
+			<button type="submit">Envoyer</button>
+		</form>
+
+	</section>
+</main>
+
+</body>
+</html>

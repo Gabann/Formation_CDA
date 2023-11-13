@@ -1,0 +1,23 @@
+form {
+    margin: auto;
+    max-width: 50%;
+}
+
+label {
+    display: inline-block;
+    margin: 10px;
+}
+
+textarea {
+    width: 100%;
+}
+
+button {
+    float: right;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #8522f3;
+    border-style: none;
+
+}
