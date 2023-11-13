@@ -10,6 +10,7 @@ label {
 
 textarea {
     width: 100%;
+    resize: none;
 }
 
 button {
@@ -19,5 +20,4 @@ button {
     border-radius: 20px;
     background-color: #8522f3;
     border-style: none;
-
 }
