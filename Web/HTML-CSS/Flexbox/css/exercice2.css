@@ -1,0 +1,41 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+header, footer{
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+}
+
+header{
+    height: 15vh;
+}
+
+main{
+    display: flex;
+    height: calc(100vh - 25vh);
+}
+
+.aside-left{
+    background-color: red;
+    width: 25%;
+}
+
+section{
+    background-color: blue;
+    width: 50%;
+}
+
+.aside-right{
+    background-color: yellow;
+    width: 25%;
+}   
+
+footer{
+    color: whitesmoke;
+    background-color: black;
+    height: 10vh;
+}
