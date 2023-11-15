@@ -1,0 +1,21 @@
+.card{
+	width: 100% !important;
+}
+
+.logo{
+	display: none !important;
+}
+
+header{
+	justify-content: center !important;
+	flex-wrap: wrap;
+
+	& button{
+		width: 100% !important;
+		margin-top: 10px;
+	}
+	
+	& p{
+		text-align: center !important;
+	}
+}

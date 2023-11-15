@@ -1,0 +1,77 @@
+@import url(small.css) not screen and (min-device-width:575px);
+@import url(medium.css) not screen and (min-device-width:992px);
+
+:root{
+	--primary-color : #dc97f6;
+	--secondary-color: orange;
+	--backgroud-color: grey;
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	background-color: var(--backgroud-color);
+	
+}
+
+header, footer{
+	background-color: var(--primary-color);
+	padding: 15px 30px;
+	display: flex;
+}
+header{
+	justify-content: space-between;
+	
+	& .logo {
+		display: flex;
+		height: 10vh;
+	}
+	
+	& p{
+		margin: 0;
+		font-size: 20px;
+		font-weight: bolder;
+		text-align: right;
+	}
+	
+	& div{
+		/*justify-content: center;*/
+	}
+}
+
+button{
+	border-radius: 20px;
+	background-color: var(--secondary-color);
+	border: none;
+	padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.navbar{
+	height: 100%;
+}
+
+nav{
+	align-self: flex-end;
+}
+
+h1, h2{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.card{
+	width: 15%;
+}
+
+.cards-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+footer{
+	justify-content: center;
+	align-items: center;
+}

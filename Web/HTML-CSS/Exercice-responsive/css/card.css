@@ -1,0 +1,26 @@
+.card {
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: #FAFAF9;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    & img{
+        border-radius: 15px;
+        width: 100%;
+    }
+    
+    & p{
+        color: #6C727F;
+    }
+}
+
+.tag {
+    /*padding: 10px 25px;*/
+    margin-top: 20px;
+    background-color: #E6D6FC;
+    color: #883AE1;
+    border-radius: 50px;
+    border-style: none;
+    font-weight: bolder;
+}
