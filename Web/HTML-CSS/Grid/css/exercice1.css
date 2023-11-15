@@ -1,0 +1,54 @@
+:root{
+	--left-color: red;
+	--middle-color: blue;
+	--right-color: yellow;
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 15% 75% 10%;
+	grid-template-areas: 
+    "header header header"
+    "aside-left section aside-right"
+    "footer footer footer"; 
+}
+
+header, footer{
+	font-size: 2em;
+	text-align: center;
+}
+
+header{
+	height: 15vh;
+	grid-area: header;
+}
+
+main{
+	height: calc(100vh - 25vh);
+}
+
+.aside-left{
+	background-color: var(--left-color);
+	grid-area: aside-left;
+}
+
+section{
+	background-color: var(--middle-color);
+	grid-area: section;
+}
+
+.aside-right{
+	background-color: var(--right-color);
+	grid-area: aside-right;
+}
+
+footer{
+	color: whitesmoke;
+	background-color: black;
+	height: 10vh;
+	grid-area: footer;
+}

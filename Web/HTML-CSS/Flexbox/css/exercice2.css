@@ -1,3 +1,9 @@
+:root{
+    --left-color: red;
+    --middle-color: blue;
+    --right-color: yellow;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -19,20 +25,22 @@ main{
     height: calc(100vh - 25vh);
 }
 
+aside{
+    flex: 1;
+}
+
 .aside-left{
-    background-color: red;
-    width: 25%;
+    background-color: var(--left-color);
 }
 
 section{
-    background-color: blue;
-    width: 50%;
+    background-color: var(--middle-color);
+    flex: 3;
 }
 
 .aside-right{
-    background-color: yellow;
-    width: 25%;
-}   
+    background-color: var(--right-color);
+}
 
 footer{
     color: whitesmoke;
