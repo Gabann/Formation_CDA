@@ -8,13 +8,18 @@ body{
 	padding: 0;
 	margin: 0;
 	height: 100vh;
+
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 15% 75% 10%;
-	grid-template-areas: 
+	grid-template-areas:
     "header header header"
     "aside-left section aside-right"
-    "footer footer footer"; 
+    "footer footer footer";
+}
+
+main{
+	display: contents;
 }
 
 header, footer{
@@ -23,12 +28,7 @@ header, footer{
 }
 
 header{
-	height: 15vh;
 	grid-area: header;
-}
-
-main{
-	height: calc(100vh - 25vh);
 }
 
 .aside-left{
@@ -49,6 +49,18 @@ section{
 footer{
 	color: whitesmoke;
 	background-color: black;
-	height: 10vh;
 	grid-area: footer;
+}
+
+@media only screen and (max-device-width:600px) {
+	body{
+		grid-template-columns: 1fr;
+		grid-template-rows: 15% 1fr 1fr 1fr 10%;
+		grid-template-areas:
+	    "header"
+	    "aside-left"
+	    "section"
+	    "aside-right"
+	    "footer";
+	}
 }
