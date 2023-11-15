@@ -1,5 +1,6 @@
 @import url(small.css) not screen and (min-device-width:575px);
 @import url(medium.css) not screen and (min-device-width:992px);
+@import "card.css";
 
 :root{
 	--primary-color : #dc97f6;
@@ -11,7 +12,7 @@ body{
 	padding: 0;
 	margin: 0;
 	background-color: var(--backgroud-color);
-	
+	height: 100vh;
 }
 
 header, footer{
@@ -19,6 +20,7 @@ header, footer{
 	padding: 15px 30px;
 	display: flex;
 }
+
 header{
 	justify-content: space-between;
 	
@@ -34,35 +36,28 @@ header{
 		text-align: right;
 	}
 	
-	& div{
-		/*justify-content: center;*/
+	& button{
+		border-radius: 20px;
+		background-color: var(--secondary-color);
+		border: none;
+		padding: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
 	}
-}
-
-button{
-	border-radius: 20px;
-	background-color: var(--secondary-color);
-	border: none;
-	padding: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
 }
 
 .navbar{
 	height: 100%;
+	align-self: center;
 }
 
-nav{
-	align-self: flex-end;
-}
-
-h1, h2{
+.title{
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
 .card{
-	width: 15%;
+	width: 20%;
 }
 
 .cards-container{

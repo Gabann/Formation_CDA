@@ -1,5 +1,5 @@
 .card {
-    padding: 30px;
+    padding: 20px;
     margin: 20px;
     border-radius: 15px;
     background-color: #FAFAF9;
@@ -16,11 +16,17 @@
 }
 
 .tag {
-    /*padding: 10px 25px;*/
-    margin-top: 20px;
+    padding: 10px 10px;
+    margin: 5px;
     background-color: #E6D6FC;
     color: #883AE1;
     border-radius: 50px;
     border-style: none;
     font-weight: bolder;
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
