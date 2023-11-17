@@ -1,0 +1,19 @@
+/*.box:nth-of-type(4n + 1) {*/
+/*	background-color: red;*/
+/*}*/
+
+/*.box:nth-of-type(4n + 2) {*/
+/*	background-color: blue;*/
+/*}*/
+
+/*.box:nth-of-type(4n+ 3) {*/
+/*	background-color: green;*/
+/*}*/
+
+/*.box:nth-of-type(4n+ 4) {*/
+/*	background-color: grey;*/
+/*}*/
+
+.box{
+	background-color: green;
+}
