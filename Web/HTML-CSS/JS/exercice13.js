@@ -1,9 +1,9 @@
 let target = 135;
-let results = ""
+let results = "";
 
 for (let i = 1; i < target / 2 + 1; i++) {
 	let total = 0;
-	let calcul = ""
+	let calcul = "";
 	
 	for (let j = i; j < target / 2 + 1; j++) {
 		total += j;
