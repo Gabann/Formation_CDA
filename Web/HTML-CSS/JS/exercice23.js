@@ -28,7 +28,7 @@ function addNote(note){
 //Returns the average value of an array
 function getAverage(array) {
 	let total = array.reduce(
-		(accumulator, currentValue) => Number(accumulator) + Number(currentValue)
+		(accumulator, currentValue) => accumulator + currentValue
 	);
 	return total / array.length;
 }
@@ -52,8 +52,8 @@ function displayMenu() {
 			let note;
 			while (note !== -1) {
 				note = askForNumberInput("Note", -1, 20);
-				if (note === -1) break;
-				else addNote(note);
+				if (note !== -1) addNote(note);
+				break;
 			}
 			break;
 	}
@@ -68,5 +68,4 @@ console.log("Fin de saisie");
 //Two ways of getting max/min value of an array
 console.log(`Note max ${Math.max.apply(null, noteArray)}`);
 console.log(`Note min ${Math.min(...noteArray)}`);
-
 console.log(`Moyenne ${getAverage(noteArray)}`);
