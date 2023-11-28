@@ -1,49 +1,49 @@
-function askForNumberInput(promptMessage, minValue, maxValue = Infinity, promptMessageOnError = "Erreur de saisie, réessayez: \n" + promptMessage){
+function askForNumberInput(promptMessage, minValue, maxValue = Infinity, promptMessageOnError = "Erreur de saisie, réessayez: \n" + promptMessage) {
 	let input;
 
 	input = Number(prompt(promptMessage));
 
-	while (!validateNumberInput(input, minValue,maxValue)){
+	while (!validateNumberInput(input, minValue, maxValue)) {
 		input = Number(prompt(promptMessageOnError));
 	}
 
 	return input;
 }
 
-function validateNumberInput(input, min , max) {
+function validateNumberInput(input, min, max) {
 	if (input < min || input > max || input === undefined || isNaN(input)) return false;
 	else return true;
 }
 
-function askForStringInput(promptMessage, promptMessageOnError = "Erreur de saisie, réessayez: \n" + promptMessage){
+function askForStringInput(promptMessage, promptMessageOnError = "Erreur de saisie, réessayez: \n" + promptMessage) {
 	let str;
-	
+
 	str = prompt(promptMessage);
-	
+
 	str = formatString(str);
-	
+
 	return str;
 }
 
 //There should be no number in a name and should be at least 2 characters longs
-function validateContactName(str){
+function validateContactName(str) {
 	if (str.length < 2 || (/\d/.test(str))) return false;
 	else return true;
 }
 
 function formatString(str) {
 	str = str.trim();
-	return  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+	return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-function addContact(contact){
-	if (contact === undefined || !validateContactName(contact)){
+function addContact(contact) {
+	if (contact === undefined || !validateContactName(contact)) {
 		contact = askForStringInput("Nom du contact");
 	}
-	
+
 	contact = formatString(contact);
-	
-	if (contactArray.includes(contact)){
+
+	if (contactArray.includes(contact)) {
 		console.log(`${contact} is already in the contact list`);
 		return;
 	}
@@ -63,15 +63,14 @@ function removeContact(contact) {
 	if (index !== -1) {
 		contactArray.splice(index, 1);
 		console.log(`${contact} a été supprimé`);
-	}
-	else console.log("Contact non trouvé, rien n'a été supprimé");
+	} else console.log("Contact non trouvé, rien n'a été supprimé");
 }
 
 function searchContactByName(nameSearchQuery) {
 	if (nameSearchQuery === undefined) {
 		nameSearchQuery = askForStringInput("Entrez le nom du contact a rechercher");
 	}
-	
+
 	let matchingContactArray = [];
 
 	for (let i = 0; i < contactArray.length; i++) {
@@ -80,17 +79,16 @@ function searchContactByName(nameSearchQuery) {
 		}
 	}
 
-	if (matchingContactArray.length <= 0){
+	if (matchingContactArray.length <= 0) {
 		console.log(`Aucun contact en ${nameSearchQuery} n'a été trouvé`);
-	}
-	else{
+	} else {
 		console.log(`Liste des contacts trouvés ${matchingContactArray}`);
 	}
 }
 
 function displayMenu() {
 	let inputMode;
-	
+
 	do {
 		inputMode = askForNumberInput("Choisir mode de saisie:\n1 : Saisir les contacts:\n2 : Afficher les contacts\n3 : Trier les" +
 			" contacts par ordre alphabétique\n4 : Mélanger les contacts\n5 : Supprimer un contact\n6 : Rechercher un contact\n0 : Quitter"
