@@ -34,7 +34,7 @@ document.getElementById('login-form').addEventListener('input', function () {
 	let password = document.querySelector("input#password").value;
 	let submitButton = document.querySelector("#form-submit");
 
-	if (!(validateUsernameInput(username) && validatePasswordInput(password))) {
+	if (!validateUsernameInput(username) || !validatePasswordInput(password)) {
 		submitButton.disabled = true;
 	} else {
 		submitButton.disabled = false;
