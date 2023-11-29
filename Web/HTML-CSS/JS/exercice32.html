@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="./exercice32.css">
+</head>
+<body>
+
+
+<div id="modal" class="modal">
+	<div class="modal-content">
+		<span id="close-modal-button">x</span>
+		<form id="add-person-form">
+			<label>
+				First name
+				<input id="first-name-input" type="text" placeholder="First name">
+			</label>
+			<label>
+				Last name
+				<input id="last-name-input" type="text" placeholder="Last name">
+			</label>
+			<label>
+				Date of birth
+				<input id="dob-input" type="date">
+			</label>
+			<input id="form-submit" type="submit" value="Submit">
+		</form>
+	</div>
+</div>
+
+<main>
+	<button id="open-modal-button">Open Modal</button>
+
+	<table id="person-table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Date of birth</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	
+</main>
+
+</body>
+<script src="./exercice32.js" type="module"></script>
+</html>

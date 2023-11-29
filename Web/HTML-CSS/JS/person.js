@@ -1,33 +1,57 @@
 export class Person {
 	#firstName;
 	#lastName;
-	#age;
+	#dob;
+	#id;
 
-	constructor(firstName, lastName, age) {
-		this.#firstName = firstName;
-		this.#lastName = lastName;
-		this.#age = age;
+	static count = 0;
+
+	constructor(firstName, lastName, dob) {
+		if (validateNameInput(firstName) && validateNameInput(lastName)) {
+			this.#id = ++Person.count;
+			this.#firstName = firstName;
+			this.#lastName = lastName;
+			this.#dob = dob;
+		} else {
+			throw new Error("Wrong name input");
+		}
+	}
+
+	get firstName() {
+		return this.#firstName;
 	}
 
 	set firstName(newFirstName) {
-		newFirstName = newFirstName.trim();
-		newFirstName = newFirstName.charAt(0).toUpperCase() + newFirstName.slice(1).toLowerCase();
-
-
-		if (newFirstName !== "Titouan")
+		if (validateNameInput(newFirstName)) {
+			newFirstName = newFirstName.trim();
+			newFirstName = newFirstName.charAt(0).toUpperCase() + newFirstName.slice(1).toLowerCase();
 			this.#firstName = newFirstName;
-		else
-			console.log("Change de nom et porte plainte contre tes parents");
+		}
 	}
 
-	set age(newAge) {
-		if (!isNaN(newAge))
-			this.#age = newAge;
-		else
-			console.log("Age doit etre un nombre");
+	get lastName() {
+		return this.#lastName;
 	}
 
-	getFullName() {
+	get fullName() {
 		return `${this.#firstName} ${this.#lastName}`;
 	}
+
+	get dob() {
+		return this.#dob;
+	}
+
+	get id() {
+		return this.#id;
+	}
+}
+
+// Username should only contain letters and numbers and be at least 2 char long
+function validateNameInput(str) {
+	if (typeof str !== 'string') {
+		return false;
+	}
+
+	const regex = /^[a-zA-Z0-9]{2,}$/;
+	return regex.test(str);
 }

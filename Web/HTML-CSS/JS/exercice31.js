@@ -16,5 +16,5 @@ personArray.push(person1);
 personArray.push(person2);
 
 for (const person of personArray) {
-	console.log(person.getFullName());
+	console.log(person.fullName);
 }
