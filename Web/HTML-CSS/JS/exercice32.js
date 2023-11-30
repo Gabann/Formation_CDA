@@ -29,7 +29,11 @@ document.getElementById('add-person-form').addEventListener('submit', event => {
 //Add a listener to all th element to sort table alphabetically by the column clicked
 document.querySelectorAll("th").forEach((th, index) => {
 	th.addEventListener("click", () => {
-		sortTableByRowIndex(index);
+
+		//Uses the method toggle to switch between ascending and descending order based on the th class
+		let isAscendingOrder = th.classList.toggle("ascending");
+		th.classList.toggle("descending");
+		sortTableByRowIndex(index, isAscendingOrder);
 	});
 });
 
@@ -45,15 +49,15 @@ function addPersonToTable(firstName, lastName, dob) {
 		row.classList.add(`row-id${newPerson.id}`);
 
 		row.innerHTML = `
-				<th>${newPerson.id}</th>
-				<th>${newPerson.firstName}</th>
-				<th>${newPerson.lastName}</th>
-				<th>${newPerson.dob}</th>
-				<th>
+				<td>${newPerson.id}</td>
+				<td>${newPerson.firstName}</td>
+				<td>${newPerson.lastName}</td>
+				<td>${newPerson.dob}</td>
+				<td>
 					<button>Delete</button>
-				</th>`;
+				</td>`;
 
-		row.querySelector("th button").addEventListener('click', function () {
+		row.querySelector("td button").addEventListener('click', function () {
 			RemovePersonFromTableById(newPerson.id);
 		});
 
@@ -70,12 +74,16 @@ function RemovePersonFromTableById(id) {
 	document.querySelector(`.row-id${id}`).remove();
 }
 
-function sortTableByRowIndex(id) {
+function sortTableByRowIndex(id, isAscendingOrder) {
 	let tbody = document.querySelector("table#person-table tbody");
 	let rows = Array.from(tbody.rows);
 
 	rows.sort(
-		(a, b) => a.cells[id].textContent.localeCompare(b.cells[id].textContent)
+		// (a, b) => a.cells[id].textContent.localeCompare(b.cells[id].textContent)
+		(a, b) => {
+			let comparison = a.cells[id].textContent.localeCompare(b.cells[id].textContent);
+			return isAscendingOrder ? comparison : -comparison;
+		}
 	);
 
 	for (let row of rows) {
@@ -86,6 +94,7 @@ function sortTableByRowIndex(id) {
 addPersonToTable("Luz", "Noceda", new Date());
 addPersonToTable("Amity", "Blight");
 addPersonToTable("King", "Clawthorne");
+addPersonToTable("Edalyn", "Clawthorne");
 
 //Will throw error
 // addPersonToTable("Edalyn", 15);

@@ -11,9 +11,9 @@ let current = 4000000;
 let target = 1;
 let count = 0;
 
-while (current >= target){
+while (current >= target) {
 	current /= 2;
 	count++;
 }
 
-console.log(count)
+console.log(count);

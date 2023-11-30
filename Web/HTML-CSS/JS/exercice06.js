@@ -9,5 +9,5 @@ if (age < 30) {
 } else if (nbAnneesExeperiences < 5) {
 	console.log("Pas assez d'experience");
 } else {
-	console.log("Vous correspondez au criteres")
+	console.log("Vous correspondez au criteres");
 }
