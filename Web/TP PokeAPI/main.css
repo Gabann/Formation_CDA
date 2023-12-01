@@ -1,0 +1,17 @@
+body {
+	height: 100vh;
+}
+
+/*.pokemon-card {*/
+/*	height: 30vh;*/
+/*}*/
+
+/*.pokemon-img {*/
+/*	height: 100%;*/
+/*}*/
+
+.navigation-button {
+	border: none;
+	border-radius: 100%;
+	padding: 10px;
+}

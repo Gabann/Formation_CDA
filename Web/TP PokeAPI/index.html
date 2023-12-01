@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TP PokeAPI</title>
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+<main>
+	<div class="container" style="height: 40vh;">
+
+		<div class="row h-100  d-flex justify-content-center align-items-center">
+			<div class="col-2">
+				<button class="navigation-button" id="previous"><<</button>
+			</div>
+
+			<div class="col-6 h-100">
+				<div class="searchbar text-center">
+					<label for="searchbar-input"></label>
+					<input type="text" name="searchbar-input" id="searchbar-input" placeholder="Pokemon name or id">
+					<button>Search</button>
+				</div>
+
+				<div class="pokemon-card border border-primary p-3 h-100">
+				</div>
+			</div>
+
+			<div class="col-2 d-flex justify-content-center align-items-center">
+				<button class="navigation-button" id="next">>></button>
+			</div>
+		</div>
+
+	</div>
+</main>
+</body>
+
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="./js/main.js"></script>
+</html>
