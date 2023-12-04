@@ -85,7 +85,7 @@ async function getPokedexByGeneration(generationNumber) {
 	try {
 		const response = await fetch(baseUrl + "generation/" + generationNumber);
 		const data = await response.json();
-		console.log(data.);
+		console.log();
 	} catch (e) {
 		console.error(e);
 	}
