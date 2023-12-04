@@ -1,0 +1,1 @@
+const filterFolder = require("mymodule");

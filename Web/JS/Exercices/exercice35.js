@@ -9,6 +9,7 @@ class Character {
 		this.#strength = strength;
 	}
 
+
 	attack(target) {
 		target.takeDamages(this.#strength);
 	}
@@ -32,9 +33,9 @@ class Character {
 		console.log(`${this.#name} died`);
 	}
 
-	get name() {
-		return this.#name;
-	}
+	// get name() {
+	// 	return this.#name;
+	// }
 
 	get hp() {
 		return this.#hp;
