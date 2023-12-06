@@ -32,6 +32,7 @@
 // 	});
 // }
 
+//This code is more clean and understandable imo, promises catches error and we remove a weird check in the function
 let http = require('http');
 
 let urlArray = process.argv.slice(2);
@@ -51,8 +52,6 @@ function httpGet(url) {
 			response.on('end', () => {
 				resolve(dataString);
 			});
-
-			response.on('error', reject);
 		});
 	});
 }

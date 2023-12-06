@@ -13,4 +13,4 @@ let server = http.createServer((request, response) => {
 
 server.listen(process.argv[2]);
 
-//TODO revenir sur le pipe, je ne comprends pas comment le serveur renvoit sa réponse
+//TODO come back to the pipe, i don't really get how the server return his response

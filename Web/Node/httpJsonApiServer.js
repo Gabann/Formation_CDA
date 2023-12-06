@@ -1,5 +1,4 @@
 const http = require('http');
-const url = require("url");
 
 let server = http.createServer((request, response) => {
 	if (request.method !== 'GET') return response;
@@ -22,13 +21,12 @@ let server = http.createServer((request, response) => {
 		};
 	}
 
-
 	if (jsonResponse) {
 		response.writeHead(200, {'Content-Type': 'application/json'});
 		response.end(JSON.stringify(jsonResponse));
 	} else {
-		res.writeHead(404);
-		res.end();
+		response.writeHead(404);
+		response.end();
 	}
 });
 
