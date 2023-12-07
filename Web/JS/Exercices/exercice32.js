@@ -1,4 +1,4 @@
-import {Person} from "./person.js";
+import { Person } from "./person.js";
 
 let modal = document.querySelector(".modal");
 
@@ -16,7 +16,7 @@ window.onclick = event => {
 	}
 };
 
-document.getElementById('add-person-form').addEventListener('submit', event => {
+document.getElementById("add-person-form").addEventListener("submit", event => {
 	event.preventDefault();
 
 	let firstName = document.querySelector("input#first-name-input").value;
@@ -57,7 +57,7 @@ function addPersonToTable(firstName, lastName, dob) {
 					<button>Delete</button>
 				</td>`;
 
-		row.querySelector("td button").addEventListener('click', function () {
+		row.querySelector("td button").addEventListener("click", function() {
 			RemovePersonFromTableById(newPerson.id);
 		});
 
@@ -83,7 +83,7 @@ function sortTableByRowIndex(id, isAscendingOrder) {
 		(a, b) => {
 			let comparison = a.cells[id].textContent.localeCompare(b.cells[id].textContent);
 			return isAscendingOrder ? comparison : -comparison;
-		}
+		},
 	);
 
 	for (let row of rows) {
