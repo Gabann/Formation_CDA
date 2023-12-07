@@ -1,6 +1,5 @@
+//Ex 01
 <!--<script setup>-->
-
-
 <!--let h1Value = ref("Default value");-->
 
 <!--function reverseString(string) {-->
@@ -24,12 +23,12 @@
 
 <!--</style>-->
 
+//Ex 02
 <!--<script setup>-->
 <!--class Person {-->
 <!--	firstName;-->
 <!--	lastName;-->
 <!--	dob;-->
-
 
 <!--	constructor(firstName, lastName, dob) {-->
 <!--		this.firstName = firstName;-->
@@ -75,26 +74,73 @@
 
 <!--</style>-->
 
-<script setup>
-import {ref, computed} from 'vue';
+//Ex 03
+<!--<script setup>-->
 
-let numbers = ref([1, 4, 12, 16, 15, 4]);
+<!--import {ref} from "vue";-->
 
-let nombrePairs = computed(() => {
-	return numbers.value.filter(n => n % 2 === 0).length;
-});
+<!--let isRed = ref(false);-->
 
-function addToNumbers() {
-	numbers.value.push(Math.floor(Math.random() * 100));
-}
+<!--function toggleClass() {-->
+<!--	isRed.value = !isRed.value;-->
+<!--}-->
 
-</script>
+<!--</script>-->
 
-<template>
-	<h1>Voici des nombres</h1>
-	<p>{{ numbers.toString() }}</p>
-	<h2>Il y a {{ nombrePairs }} dans ce tableau</h2>
-	<button v-on:click="addToNumbers">Ajouter un nombre</button>
-</template>
+<!--<template>-->
+<!--	<div>-->
+<!--		<p @click="toggleClass" :class="{ red: isRed }">Black to red</p>-->
+<!--	</div>-->
+<!--</template>-->
 
-<style scoped></style>
+<!--<style scoped>-->
+<!--.red {-->
+<!--	color: red;-->
+<!--}-->
+<!--</style>-->
+
+//Ex 04
+<!--<script setup>-->
+<!--import {ref} from "vue";-->
+
+<!--let array = ref([]);-->
+<!--let displayList = ref(true);-->
+
+<!--function addRandomNumberToArray(array, min = 1, max = 100) {-->
+<!--	array.push(Math.floor(Math.random() * (max - min + 1)));-->
+<!--}-->
+
+<!--function removeRandomElementFromArray(array) {-->
+<!--	if (!array.length) {-->
+<!--		return null;-->
+<!--	} else {-->
+<!--		const randomIndex = Math.floor(Math.random() * array.length);-->
+<!--		return array.splice(randomIndex, 1)[0];-->
+<!--	}-->
+<!--}-->
+
+<!--</script>-->
+
+<!--<template>-->
+<!--	<div>-->
+<!--		<div v-if="displayList">-->
+<!--			<p v-if="array.length > 0">{{ array }}</p>-->
+<!--			<p v-else>The list is empty</p>-->
+<!--		</div>-->
+<!--		<div v-else>-->
+<!--			<p>List is hidden</p>-->
+<!--		</div>-->
+
+<!--		<br>-->
+
+<!--		<button @click="displayList = !displayList">Toggle list</button>-->
+<!--		<button @click="addRandomNumberToArray(array)">Add element</button>-->
+<!--		<button @click="removeRandomElementFromArray(array)">Remove element</button>-->
+<!--		<button @click="array.reverse()">Reverse list</button>-->
+<!--	</div>-->
+<!--</template>-->
+
+
+<!--<style scoped>-->
+
+<!--</style>-->
