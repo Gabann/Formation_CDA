@@ -146,28 +146,36 @@
 
 <!--<style scoped></style>-->
 
+//Ex 05
 <template>
 	<div>
 		<form @submit.prevent='addTask(title, description, priority)'>
 			<input type='text' name='todo-list-title' id='todo-list-title' placeholder='Title' v-model='title'>
-			<textarea rows='4' style='resize: none' v-model='description'></textarea>
+			<textarea rows='4' style='resize: none' v-model='description' placeholder="Description"></textarea>
 
 			<select v-model='priority'>
-				<option>Low</option>
+				<option selected>Low</option>
 				<option>Medium</option>
 				<option>High</option>
 			</select>
 
 			<button type='submit'>Add</button>
-
 		</form>
 
 		<div>
-			<label for='filter'></label>
-			<select id='filter' v-on:change='filterArray(taskArray, filter)' v-model='filter'>
+			<label for='priority-filter'></label>
+			<select id='priority-filter' v-model='priorityFilter.filter'>
+				<option value="" disabled selected>Priority filter</option>
 				<option>Low</option>
 				<option>Medium</option>
 				<option>High</option>
+			</select>
+
+			<label for='is-done-filter'></label>
+			<select id='is-done-filter' v-model='isDoneFilter.filter'>
+				<option value="" disabled selected>Done filter</option>
+				<option :value=true>Done</option>
+				<option :value=false>Not done</option>
 			</select>
 		</div>
 
@@ -178,16 +186,18 @@
 						<th>Title</th>
 						<th>Description</th>
 						<th>Priority</th>
+						<th>Done status</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for='(task) in taskArray'>
+					<tr v-for='(task) in filteredTaskArray'>
 						<td>{{ task.title }}</td>
 						<td>{{ task.description }}</td>
 						<td>{{ task.priority }}</td>
 						<td>
 							<label for='scales'>Done?</label>
-							<input type='checkbox' name='is-done' checked='{{task.isDone}}' />
+							<input type='checkbox' name='is-done' checked='{{task.isDone}}' v-model="task.isDone"/>
 						</td>
 						<button v-on:click='deleteItemFromArray(taskArray, task)'>Delete</button>
 					</tr>
@@ -198,13 +208,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-let title = ref("");
-let description = ref("");
-let priority = ref("");
-let filter = ref("");
-let taskArray = ref([]);
+import {ref, watch, onMounted, computed} from "vue";
 
 class Task {
 	title;
@@ -219,6 +223,48 @@ class Task {
 	}
 }
 
+class Filter {
+	property;
+	filter;
+
+	constructor(property, filter) {
+		this.property = property;
+		this.filter = filter;
+	}
+}
+
+let title = ref("");
+let description = ref("");
+let priority = ref("Low");
+let filtersArray = [];
+let priorityFilter = ref(new Filter('priority', ''));
+let isDoneFilter = ref(new Filter('isDone', ''));
+let taskArray = ref([]);
+
+let filteredTaskArray = computed(() => {
+	let filteredArray = [...taskArray.value];
+
+	for (const filter of filtersArray) {
+		filteredArray = filterTaskList(filteredArray, filter.property, filter.filter);
+	}
+
+	return filteredArray;
+});
+
+onMounted(() => {
+	let storedTasks = localStorage.getItem('tasks');
+	if (storedTasks) {
+		taskArray.value = JSON.parse(storedTasks);
+	}
+	window.addEventListener('beforeunload', () => {
+		localStorage.setItem('tasks', JSON.stringify(taskArray.value));
+	});
+});
+
+watch([() => priorityFilter.value.filter, () => isDoneFilter.value.filter], (newVal, oldVal) => {
+	toggleFilter(oldVal);
+	toggleFilter(newVal);
+});
 
 function addTask(title, description, priority) {
 	if (!title || !description || !priority) {
@@ -230,8 +276,19 @@ function addTask(title, description, priority) {
 	taskArray.value.push(newTask);
 }
 
-function filterArray(taskList, filter) {
-	taskArray.value = taskList.filter((task) => task.priority === filter);
+function toggleFilter(filter) {
+	const index = filtersArray.indexOf(filter);
+	if (index === -1) {
+		filtersArray.push(filter);
+	} else {
+		filtersArray.splice(index, 1);
+	}
+
+	// console.log(filtersArray);
+}
+
+function filterTaskList(array, property, filter) {
+	return array.value.filter((task) => task[property] === filter);
 }
 
 function deleteItemFromArray(array, itemToRemove) {
@@ -239,7 +296,6 @@ function deleteItemFromArray(array, itemToRemove) {
 
 	console.log(taskArray.value);
 }
-
 </script>
 
 <style scoped>
@@ -305,3 +361,46 @@ table tbody tr:hover {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 </style>
+
+//Ex API
+<!--<template>-->
+<!--	<div>-->
+<!--		<form @submit.prevent='searchCard(searchedCardName)'>-->
+<!--			<input type="text" v-model="searchedCardName">-->
+<!--		</form>-->
+<!--	</div>-->
+
+<!--	<div v-if="currentCard">-->
+<!--		<p>{{ currentCard.data[0].name }}</p>-->
+<!--		<br>-->
+
+<!--		<p>{{ currentCard.data[0].type }}</p>-->
+<!--		<br>-->
+
+<!--		<p>{{ currentCard.data[0].desc }}</p>-->
+<!--		<br>-->
+
+<!--		<p>{{ currentCard.data[0].atk }}</p>-->
+<!--		<br>-->
+
+<!--		<p>{{ currentCard.data[0].def }}</p>-->
+<!--		<br>-->
+<!--	</div>-->
+<!--</template>-->
+
+<!--<script setup>-->
+<!--import {ref} from "vue";-->
+
+<!--const apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?name=';-->
+<!--let searchedCardName = ref();-->
+<!--let currentCard = ref();-->
+
+<!--async function searchCard(cardName) {-->
+<!--	const response = await fetch(apiUrl + cardName);-->
+<!--	currentCard.value = await response.json();-->
+<!--}-->
+<!--</script>-->
+
+<!--<style scoped>-->
+
+<!--</style>-->
