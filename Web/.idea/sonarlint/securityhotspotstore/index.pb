@@ -39,17 +39,19 @@ B
 Vue/vite.config.js,c\b\cb9d9ec315b6610282c178b962b9281e198da44c
 Q
 !Vue/src/components/exercice05.vue,6\4\648dc7e5d4a6c3185f0f15c78eeda5d6f5075daf
-F
-Vue/src/exercice04.vue,b\f\bf8fdc36859ef21accf397449787164e4047bbdc
 Q
 !Vue/src/components/exercice03.vue,2\d\2d090815a1dd6020b956966f5ec3026a03717575
 Q
 !Vue/src/components/exercice02.vue,7\a\7ad9568599ae2844b5b763b9529a303e4f4d27ca
 Q
 !Vue/src/components/exercice01.vue,2\c\2c6aad45b640dfc8bd8be108aee827c95e6e214e
-N
-Vue/src/components/exerciceApi,e\9\e91c1f9190c1ee359d5cd59b1a2665543c3db409
 Q
 !Vue/src/components/exercice04.vue,e\4\e4bb8daced5c611fd0651603f2461cacc0e8f5f5
 R
 "Vue/src/components/exerciceApi.vue,9\a\9adb01e6f224b3715e5b6360239932e038d8b199
+O
+Vue/src/components/TodoList.vue,6\1\61cd05883fa3324ec90ee8ca975b8fb00a483a8f
+O
+Vue/src/components/TodoItem.vue,4\e\4e3efa1b3f4de7f2f01cfee3e0530d0d000fa5e8
+N
+Vue/src/components/AddTodo.vue,9\6\963cbd791878eabde398689e778d2061cd61264a
