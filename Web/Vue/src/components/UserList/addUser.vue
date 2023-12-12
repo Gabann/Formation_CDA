@@ -1,6 +1,6 @@
 <script setup>
 import {ref, defineEmits} from 'vue';
-import {User} from "@/components/UserClass.js";
+import {User} from "@/components/UserList/UserClass.js";
 
 const emit = defineEmits(['add-user']);
 

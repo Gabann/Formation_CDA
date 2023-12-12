@@ -1,17 +1,19 @@
 <script setup>
 import {ref} from "vue";
 
-import AddUser from "@/components/addUser.vue";
-import UserListItem from "@/components/userListItem.vue";
-import TodoItem from "@/components/TodoItem.vue";
+import AddUser from "@/components/UserList/addUser.vue";
+import UserListItem from "@/components/UserList/userListItem.vue";
+import TodoItem from "@/components/TodoList/TodoItem.vue";
 
 const userArray = ref([]);
 let alertMessage = ref('');
 let alertLevel = ref('');
 
 const addUser = (user) => {
-	if (validateInput(user.username, user.email))
+	if (validateInput(user.username, user.email)) {
+		user.username = formatInput(user.username);
 		userArray.value.push(user);
+	}
 };
 
 const removeUser = (index) => {
@@ -20,7 +22,7 @@ const removeUser = (index) => {
 
 const editUser = (index, username, email) => {
 	if (validateInput(username, email)) {
-		userArray.value[index].username = username;
+		userArray.value[index].username = formatInput(username);
 		userArray.value[index].email = email;
 	}
 };
@@ -51,9 +53,13 @@ function validateInput(username, email) {
 	return true;
 }
 
-function alert(type, message) {
+function formatInput(inputString) {
+	let formattedString = inputString.trim();
+	formattedString = formattedString.charAt(0).toUpperCase() + formattedString.slice(1).toLowerCase();
 
+	return formattedString;
 }
+
 </script>
 
 <template>
