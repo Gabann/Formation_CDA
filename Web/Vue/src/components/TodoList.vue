@@ -39,5 +39,4 @@ const editTodo = (index, text) => {
 </template>
 
 <style scoped>
-
 </style>
