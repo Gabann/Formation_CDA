@@ -3,7 +3,7 @@ import {defineProps, ref} from 'vue';
 
 const props = defineProps({
 	todo: {
-		type: String,
+		type: Object,
 		required: true,
 	},
 	index: {
@@ -12,12 +12,19 @@ const props = defineProps({
 	}
 });
 
-let editTodo = ref(false);
+let editingTodo = ref(false);
 let editedText = ref("");
 
 function toggleEdit(text) {
 	editedText.value = text;
-	editTodo.value = !editTodo.value;
+	editingTodo.value = !editingTodo.value;
+}
+
+const emits = defineEmits(['editTodo', 'remove-todo']);
+
+function emitEditTodo() {
+	emits('editTodo', props.index, editedText.value);
+	toggleEdit();
 }
 
 </script>
@@ -40,7 +47,7 @@ function toggleEdit(text) {
 			<!--			<button class="btn btn-danger mx-2" @click="$emit('remove-todo', index)">Remove</button>-->
 			<!--		</div>-->
 
-			<div v-if="!editTodo">
+			<div v-if="!editingTodo">
 				<div>
 					{{ todo.text }}
 				</div>
@@ -57,7 +64,7 @@ function toggleEdit(text) {
 				</div>
 
 				<div>
-					<button class="btn btn-success mx-2" @click="$emit('editTodo', index, editedText)">Confirm</button>
+					<button class="btn btn-success mx-2" @click="emitEditTodo">Confirm</button>
 					<button class="btn btn-warning mx-2" @click="toggleEdit">Cancel</button>
 
 					<button class="btn btn-danger mx-2" @click="$emit('remove-todo', index)">Remove</button>

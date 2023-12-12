@@ -13,7 +13,6 @@ import TodoList from './components/TodoList.vue';
 <template>
 	<h1>Saisir des tâches : </h1>
 	<TodoList/>
-	<!--	<exercice04></exercice04>-->
 </template>
 
 <style scoped>
