@@ -55,3 +55,5 @@ X
 -Vue/src/components/exercice2/customerList.vue,9\a\9a2337ea1db7c145010d7504e2af5a6ac11d7303
 G
 Vue/src/router/index.js,a\b\ab63b4fbede558ef214d75af76e12869969c5727
+O
+Vue/src/components/NotFound.vue,7\3\7338345ca7cbbc6bc9424c22992538d04517b266
