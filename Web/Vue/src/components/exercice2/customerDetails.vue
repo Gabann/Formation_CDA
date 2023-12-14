@@ -8,10 +8,8 @@ const userId = route.params.id;
 let customer = reactive({});
 
 import(`./customer${userId}.json`).then(function (importedCustomer) {
-	console.log(importedCustomer);
 	customer.value = importedCustomer;
 });
-
 </script>
 
 <template>

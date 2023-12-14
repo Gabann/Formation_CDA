@@ -1,5 +1,5 @@
 <script setup>
-import CustomerDisplay from "@/components/exercice2/customerDisplay.vue";
+import CustomerDisplay from "@/components/exercice2/customerDetails.vue";
 import CustomerList from "@/components/exercice2/customerList.vue";
 
 import {RouterLink, RouterView} from 'vue-router';
