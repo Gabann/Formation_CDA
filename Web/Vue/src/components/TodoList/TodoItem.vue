@@ -30,7 +30,6 @@ function emitEditTodo() {
 </script>
 
 <template>
-
 	<li class="d-flex flex-row justify-content-between my-2">
 
 		<div v-if="!editingTodo">

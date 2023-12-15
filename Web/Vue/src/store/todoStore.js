@@ -6,24 +6,10 @@ export const useTodoStore = defineStore('todoItem', () => {
 	let taskList = ref([]);
 	let filterArray = ref([]);
 
-	function addTodo(title, description) {
+	function addTask(title, description) {
 		let todoTask = new Task(title, description, false, false);
 
 		taskList.value.push(todoTask);
-	}
-
-	function removeTodoByTitle(title) {
-		taskList.value = taskList.value.filter(task => task.title !== title);
-	}
-
-	function favoriteTodoTaskByTitle(title) {
-		let targetTask = taskList.value.find(task => task.title === title);
-		targetTask.isFavorite = !targetTask.isFavorite;
-	}
-
-	function doTodoTaskByTitle(title) {
-		let targetTask = taskList.value.find(task => task.title === title);
-		targetTask.isDone = !targetTask.isDone;
 	}
 
 	let filteredTaskArray = computed(() => {
@@ -37,7 +23,6 @@ export const useTodoStore = defineStore('todoItem', () => {
 	});
 
 	function addFilter(filter) {
-
 		const filterExists = filterArray.value.some(f => f.property === filter.property && f.filter === filter.filter);
 		if (!filterExists) {
 			filterArray.value.push(filter);
@@ -48,12 +33,11 @@ export const useTodoStore = defineStore('todoItem', () => {
 		return array.filter((task) => task[property] === filter);
 	}
 
+	addTask(1, 1);
+	addTask(2, 2);
+	addTask(3, 3);
+	addTask(4, 4);
+	addTask(5, 5);
 
-	addTodo(1, 1);
-	addTodo(2, 2);
-	addTodo(3, 3);
-	addTodo(4, 4);
-	addTodo(5, 5);
-
-	return {taskList, addTodo, removeTodoByTitle, favoriteTodoTaskByTitle, filteredTaskArray, addFilter, doTodoTaskByTitle};
+	return {taskList, addTask, filteredTaskArray, addFilter,};
 });

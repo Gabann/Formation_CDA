@@ -19,8 +19,6 @@ const editTodo = (index, text) => {
 </script>
 
 <template>
-
-
 	<div>
 		<AddTodo @add-todo="addTodo"/>
 		<h3 v-if="todos.length" class="mt-4"> Liste des tâches : </h3>
@@ -34,8 +32,6 @@ const editTodo = (index, text) => {
 		</ul>
 
 	</div>
-
-
 </template>
 
 <style scoped>
