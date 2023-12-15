@@ -1,13 +1,15 @@
 <script setup>
 import {ref} from 'vue';
+import {useTodoStore} from "@/store/todoStore.js";
 
 const props = defineProps({
 	task: Object,
-	todoItemStore: Object
 });
 
+let todoStore = useTodoStore();
+
 function removeTodo() {
-	props.todoItemStore.taskList = props.todoItemStore.taskList.filter(test => test !== props.task);
+	todoStore.taskList = todoStore.taskList.filter(test => test !== props.task);
 }
 </script>
 
