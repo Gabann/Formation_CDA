@@ -1,0 +1,102 @@
+use Hopital
+
+db.createCollection('Patient');
+
+db.Patient.insertMany([{
+	"firstname": "Edalyn",
+	"lastName": "Clawthorne",
+	"age": 40,
+	"history": [
+		{
+			"disease": "Pas de bras",
+			"treatment": "Pas de chocolat"
+		},
+	]
+},
+	{
+		"firstname": "2",
+		"lastName": "2",
+		"age": 22,
+		"history": [
+			{
+				"disease": "rhume",
+				"treatment": "rien"
+			}
+		]
+	}, {
+		"firstname": "Mohamed",
+		"lastName": "Deloin",
+		"age": 30,
+		"history": [
+			{
+				"disease": "rhume",
+				"treatment": "sirop"
+			},
+			{
+				"disease": "grippe",
+				"treatment": "anti—biotique"
+			}
+		]
+	}]);
+
+
+db.Patient.updateOne({firstname: "Mohamed"}, {$set: {age: 20}});
+db.Patient.updateOne({firstname: "Mohamed"}, {$set: {firstname: 'Momo'}});
+db.Patient.updateOne({firstname: "Momo"}, {$push: {history: {"disease": "newDisease", "treatment": "newTreatment"}}});
+
+db.Patient.find({age: {$gt: 20}});
+
+db.Patient.deleteMany({'history.disease': {$eq: 'rhume'}});
+// --------------------------------------------------------------------------------------------------------------------------------------------
+
+// mongoimport --db TP2 --collection User --file C:\Code\CDA_LILLE_26_OCTOBRE\12_NoSQL\TP\TP2\users.json
+
+use TP2
+
+// Ajouter lutilisateur dans la collection users:
+// ● Chuck Norris
+// ● 77 ans
+// ● hobbies : ["Karate", "Kung-fu", "Ruling the world"]
+db.User.insertOne({
+	name: 'Chuck Norris',
+	age: 77,
+	hobbies : [
+		'Karate',
+		'Kung fu',
+		'Ruling the world'
+	]
+})
+
+// ● Afficher Chuck Norris (si il le permet).
+db.User.find({name: 'Chuck Norris'})
+
+// ● Afficher Chuck sans le champs _id.
+db.User.find({name: 'Chuck Norris'}, {_id: 0})
+
+// Afficher les utilisateurs qui ont entre 20 et 25 ans.
+db.User.find({age:{ $gt: 20, $lt : 25}})
+
+// Afficher uniquement les hommes entre 30 et 40 ans
+db.User.find({age:{ $gt: 25, $lt : 40}, gender: {$eq: 'male'}})
+
+// Afficher les utilisateurs habitant létat de Louisianne (Louisiana)
+db.User.find({'address.state': {$eq: 'Louisiana'}})
+
+// Afficher les 20 premiers utilisateurs triés par ordre décroissant dage
+db.User.find().sort({age: -1}).limit(20)
+
+// Combien y a-t-il de femmes agées de 30 ans ?
+db.User.find({gender: {$eq: 'female'}, age: {$eq: 30}})
+
+// Nos juristes nous ont dit que nous ne pouvions plus garder les numéros de
+// téléphones de nos utilisateurs : supprimer le champ phone de tous les
+// enregistrements.
+db.User.updateMany({}, {$unset: {phone: ''}})
+
+// Chuck Norris est venu nous dire que le temps ne marquait pas Chuck Norris,
+// mais que Chuck Norris marquait le temps : changer lage de Chuck Norris à
+// infinity
+db.User.updateOne({name: {$eq: 'Chuck Norris'}}, {$set: {age: Infinity}})
+
+// Ajoutons un hobby à tous nos utilisateurs de plus de 50 ans : jardinage
+db.User.updateMany({age: {$gt: 50}}, {$push:{hobbies: 'Jardinage'}})

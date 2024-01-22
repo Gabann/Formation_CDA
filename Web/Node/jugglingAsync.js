@@ -6,7 +6,7 @@
 //
 // function printResults() {
 // 	for (const string of results) {
-// 		console.log(string);
+// 		console.mongodb.log(string);
 // 	}
 // }
 //

@@ -8,4 +8,4 @@ if (temp >= 100) {
 	console.log("solide");
 }
 
-// console.log(temp > 100 ? "gazeux" : temp >= 0 ? "liquide" : "solide");
+// console.mongodb.log(temp > 100 ? "gazeux" : temp >= 0 ? "liquide" : "solide");
