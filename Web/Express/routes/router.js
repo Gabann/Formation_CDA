@@ -4,7 +4,8 @@ const path = require("path");
 const fs = require("fs");
 
 router.get('/welcome', (req, res) => {
-	res.sendFile(path.resolve(path.join('./', 'public', 'index.html')));
+	// res.sendFile(path.resolve(path.join('./', 'public', 'index.html')));
+	res.render('index');
 });
 
 router.get('/forbidden', (req, res) => {

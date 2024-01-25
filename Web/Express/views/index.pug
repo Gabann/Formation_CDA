@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title Title
+	body
+		ul
+			li
+				a(href="/welcome") welcome
+			li
+				a(href="/forbidden") forbidden
+			li
+				a(href="/info") info
+			li
+				a(href="/redirect") redirect
+			li
+				a(href="/Books") Books
+			li
+				a(href="/404") 404
+				
+		footer(style="text-align: center;")
+			- var currentDate = new Date()
+			p #{currentDate}
