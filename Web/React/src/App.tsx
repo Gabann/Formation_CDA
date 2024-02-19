@@ -1,13 +1,11 @@
 import './global.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
-import {TestComponent} from "./components/TestComponent.tsx";
+import {TextboxNames} from "./components/TextboxNames.tsx";
 
 function App() {
     return (
         <div>
-            <TestComponent>
-            </TestComponent>
+            <TextboxNames>
+            </TextboxNames>
         </div>
     )
 }
