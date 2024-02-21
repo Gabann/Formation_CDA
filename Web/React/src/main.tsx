@@ -7,8 +7,7 @@ import {ComponentPreviews, useInitial} from "./dev";
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <DevSupport ComponentPreviews={ComponentPreviews}
-                    useInitialHook={useInitial}
-        >
+                    useInitialHook={useInitial}>
             <App/>
         </DevSupport>
     </React.StrictMode>,

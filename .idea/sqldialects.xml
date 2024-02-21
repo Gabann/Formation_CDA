@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/MongoDB/console.mongodb" dialect="MongoDB" />
-    <file url="file://$PROJECT_DIR$/SQL/console 1.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/SQL/console.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Web/Express/TP_api/model/user.js" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Web/Express/TP_api/routes/router.js" dialect="GenericSQL" />
     <file url="PROJECT" dialect="MySQL" />
