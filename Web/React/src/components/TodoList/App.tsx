@@ -1,5 +1,7 @@
 import './global.css'
+// @ts-ignore
 import {TodoForm} from "./components/TodoList/TodoForm.tsx";
+// @ts-ignore
 import {TaskList} from "./components/TodoList/TaskList.tsx";
 import {useState} from "react";
 
