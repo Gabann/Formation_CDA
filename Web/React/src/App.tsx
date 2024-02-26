@@ -33,16 +33,23 @@
 // export default App
 
 import './global.css'
-import {TicTacToe} from "./components/TicTacToe/TicTacToe.tsx";
+import {Outlet} from "react-router-dom";
+import React from "react";
+import {HeaderComponent} from "./components/HeaderComponent.tsx";
+import {FooterComponent} from "./components/FooterComponent.tsx";
 
 function App() {
-    return (
-        <div>
-            <div className='container'>
-                <TicTacToe></TicTacToe>
-            </div>
-        </div>
-    );
+	return (
+		<div>
+			<div className='container'>
+				<HeaderComponent/>
+
+				<Outlet/>
+
+				<FooterComponent/>
+			</div>
+		</div>
+	);
 }
 
 export default App
