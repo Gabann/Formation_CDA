@@ -1,4 +1,4 @@
-import {Square} from "./Square.tsx";
+import {Tile} from "./Tile.tsx";
 import {useContext} from "react";
 import {GameContext} from "./TicTacToe.tsx";
 
@@ -14,32 +14,25 @@ export function Board() {
 	}
 
 	return (
-		<>
-			<div className="status">{status}</div>
+		<div className='board-container'>
+			<div className="status p-4">{status}</div>
+
 
 			<div className='game-board'>
-				<div className='row'>
-					<div>
-						<Square index={0}></Square>
-						<Square index={1}></Square>
-						<Square index={2}></Square>
-					</div>
-				</div>
-				<div className='row'>
-					<div>
-						<Square index={3}></Square>
-						<Square index={4}></Square>
-						<Square index={5}></Square>
-					</div>
-				</div>
-				<div className='row'>
-					<div>
-						<Square index={6}></Square>
-						<Square index={7}></Square>
-						<Square index={8}></Square>
-					</div>
-				</div>
+				<div className="strike"/>
+				<Tile index={0} className="right-border bottom-border"></Tile>
+				<Tile index={1} className="right-border bottom-border"></Tile>
+				<Tile index={2} className="bottom-border"></Tile>
+				<Tile index={3} className="right-border bottom-border"></Tile>
+				<Tile index={4} className="right-border bottom-border"></Tile>
+				<Tile index={5} className="bottom-border"></Tile>
+				<Tile index={6} className="right-border"></Tile>
+				<Tile index={7} className="right-border"></Tile>
+				<Tile index={8}></Tile>
 			</div>
-		</>
+
+
+			<button className={'reset-button'} onClick={gameContext?.resetGame}>Reset</button>
+		</div>
 	);
 }

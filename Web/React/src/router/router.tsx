@@ -10,8 +10,10 @@ import {RefTextBox} from "../components/RefTextBox.tsx";
 import {Directory} from "../components/DirectoryExercice/Directory.tsx";
 import {LogIn} from "../components/LoginExercice/LogIn.tsx";
 import {Context} from "../components/ContextExercice/Context.tsx";
+import {RoutingParams} from "../components/RoutingParams/RoutingParams.tsx";
+import {Api} from "../components/Api/Api.tsx";
 
-const routes = [
+export const routes = [
 	{path: "/TicTacToe", component: TicTacToe},
 	{path: "/FizzBuzz", component: FizzBuzz},
 	{path: "/Multiplicator", component: Multiplicator},
@@ -20,6 +22,8 @@ const routes = [
 	{path: "/RefTextBox", component: RefTextBox},
 	{path: "/Directory", component: Directory},
 	{path: "/Context", component: Context},
+	{path: "/RoutingParams/:id", component: RoutingParams},
+	{path: "/Api", component: Api},
 ];
 
 const router = createBrowserRouter([
