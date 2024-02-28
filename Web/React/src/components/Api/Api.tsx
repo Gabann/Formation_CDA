@@ -1,60 +1,63 @@
-import {useEffect, useState} from "react";
-import axios from "axios"
+import axios from "axios";
+import React, {useEffect, useMemo, useState} from "react";
+import {CountryList} from "./CountryList.tsx";
+
+interface ICountry {
+	name: string,
+	capital: string,
+	region: string,
+	flagUrlLink: string,
+	population: number
+}
+
+interface IApiContext {
+	countryListDisplay: ICountry[]
+	setCountryListDisplay: any
+	apiResults: ICountry[]
+}
+
+export const ApiContext = React.createContext<IApiContext | null>(null);
 
 export function Api() {
-	const [data, setData] = useState<any[]>([])
+	let [apiResults, setApiResults] = useState<ICountry[]>([]);
+	let [countryListDisplay, setCountryListDisplay] = useState<ICountry[]>([]);
+
+	const providerValue: IApiContext = useMemo(() => ({
+		apiResults,
+		countryListDisplay,
+		setCountryListDisplay
+	}), [countryListDisplay, apiResults]);
 
 	useEffect(() => {
-		axios.get("http://localhost:3000/personnes")
+		axios.get("https://restcountries.com/v3.1/all")
 			.then((response) => {
-				console.log(response);
-				setData(response.data)
-			}).catch(error => console.error(error))
-	}, [])
-
-	const addPerson = () => {
-		axios.post("http://localhost:3000/personnes", {nom: "test"})
-			.then((response) => {
-				setData(prev => [...prev, response.data])
-			}).catch((error) => {
-			console.error(error);
-		})
-	}
-
-	const deletePerson = () => {
-		const id = 2
-
-		axios.delete(`http://localhost:3000/personnes/${id}`)
-			.then(() => console.log(`La personne avec l'id ${id} est correctement supprimée`))
-			.catch((error) => {
-				console.error(error);
+				const newCountryList: ICountry[] = [];
+				for (const country of response.data) {
+					newCountryList.push({
+						name: country.translations.fra.common,
+						capital: country.capital?.[0] || "No capital",
+						region: country.region,
+						flagUrlLink: country.flags.png,
+						population: country.population.toLocaleString('fr-FR')
+					});
+				}
+				setApiResults(newCountryList)
 			})
-	}
+			.catch(error => console.error(error)).then(
+			() => {
+				setCountryListDisplay(apiResults)
+			}
+		);
+	}, []);
 
-	const updatePerson = () => {
-		const id = 1
+	useEffect(() => {
+		setCountryListDisplay(apiResults);
+	}, [apiResults]);
 
-		axios.put(`http://localhost:3000/personnes/${id}`, {nom: "NouveauNom"})
-			.then(response => console.log(response.data))
-			.catch(error => console.error(error))
-	}
 
 	return (
-		<>
-			<button onClick={addPerson}>Ajout</button>
-			<button onClick={deletePerson}>Supprimer</button>
-			<button onClick={updatePerson}>Mettre à jour</button>
-			{
-				data && (
-					<ul>
-						{
-							data.map((contact) => (
-								<li key={contact.id}>{contact.nom}</li>
-							))
-						}
-					</ul>
-				)
-			}
-		</>
+		<ApiContext.Provider value={providerValue}>
+			<CountryList></CountryList>
+		</ApiContext.Provider>
 	)
 }

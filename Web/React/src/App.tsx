@@ -7,15 +7,14 @@ import {HeaderComponent} from "./components/HeaderComponent.tsx";
 function App() {
 	return (
 		<div>
-			<div className='container-fluid'>
-				<HeaderComponent/>
+			<HeaderComponent/>
 
-				<div className="col-10 mx-auto">
-					<Outlet/>
-				</div>
-
-				<FooterComponent/>
+			<div className="col-10 mx-auto">
+				<Outlet/>
 			</div>
+
+			<FooterComponent/>
+			{/*</div>*/}
 		</div>
 	);
 }
