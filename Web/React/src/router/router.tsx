@@ -11,7 +11,10 @@ import {Directory} from "../components/DirectoryExercice/Directory.tsx";
 import {LogIn} from "../components/LoginExercice/LogIn.tsx";
 import {Context} from "../components/ContextExercice/Context.tsx";
 import {RoutingParams} from "../components/RoutingParams/RoutingParams.tsx";
-import {Api} from "../components/Api/Api.tsx";
+import {Api as ApiTP1} from "../components/Api/TP1/Api.tsx";
+import {Api as ApiTP2} from "../components/Api/TP2/Api.tsx";
+import {BookDetails} from "../components/Api/TP2/BookDetails.tsx";
+import {ProductManagement} from "../components/Redux/ProductManagement.tsx";
 
 export const routes = [
 	{path: "/TicTacToe", component: TicTacToe},
@@ -23,7 +26,10 @@ export const routes = [
 	{path: "/Directory", component: Directory},
 	{path: "/Context", component: Context},
 	{path: "/RoutingParams/:id", component: RoutingParams},
-	{path: "/Api", component: Api},
+	{path: "/Api-tp1", component: ApiTP1},
+	{path: "/Api-tp2", component: ApiTP2},
+	{path: "/book-detail/:id", component: BookDetails},
+	{path: "/products", component: ProductManagement},
 ];
 
 const router = createBrowserRouter([
