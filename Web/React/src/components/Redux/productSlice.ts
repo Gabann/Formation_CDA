@@ -9,7 +9,6 @@ export interface IProduct {
 	price: number
 }
 
-
 const initialState: IProduct[] = [
 	{id: uuidv4(), name: "Test", price: 10},
 	{id: uuidv4(), name: "Test 2", price: 20},
