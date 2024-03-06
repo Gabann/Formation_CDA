@@ -14,7 +14,8 @@ import {Api as ApiTP1} from "../components/Api/TP1/Api.tsx";
 import {Api as ApiTP2} from "../components/Api/TP2/Api.tsx";
 import {BookDetails} from "../components/Api/TP2/BookDetails.tsx";
 import {ProductManagement} from "../components/Redux/ProductManagement.tsx";
-import {ERecipe} from "../components/Firebase/ERecipe.tsx";
+import {ERecipe} from "../components/Firebase/eRecipe/ERecipe.tsx";
+import {EAlbum} from "../components/Firebase/eAlbum/EAlbum.tsx";
 
 export const routes = [
 	{path: "/TicTacToe", component: TicTacToe},
@@ -31,7 +32,7 @@ export const routes = [
 	{path: "/book-detail/:id", component: BookDetails},
 	{path: "/products", component: ProductManagement},
 	{path: "/eRecipe", component: ERecipe},
-	// {path: "/eRecipe/login", component: LogIn},
+	{path: "/eAlbum", component: EAlbum},
 ];
 
 const router = createBrowserRouter([

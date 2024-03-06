@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Irecipe} from "../ERecipe.tsx";
-import {database} from '../firebaseConfig';
+import {database} from '../firebaseConfig.ts';
 import {child, get, ref, set} from "firebase/database";
 
 
@@ -10,7 +10,7 @@ const entitySlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		addToDB: (state, action: PayloadAction<Irecipe>) => {
+		addAlbumToDb: (state, action: PayloadAction<Irecipe>) => {
 			set(ref(database, 'recipe/' + action.payload.id), {
 				id: action.payload.id,
 				title: action.payload.title,
@@ -21,7 +21,7 @@ const entitySlice = createSlice({
 			});
 
 		},
-		getAllRecipes: (state) => {
+		getAllAlbums: (state) => {
 			get(child(ref(database), 'recipe')).then((snapshot) => {
 				if (snapshot.exists()) {
 					console.log(snapshot.val());

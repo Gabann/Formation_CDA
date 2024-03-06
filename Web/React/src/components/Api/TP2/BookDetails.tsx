@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from "react";
-import {ApiContext, IBook} from "../TP2/Api.tsx";
+import {ApiContext, IBook} from "./Api.tsx";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 

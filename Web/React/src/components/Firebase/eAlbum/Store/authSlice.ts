@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import {auth} from '../firebaseConfig';
+import {auth} from '../firebaseConfig.ts';
 
 export interface Iuser {
 	user: any,

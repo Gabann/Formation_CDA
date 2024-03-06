@@ -1,5 +1,5 @@
 import {useRef} from "react";
-import {useAppDispatch} from "../Redux/hooks.ts";
+import {useAppDispatch} from "../../Redux/hooks.ts";
 import {Icredentials, signUp} from "./Store/authSlice.ts";
 
 export function LogIn() {
