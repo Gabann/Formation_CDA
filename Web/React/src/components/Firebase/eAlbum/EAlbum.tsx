@@ -1,6 +1,6 @@
 import {NavBar} from "./NavBar.tsx";
 import {AlbumList} from "./AlbumList.tsx";
-import {DbTest} from "./DbTest.tsx";
+import {LogIn} from "./LogIn.tsx";
 
 export interface IAlbum {
 	id?: string;
@@ -15,8 +15,8 @@ export function EAlbum() {
 	return (
 		<>
 			<NavBar/>
+			<LogIn/>
 			<AlbumList/>
-			<DbTest/>
 		</>
 	)
 }

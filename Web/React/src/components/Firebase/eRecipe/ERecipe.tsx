@@ -23,7 +23,7 @@ export function ERecipe() {
 			<NavBar/>
 			{/*<LogIn/>*/}
 			<RecipeList/>
-			{/*<DbTest/>*/}
+			{/*<AddAlbum/>*/}
 
 		</Provider>
 	);

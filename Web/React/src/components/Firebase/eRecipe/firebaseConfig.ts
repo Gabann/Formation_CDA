@@ -14,11 +14,6 @@ const firebaseConfig = {
 	databaseURL: import.meta.env.VITE_DATABASEURL
 };
 
-export const DB_URL = firebaseConfig.databaseURL;
-export const SIGN_UP_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`;
-export const LOG_IN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`;
-
-
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database = getDatabase(app);

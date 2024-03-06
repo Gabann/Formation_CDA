@@ -10,7 +10,7 @@ const entitySlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		addAlbumToDb: (state, action: PayloadAction<Irecipe>) => {
+		addRecipeToDb: (state, action: PayloadAction<Irecipe>) => {
 			set(ref(database, 'recipe/' + action.payload.id), {
 				id: action.payload.id,
 				title: action.payload.title,
@@ -21,7 +21,7 @@ const entitySlice = createSlice({
 			});
 
 		},
-		getAllAlbums: (state) => {
+		getAllRecipes: (state) => {
 			get(child(ref(database), 'recipe')).then((snapshot) => {
 				if (snapshot.exists()) {
 					console.log(snapshot.val());
@@ -36,6 +36,6 @@ const entitySlice = createSlice({
 	},
 });
 
-export const {addToDB, getAllRecipes} = entitySlice.actions;
+export const {addRecipeToDb, getAllRecipes} = entitySlice.actions;
 
 export default entitySlice.reducer;

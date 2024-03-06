@@ -1,6 +1,6 @@
 import {useRef} from "react";
 import {useAppDispatch} from "../../Redux/hooks.ts";
-import {Icredentials, signUp} from "./Store/authSlice.ts";
+import {Icredentials, logIn} from "./Store/authSlice.ts";
 
 export function LogIn() {
 	const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ export function LogIn() {
 				password: passwordRef.current.value,
 				returnSecureToken: true
 			}
-			dispatch(signUp(credentials))
+			dispatch(logIn(credentials))
 		}
 	}
 

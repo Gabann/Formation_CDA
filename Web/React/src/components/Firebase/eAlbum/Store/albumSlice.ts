@@ -1,47 +1,57 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {IAlbum} from "../EAlbum.tsx";
 import {database} from '../firebaseConfig.ts';
 import {child, get, ref, set} from "firebase/database";
 // @ts-ignore
 import {v4 as uuidv4} from "uuid";
 
+export const getAllAlbums = createAsyncThunk('album/getAllAlbums', async (_, thunkAPI) => {
+		try {
+			const snapshot = await get(child(ref(database), 'album'));
+			if (snapshot.exists()) {
+				return snapshot.val();
+			} else {
+				console.log("No data available");
+				return {};
+			}
+		} catch (error) {
+			console.error(error);
+			return thunkAPI.rejectWithValue(error);
+		}
+	}
+);
+
 const initialState: any = {}
 
-const entitySlice = createSlice({
+const albumSlice = createSlice({
 	name: 'album',
 	initialState,
 	reducers: {
 		addAlbumToDb: (state, action: PayloadAction<IAlbum>) => {
-			const id = uuidv4();
-			set(ref(database, 'album/' + id), {
-				id: id,
-				title: action.payload.title,
-				releaseDate: action.payload.releaseDate,
-				artist: action.payload.artist,
-				score: action.payload.score,
-				coverURL: action.payload.coverURL
-			}).then(() => {
-
-			}).catch((error: any) => {
+			try {
+				const id = uuidv4();
+				set(ref(database, 'album/' + id), {
+					id: id,
+					title: action.payload.title,
+					releaseDate: action.payload.releaseDate,
+					artist: action.payload.artist,
+					score: action.payload.score,
+					coverURL: action.payload.coverURL
+				}).catch((error: any) => {
+					console.error(error);
+				});
+			} catch (error) {
 				console.error(error);
-			});
+			}
 		},
-
-		getAllAlbums: (state) => {
-			get(child(ref(database), 'album')).then((snapshot) => {
-				if (snapshot.exists()) {
-					console.log(snapshot.val());
-					return snapshot.val();
-				} else {
-					console.log("No data available");
-				}
-			}).catch((error: any) => {
-				console.error(error);
-			});
-		}
+	},
+	extraReducers: (builder) => {
+		builder.addCase(getAllAlbums.fulfilled, (state, action) => {
+			state.albums = action.payload;
+		});
 	},
 });
 
-export const {addAlbumToDb, getAllAlbums} = entitySlice.actions;
+export const {addAlbumToDb} = albumSlice.actions;
 
-export default entitySlice.reducer;
+export default albumSlice.reducer;

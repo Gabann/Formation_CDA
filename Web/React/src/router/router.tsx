@@ -16,6 +16,7 @@ import {BookDetails} from "../components/Api/TP2/BookDetails.tsx";
 import {ProductManagement} from "../components/Redux/ProductManagement.tsx";
 import {ERecipe} from "../components/Firebase/eRecipe/ERecipe.tsx";
 import {EAlbum} from "../components/Firebase/eAlbum/EAlbum.tsx";
+import {AddAlbum} from "../components/Firebase/eAlbum/AddAlbum.tsx";
 
 export const routes = [
 	{path: "/TicTacToe", component: TicTacToe},
@@ -33,6 +34,7 @@ export const routes = [
 	{path: "/products", component: ProductManagement},
 	{path: "/eRecipe", component: ERecipe},
 	{path: "/eAlbum", component: EAlbum},
+	{path: "/eAlbum/add", component: AddAlbum},
 ];
 
 const router = createBrowserRouter([

@@ -1,9 +1,12 @@
 export function NavBar() {
 	return (
 		<nav>
-			<span>eRecipes</span>
+			<span>eAlbums</span>
 
-			<button>Log in</button>
+			<div style={{float: 'right'}}>
+				<label>Filter by: </label>
+				<input type="text"/>
+			</div>
 		</nav>
 	);
 }
