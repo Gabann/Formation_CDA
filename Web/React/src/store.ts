@@ -5,9 +5,9 @@ import recipeSlice from "./components/Firebase/eRecipe/Store/recipeSlice.ts";
 
 export const store = configureStore({
 	reducer: {
-		authSlice,
-		albumSlice,
-		recipeSlice
+		auth: authSlice,
+		album: albumSlice,
+		recipe: recipeSlice
 	}
 })
 
