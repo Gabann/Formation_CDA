@@ -11,7 +11,6 @@ type State = {
 	newItemText: string,
 };
 
-
 export class MyModal extends Component<Props, State> {
 	state = {
 		newItemText: '',

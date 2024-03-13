@@ -27,12 +27,13 @@ export class List extends Component<{}, State> {
 			list: [...this.state.list, newItem],
 		});
 		this.toggleModal();
+
 	};
 
 	render() {
 		return (
 			<>
-				<Text>Liste de course</Text>
+				<Text>Liste de courses</Text>
 
 				<FlatList
 					data={this.state.list}
@@ -47,7 +48,6 @@ export class List extends Component<{}, State> {
 				<MyModal
 					modalVisible={this.state.modalVisible}
 					toggleModal={this.toggleModal}
-					// handleTextChange={this.handleTextChange}
 					addItem={this.addItem}
 				/>
 			</>
