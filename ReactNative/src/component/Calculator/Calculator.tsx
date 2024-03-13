@@ -3,8 +3,8 @@ import {StyleSheet, Text, View} from "react-native";
 import {CalculatorButton} from "./CalculatorButton.tsx";
 
 type State = {
-	result: number,
-	displayNumber: number,
+	resultValue: number,
+	displayValue: number,
 	mode: string
 };
 
@@ -19,55 +19,59 @@ let calculatorMode = {
 
 export class Calculator extends Component<{}, State> {
 	state = {
-		result: 0,
-		displayNumber: 0,
-		mode: ''
+		resultValue: 0,
+		displayValue: 0,
+		mode: '',
 	};
 
 	calculate = async (): Promise<void> => {
-		let result = this.state.result;
+		let result = this.state.resultValue;
 
 		switch (this.state.mode) {
 			case calculatorMode.add:
-				result += this.state.displayNumber;
+				result += this.state.displayValue;
 				break;
 			case calculatorMode.subtract:
-				result -= this.state.displayNumber;
+				result -= this.state.displayValue;
 				break;
 			case calculatorMode.divide:
-				result /= this.state.displayNumber;
+				result /= this.state.displayValue;
 				break;
 			case calculatorMode.multiply:
-				result *= this.state.displayNumber;
+				result *= this.state.displayValue;
 				break;
 			case calculatorMode.power:
-				result = Math.pow(result, this.state.displayNumber);
+				result = Math.pow(result, this.state.displayValue);
 				break;
 			case calculatorMode.percent:
 				result /= 100;
 				break;
 			default:
-				result = this.state.displayNumber;
+				result = this.state.displayValue;
 		}
 
-		await this.setState({result: result});
+		await this.setState({resultValue: result});
 	}
 
 	addNumberToDisplay = (number: number): void => {
 		this.setState({
-			displayNumber: Number(String(this.state.displayNumber) + Number(String(number)))
+			displayValue: Number(String(this.state.displayValue) + Number(String(number)))
 		})
 	}
 
 	removeLastNumber = (): void => {
-		this.setState({displayNumber: Number(String(this.state.displayNumber).slice(0, -1))});
+		this.setState({displayValue: Number(String(this.state.displayValue).slice(0, -1))});
+	}
+
+	dot = (): void => {
+		this.setState({displayValue: Number(String(this.state.displayValue) + '.')});
 	}
 
 	setMode = (mode: string): void => {
 		this.setState({
 			mode,
-			result: this.state.displayNumber,
-			displayNumber: 0
+			resultValue: this.state.displayValue,
+			displayValue: 0
 		});
 	};
 
@@ -102,21 +106,17 @@ export class Calculator extends Component<{}, State> {
 	}
 
 	reset = (): void => {
-		this.setState({result: 0, displayNumber: 0, mode: ''});
+		this.setState({resultValue: 0, displayValue: 0, mode: ''});
 	}
 
 	showResult = (): void => {
-		this.setState({displayNumber: this.state.result});
+		this.setState({displayValue: this.state.resultValue});
 	}
 
 	debug = (): void => {
-		console.log(`result: ${this.state.result}`);
-		console.log(`displayNumber: ${this.state.displayNumber}`);
+		console.log(`result: ${this.state.resultValue}`);
+		console.log(`displayNumber: ${this.state.displayValue}`);
 		console.log(`mode: ${this.state.mode}`);
-	}
-
-	dot = (): void => {
-		this.setState({displayNumber: Number(String(this.state.displayNumber) + '.')});
 	}
 
 	render() {
@@ -126,7 +126,7 @@ export class Calculator extends Component<{}, State> {
 				<Text style={styles.title}>Calculator</Text>
 
 				<View>
-					<Text style={styles.result}>{this.state.displayNumber}</Text>
+					<Text style={styles.result}>{this.state.displayValue}</Text>
 				</View>
 
 				<View style={styles.buttons}>
