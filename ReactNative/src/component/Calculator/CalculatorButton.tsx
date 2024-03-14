@@ -1,9 +1,11 @@
 import {Component} from "react";
 import {Pressable, StyleSheet, Text} from "react-native";
 
+type StyleKeys = 'grey' | 'light';
+
 type Props = {
 	text: string;
-	style: string;
+	style: StyleKeys;
 	action: () => void;
 };
 
@@ -25,42 +27,42 @@ export class CalculatorButton extends Component<Props, State> {
 	};
 
 	render() {
-		const buttonStyle = this.state.isPressed ? styles.buttonPressed : styles.button;
+		const buttonStyle = [styles.button, styles[this.props.style]];
+		if (this.state.isPressed) {
+			buttonStyle.push(styles.buttonPressed);
+		}
 
 		return (
 			<Pressable
 				onPress={this.props.action}
 				onPressIn={this.handlePressIn}
 				onPressOut={this.handlePressOut}
-				style={[buttonStyle]}
+				style={buttonStyle}
 			>
-				<Text>{this.props.text}</Text>
+				<Text style={{fontSize: 30}}>{this.props.text}</Text>
 			</Pressable>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
-	dark: {
-		backgroundColor: 'grey',
-	},
-	light: {
-		backgroundColor: 'white',
-	},
 	button: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: 100,
-		height: 100,
-		borderRadius: 50,
-		backgroundColor: 'white',
+		width: 95,
+		height: 95,
+		margin: 5,
 	},
 	buttonPressed: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		width: 100,
-		height: 100,
+		backgroundColor: 'pink',
+		borderRadius: 30,
+	},
+	grey: {
+		backgroundColor: 'grey',
+		borderRadius: 30,
+	},
+	light: {
+		backgroundColor: 'white',
 		borderRadius: 50,
-		backgroundColor: 'lightgrey',
 	},
 });

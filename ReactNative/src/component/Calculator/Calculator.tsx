@@ -131,42 +131,42 @@ export class Calculator extends Component<{}, State> {
 
 				<View style={styles.buttons}>
 					<View style={{flexDirection: 'row'}}>
-						<CalculatorButton action={this.reset} text={"AC"} style={"Dark"}></CalculatorButton>
-						<CalculatorButton action={this.power} text={"^"} style={"Dark"}></CalculatorButton>
-						<CalculatorButton action={this.percent} text={"%"} style={"Dark"}></CalculatorButton>
-						<CalculatorButton action={this.divide} text={"/"} style={"Dark"}></CalculatorButton>
+						<CalculatorButton action={this.reset} text={"AC"} style={"grey"}></CalculatorButton>
+						<CalculatorButton action={this.power} text={"^"} style={"grey"}></CalculatorButton>
+						<CalculatorButton action={this.percent} text={"%"} style={"grey"}></CalculatorButton>
+						<CalculatorButton action={this.divide} text={"/"} style={"grey"}></CalculatorButton>
 					</View>
 
 					<View style={{flexDirection: 'row'}}>
-						<CalculatorButton action={() => this.addNumberToDisplay(7)} text={"7"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(8)} text={"8"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(9)} text={"9"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={this.multiply} text={"*"} style={"Dark"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(7)} text={"7"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(8)} text={"8"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(9)} text={"9"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={this.multiply} text={"*"} style={"grey"}></CalculatorButton>
 					</View>
 
 					<View style={{flexDirection: 'row'}}>
-						<CalculatorButton action={() => this.addNumberToDisplay(4)} text={"4"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(5)} text={"5"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(6)} text={"6"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={this.subtract} text={"-"} style={"Dark"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(4)} text={"4"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(5)} text={"5"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(6)} text={"6"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={this.subtract} text={"-"} style={"grey"}></CalculatorButton>
 					</View>
 
 					<View style={{flexDirection: 'row'}}>
-						<CalculatorButton action={() => this.addNumberToDisplay(1)} text={"1"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(2)} text={"2"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(3)} text={"3"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={this.add} text={"+"} style={"Dark"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(1)} text={"1"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(2)} text={"2"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(3)} text={"3"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={this.add} text={"+"} style={"grey"}></CalculatorButton>
 					</View>
 
 					<View style={{flexDirection: 'row'}}>
-						<CalculatorButton action={this.dot} text={"."} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={() => this.addNumberToDisplay(0)} text={"0"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={this.removeLastNumber} text={"Del"} style={"Light"}></CalculatorButton>
-						<CalculatorButton action={this.equal} text={"="} style={"Dark"}></CalculatorButton>
+						<CalculatorButton action={this.dot} text={"."} style={"light"}></CalculatorButton>
+						<CalculatorButton action={() => this.addNumberToDisplay(0)} text={"0"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={this.removeLastNumber} text={"Del"} style={"light"}></CalculatorButton>
+						<CalculatorButton action={this.equal} text={"="} style={"grey"}></CalculatorButton>
 					</View>
 
 					<View style={{flexDirection: 'row'}}>
-						<CalculatorButton action={this.debug} text={"Debug"} style={"Light"}></CalculatorButton>
+						<CalculatorButton action={this.debug} text={"Debug"} style={"light"}></CalculatorButton>
 					</View>
 				</View>
 			</View>

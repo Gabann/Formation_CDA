@@ -1,24 +1,20 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Calculator} from "./src/component/Calculator/Calculator.tsx";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {ContactExercice} from "./src/component/ContactListNavigation/ContactExercice.tsx";
 
-console.log("test")
+const Stack = createNativeStackNavigator();
 
 export default function App(): React.JSX.Element {
 	return (
-		<View>
-			<Calculator/>
-			{/*<List/>*/}
-			{/*<ContactList/>*/}
-		</View>
-	);
-}
+		// <NavigationContainer>
+		// 	<Stack.Navigator
+		// 		screenOptions={{headerShown: false}}>
+		// 		<Stack.Screen name="Calculator" component={Calculator}/>
+		// 		<Stack.Screen name="ContactList" component={ContactList}/>
+		// 		<Stack.Screen name="List" component={List}/>
+		// 	</Stack.Navigator>
+		// </NavigationContainer>
 
-// const styles = StyleSheet.create({
-// 	container: {
-// 		flex: 1,
-// 		backgroundColor: '#ef72e8',
-// 		alignItems: 'center',
-// 		justifyContent: 'center',
-// 	},
-// });
+		<ContactExercice/>
+	)
+}
