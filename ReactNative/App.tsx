@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {ContactExercice} from "./src/component/ContactListNavigation/ContactExercice.tsx";
+import {RecipeApp} from "./src/component/Recipe/RecipeApp.tsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +15,6 @@ export default function App(): React.JSX.Element {
 		// 	</Stack.Navigator>
 		// </NavigationContainer>
 
-		<ContactExercice/>
+		<RecipeApp/>
 	)
 }

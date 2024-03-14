@@ -5,7 +5,7 @@ import {FlatList, StyleSheet, Text} from "react-native";
 import {Contact} from "./Contact.tsx";
 import {NavigationProp} from '@react-navigation/native';
 
-interface Props {
+type Props = {
 	navigation: NavigationProp<any, any>;
 }
 

@@ -2,11 +2,7 @@ import {Component} from "react";
 import {Linking, Pressable, StyleSheet, Text} from "react-native";
 import {IContact} from "./ContactExercice.tsx";
 
-type Props = {
-	contact: IContact
-};
-
-export class ContactDetails extends Component<Props> {
+export class ContactDetails extends Component {
 	render() {
 		// @ts-ignore
 		const contact: IContact = this.props.route.params.contact;
