@@ -10,19 +10,17 @@ export interface IContact {
 	phoneNumber: number;
 }
 
-// type RootStackParamList = {
-// 	ContactList: undefined;
-// 	ContactDetails: { contact: IContact };
-// };
-
 const Stack = createNativeStackNavigator();
 
 export class ContactExercice extends Component {
 	render() {
+
 		return (
 			<NavigationContainer>
 				<Stack.Navigator>
-					<Stack.Screen name="ContactList" component={ContactList}/>
+					{/*// @ts-ignore*/}
+					<Stack.Screen name="ContactList" component={ContactList} options={{headerShown: false}}/>
+					{/*// @ts-ignore*/}
 					<Stack.Screen name="ContactDetails" component={ContactDetails}/>
 				</Stack.Navigator>
 			</NavigationContainer>

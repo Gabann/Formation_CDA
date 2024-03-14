@@ -1,7 +1,7 @@
 // ContactList.tsx
 import {Component} from "react";
 import {IContact} from "./ContactExercice.tsx";
-import {FlatList} from "react-native";
+import {FlatList, StyleSheet, Text} from "react-native";
 import {Contact} from "./Contact.tsx";
 import {NavigationProp} from '@react-navigation/native';
 
@@ -35,13 +35,27 @@ let contactList: IContact[] = [
 export class ContactList extends Component<Props> {
 	render() {
 		return (
-			<FlatList
-				data={contactList}
-				renderItem={({item}) => (
-					<Contact contact={item} navigation={this.props.navigation}/>
-				)}
-				keyExtractor={(item) => item.phoneNumber.toString()}
-			/>
+			<>
+				<Text style={styles.title}>ContactList</Text>
+
+				<FlatList
+					data={contactList}
+					renderItem={({item}) => (
+						<Contact contact={item} navigation={this.props.navigation}/>
+					)}
+					keyExtractor={(item) => item.phoneNumber.toString()}
+				/>
+			</>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	title: {
+		fontSize: 24,
+		fontWeight: 'bold',
+		color: '#000000',
+		textAlign: 'center',
+		margin: 10,
+	}
+})

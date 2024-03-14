@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {Pressable, Text} from "react-native";
+import {Pressable, StyleSheet, Text} from "react-native";
 import {IContact} from "./ContactExercice.tsx";
 
 type Props = {
@@ -17,6 +17,7 @@ export class Contact extends Component<Props> {
 	render() {
 		return (
 			<Pressable
+				style={styles.button}
 				onPress={this.openContactDetails}>
 				<Text>
 					{this.props.contact.firstName} {this.props.contact.lastName}
@@ -25,3 +26,13 @@ export class Contact extends Component<Props> {
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	button: {
+		backgroundColor: 'pink',
+		padding: 10,
+		borderRadius: 5,
+		alignItems: 'center',
+		margin: 10,
+	},
+});
