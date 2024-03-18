@@ -1,43 +1,43 @@
-import {Component} from "react";
+import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import Category from "./classes/category";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {RootStackParamList} from "./RecipeApp.tsx";
 
 type Props = {
 	category: Category;
-	navigation: any;
 }
 
-export class CategoryButton extends Component<Props> {
-	openMealCategory = () => {
-		this.props.navigation.navigate('MealOverview', {
-			categoryId: this.props.category.id,
+export const CategoryButton: React.FC<Props> = ({category}) => {
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+	const openMealCategory = () => {
+		navigation.navigate('MealOverview', {
+			categoryId: category.id,
 		});
 	}
 
-	render() {
-		const buttonStyle = {
-			...styles.button,
-			backgroundColor: this.props.category.color,
-		};
+	const buttonStyle = {
+		...styles.button,
+		backgroundColor: category.color,
+	};
 
-		return (
-			<TouchableOpacity style={buttonStyle}
-			                  onPress={this.openMealCategory}>
-				<Text style={styles.buttonText}>{this.props.category.title}</Text>
-			</TouchableOpacity>
-		);
-	}
+	return (
+		<TouchableOpacity style={buttonStyle}
+		                  onPress={openMealCategory}>
+			<Text style={styles.buttonText}>{category.title}</Text>
+		</TouchableOpacity>
+	);
 }
 
 const styles = StyleSheet.create({
 	button: {
-		padding: 10,
 		borderRadius: 5,
 		alignItems: 'center',
 		justifyContent: 'center',
 		margin: 10,
-		width: '40%',
-		height: 200,
+		width: '45%',
+		height: 195,
 	},
 	buttonText: {
 		color: '#000000',

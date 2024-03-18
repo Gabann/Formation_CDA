@@ -1,38 +1,30 @@
-import {Component} from "react";
+import React from 'react';
 import {MEALS} from "./data/data";
-import {FlatList, StyleSheet, View} from "react-native";
+import {FlatList, View} from "react-native";
 import {MealCard} from "./MealCard.tsx";
-import {NavigationProp} from "@react-navigation/native";
+import {useRoute} from "@react-navigation/native";
 
 const mealsList = MEALS;
 
-type Props = {
-	navigation: NavigationProp<any, any>;
+type RouteParams = {
+	categoryId: number;
+};
+
+export const MealOverview: React.FC = () => {
+	const route = useRoute();
+	const {categoryId} = route.params as RouteParams;
+
+	let meals = mealsList.filter(meal => meal.categoryIds.includes(categoryId));
+
+	return (
+		<View>
+			<FlatList
+				data={meals}
+				renderItem={({item}) => (
+					<MealCard meal={item}/>
+				)}
+				keyExtractor={(item) => item.id}
+			/>
+		</View>
+	);
 }
-
-export class MealOverview extends Component<Props> {
-	render() {
-		// @ts-ignore
-		let id: number = this.props.route.params.categoryId;
-
-		let meals = mealsList.filter(meal => meal.categoryIds.includes(id));
-
-		return (
-			<View style={styles.view}>
-				<FlatList
-					data={meals}
-					renderItem={({item}) => (
-						<MealCard meal={item} navigation={this.props.navigation}/>
-					)}
-					keyExtractor={(item) => item.id}
-				/>
-			</View>
-		);
-	}
-}
-
-const styles = StyleSheet.create({
-	view: {
-		flex: 1,
-	},
-});

@@ -1,29 +1,29 @@
-import {Component} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import React from 'react';
+import {Dimensions, StyleSheet, Text, View} from "react-native";
+import {GlobalStyles, mainColor} from "./globalStyles.ts";
 
 type Props = {
 	text: string;
 }
 
-export class MiniCard extends Component<Props> {
-	render() {
-		return (
-			<View style={styles.view}>
-				<Text>{this.props.text}</Text>
-			</View>
-		);
-	}
+export const MiniCard: React.FC<Props> = ({text}) => {
+	return (
+		<View style={[styles.view, GlobalStyles.centeredView]}>
+			<Text style={styles.Text}>{text}</Text>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
 	view: {
-		flex: 1,
-		backgroundColor: '#e1b497',
-		width: '80%',
+		backgroundColor: mainColor,
 		margin: 3,
 		padding: 2,
 		borderRadius: 8,
-		justifyContent: 'center',
-		alignItems: 'center',
+		width: Dimensions.get('window').width * 0.8,
 	},
+	Text: {
+		color: 'black',
+		fontSize: 15,
+	}
 });

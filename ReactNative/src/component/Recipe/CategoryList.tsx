@@ -1,28 +1,22 @@
-import {Component} from "react";
+import React from "react";
 import {CATEGORIES} from "./data/data";
-import {FlatList} from "react-native";
+import {FlatList, View} from "react-native";
 import {CategoryButton} from "./CategoryButton.tsx";
-import {NavigationProp} from '@react-navigation/native';
 
 const categories = CATEGORIES;
 
-type Props = {
-	navigation: NavigationProp<any, any>;
-}
-
-export class CategoryList extends Component<Props> {
-	render() {
-		return (
+export const CategoryList: React.FC = () => {
+	return (
+		<View>
 			<FlatList
+				contentContainerStyle={{alignItems: 'center'}}
 				data={categories}
 				numColumns={2}
 				renderItem={({item}) => (
-					<CategoryButton category={item} navigation={this.props.navigation}/>
+					<CategoryButton category={item}/>
 				)}
 				keyExtractor={(item) => item.id}
 			/>
-		);
-	}
+		</View>
+	);
 }
-
-

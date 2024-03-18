@@ -1,50 +1,56 @@
-import {Component} from "react";
+import React from 'react';
 import Meal from "./classes/meal";
-import {FlatList, Image, StyleSheet, Text, View} from "react-native";
+import {FlatList, Image, ScrollView, StyleSheet, Text, View} from "react-native";
 import {MiniCard} from "./MiniCard.tsx";
+import {GlobalStyles, mainColor} from "./globalStyles.ts";
+import {useRoute} from "@react-navigation/native";
 
-export class MealDetails extends Component {
-	render() {
-		// @ts-ignore
-		let meal: Meal = this.props.route.params.meal;
+type RouteParams = {
+	meal: Meal;
+};
 
-		return (
-			<View style={styles.view}>
-				<Image
-					source={{uri: meal.imageUrl}}
-					style={{width: '100%', height: 400}}
-				/>
-				<Text style={styles.title}>{meal.title}</Text>
-				<View style={{flexDirection: 'row'}}>
-					<Text style={{paddingHorizontal: 10}}>{meal.duration}m</Text>
-					<Text style={{paddingHorizontal: 10}}>{meal.complexity}</Text>
-					<Text style={{paddingHorizontal: 10}}>{meal.affordability}</Text>
-				</View>
+export const MealDetails: React.FC = () => {
+	const route = useRoute();
+	const {meal} = route.params as RouteParams;
 
-				<Text>Ingredients</Text>
-				<View style={styles.separator}/>
-
-				<FlatList
-					data={meal.ingredients}
-					renderItem={({item}) => (
-						<MiniCard text={item}/>
-					)}
-					keyExtractor={(item, index) => index.toString()}
-				/>
-
-				<Text>Steps</Text>
-				<View style={styles.separator}/>
-
-				<FlatList
-					data={meal.steps}
-					renderItem={({item}) => (
-						<MiniCard text={item}/>
-					)}
-					keyExtractor={(item, index) => index.toString()}
-				/>
+	return (
+		<ScrollView contentContainerStyle={styles.view}>
+			<Image
+				source={{uri: meal.imageUrl}}
+				style={{width: '100%', height: 400}}
+			/>
+			<Text style={GlobalStyles.title}>{meal.title}</Text>
+			<View style={{flexDirection: 'row'}}>
+				<Text style={{paddingHorizontal: 10}}>{meal.duration}m</Text>
+				<Text style={{paddingHorizontal: 10}}>{meal.complexity.toUpperCase()}</Text>
+				<Text style={{paddingHorizontal: 10}}>{meal.affordability.toUpperCase()}</Text>
 			</View>
-		);
-	}
+
+			<Text style={{color: mainColor, fontSize: 20}}>Ingredients</Text>
+			<View style={styles.separator}/>
+
+			<FlatList
+				scrollEnabled={false}
+				data={meal.ingredients}
+				renderItem={({item}) => (
+					<MiniCard text={item}/>
+				)}
+				keyExtractor={(item, index) => index.toString()}
+			/>
+
+			<Text style={{color: mainColor, fontSize: 20}}>Steps</Text>
+			<View style={styles.separator}/>
+
+			<FlatList
+				scrollEnabled={false}
+				data={meal.steps}
+				renderItem={({item}) => (
+					<MiniCard text={item}/>
+				)}
+				keyExtractor={(item, index) => index.toString()}
+			/>
+		</ScrollView>
+	);
 }
 
 const styles = StyleSheet.create({
@@ -53,14 +59,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	separator: {
-		borderBottomColor: 'black',
-		borderBottomWidth: 1,
-		marginVertical: 10,
+		borderBottomColor: mainColor,
+		borderBottomWidth: 2,
+		marginVertical: 5,
 		width: '80%',
-	},
-	title: {
-		fontSize: 24,
-		fontWeight: 'bold',
-		color: '#333',
 	},
 });

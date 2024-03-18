@@ -1,56 +1,47 @@
-import {Component} from "react";
+import React from 'react';
 import Meal from "./classes/meal";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {GlobalStyles} from "./globalStyles.ts";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {RootStackParamList} from "./RecipeApp.tsx";
 
 type Props = {
 	meal: Meal;
-	navigation: any;
 }
 
-export class MealCard extends Component<Props> {
-
-	openMealDetails = () => {
-		this.props.navigation.navigate('MealDetails', {
-			meal: this.props.meal,
+export const MealCard: React.FC<Props> = (props) => {
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+	const openMealDetails = () => {
+		navigation.navigate('MealDetails', {
+			meal: props.meal,
 		});
 	}
 
-	render() {
-		return (
-			<TouchableOpacity onPress={this.openMealDetails}>
-				<View style={styles.view}>
-					<Image
-						source={{uri: this.props.meal.imageUrl}}
-						style={{width: '100%', height: 250}}
-					/>
-					<Text style={styles.title}>{this.props.meal.title}</Text>
+	return (
+		<TouchableOpacity onPress={openMealDetails}>
+			<View style={[styles.view, GlobalStyles.centeredView]}>
+				<Image
+					source={{uri: props.meal.imageUrl}}
+					style={{width: '100%', height: 250}}
+				/>
+				<Text style={GlobalStyles.title}>{props.meal.title}</Text>
 
-					<View style={{flexDirection: 'row'}}>
-						<Text style={{paddingHorizontal: 10}}>{this.props.meal.duration}m</Text>
-						<Text style={{paddingHorizontal: 10}}>{this.props.meal.complexity}</Text>
-						<Text style={{paddingHorizontal: 10}}>{this.props.meal.affordability}</Text>
-					</View>
+				<View style={{flexDirection: 'row'}}>
+					<Text style={{paddingHorizontal: 10}}>{props.meal.duration}m</Text>
+					<Text style={{paddingHorizontal: 10}}>{props.meal.complexity}</Text>
+					<Text style={{paddingHorizontal: 10}}>{props.meal.affordability}</Text>
 				</View>
-			</TouchableOpacity>
-		);
-	}
+			</View>
+		</TouchableOpacity>
+	);
 }
 
 const styles = StyleSheet.create({
 	view: {
-		flex: 1,
 		borderRadius: 10,
 		backgroundColor: 'white',
 		elevation: 5,
 		padding: 10,
-		margin: 10,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: 'bold',
-		color: '#333',
 		margin: 10,
 	},
 });
