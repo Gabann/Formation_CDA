@@ -6,7 +6,6 @@ import {NavigationProp} from '@react-navigation/native';
 
 const categories = CATEGORIES;
 
-
 type Props = {
 	navigation: NavigationProp<any, any>;
 }
@@ -25,3 +24,5 @@ export class CategoryList extends Component<Props> {
 		);
 	}
 }
+
+

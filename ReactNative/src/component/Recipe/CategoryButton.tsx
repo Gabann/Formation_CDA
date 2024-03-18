@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {Pressable, StyleSheet, Text} from "react-native";
+import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import Category from "./classes/category";
 
 type Props = {
@@ -9,8 +9,6 @@ type Props = {
 
 export class CategoryButton extends Component<Props> {
 	openMealCategory = () => {
-		console.log(`test: ${this.props}`)
-
 		this.props.navigation.navigate('MealOverview', {
 			categoryId: this.props.category.id,
 		});
@@ -23,10 +21,10 @@ export class CategoryButton extends Component<Props> {
 		};
 
 		return (
-			<Pressable style={buttonStyle}
-			           onPress={this.openMealCategory}>
+			<TouchableOpacity style={buttonStyle}
+			                  onPress={this.openMealCategory}>
 				<Text style={styles.buttonText}>{this.props.category.title}</Text>
-			</Pressable>
+			</TouchableOpacity>
 		);
 	}
 }
@@ -36,12 +34,15 @@ const styles = StyleSheet.create({
 		padding: 10,
 		borderRadius: 5,
 		alignItems: 'center',
+		justifyContent: 'center',
 		margin: 10,
 		width: '40%',
 		height: 200,
 	},
 	buttonText: {
 		color: '#000000',
+		fontSize: 25,
 		textAlign: 'center',
+		textAlignVertical: 'center',
 	}
 })

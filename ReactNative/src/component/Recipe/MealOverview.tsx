@@ -21,7 +21,6 @@ export class MealOverview extends Component<Props> {
 			<View style={styles.view}>
 				<FlatList
 					data={meals}
-					numColumns={2}
 					renderItem={({item}) => (
 						<MealCard meal={item} navigation={this.props.navigation}/>
 					)}
