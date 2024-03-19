@@ -1,13 +1,14 @@
-import {Button, Text, View} from "react-native";
+import {Button, Image, Text, View} from "react-native";
 import {useEffect, useState} from "react";
 import Geolocation from "@react-native-community/geolocation";
 import {API_KEY} from "@env";
 
-let apiBaseURL = 'http://dataservice.accuweather.com/locations/v1/';
+let apiBaseURL: string = 'http://dataservice.accuweather.com/locations/v1/';
 
 interface ILocalisation {
 	country: string;
 	city: string;
+	countryCode: string
 }
 
 interface GeoPosition {
@@ -20,9 +21,9 @@ interface GeoPosition {
 export function AccuWeatherApi() {
 	const [latitude, setLatitude] = useState<number>()
 	const [longitude, setLongitude] = useState<number>()
-	const [localisation, setLocalisation] = useState<ILocalisation>({country: '', city: ''});
+	const [localisation, setLocalisation] = useState<ILocalisation>();
 
-	function getLoc() {
+	function getLoc(): void {
 		Geolocation.requestAuthorization(
 			() => {
 			},
@@ -37,7 +38,7 @@ export function AccuWeatherApi() {
 		)
 	}
 
-	async function getData() {
+	async function getData(): Promise<void> {
 		getLoc();
 		if (latitude && longitude) {
 
@@ -47,23 +48,28 @@ export function AccuWeatherApi() {
 					.then((json): void => {
 						setLocalisation({
 							country: json.Country.LocalizedName,
-							city: json.LocalizedName
+							city: json.LocalizedName,
+							countryCode: json.Country.ID
 						})
 					});
 			} catch (error) {
 				console.error(error);
 			}
 		}
+
+		console.log(localisation);
 	}
 
-	useEffect(() => {
+	useEffect((): void => {
 		getData();
 	}, [latitude, longitude])
 
 	return (
 		<View>
 			<Text>Lat {latitude} Long {longitude}</Text>
-			<Text>You are in {localisation.city} and {localisation.country}</Text>
+			<Text>You are in {localisation?.city} and {localisation?.country}</Text>
+			<Image style={{width: 50, height: 50}}
+			       source={{uri: `https://flagcdn.com/w320/${localisation?.countryCode.toLowerCase()}.png`}}/>
 
 			<Button onPress={() => getData()} title="Refresh"/>
 		</View>
