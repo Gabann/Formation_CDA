@@ -28,8 +28,8 @@ export const MealCard: React.FC<Props> = (props) => {
 
 				<View style={{flexDirection: 'row'}}>
 					<Text style={{paddingHorizontal: 10}}>{props.meal.duration}m</Text>
-					<Text style={{paddingHorizontal: 10}}>{props.meal.complexity}</Text>
-					<Text style={{paddingHorizontal: 10}}>{props.meal.affordability}</Text>
+					<Text style={{paddingHorizontal: 10}}>{props.meal.complexity.toUpperCase()}</Text>
+					<Text style={{paddingHorizontal: 10}}>{props.meal.affordability.toUpperCase()}</Text>
 				</View>
 			</View>
 		</TouchableOpacity>

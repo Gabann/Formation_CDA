@@ -1,6 +1,6 @@
 const {getProportion, verifyInput} = require('../exercice20.js');
 
-test('Test if the adn percenteage is correct', () => {
+test('Test if the adn percentage is correct', () => {
 	expect(getProportion("act", "gtc")).toBe(0);
 	expect(getProportion("acac", "acac")).toBe(1);
 	expect(getProportion("actgtagt", "ac")).toBe(2 / 8);
