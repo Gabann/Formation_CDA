@@ -1,14 +1,14 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text} from 'react-native';
-import {IContact} from './ContactApi.tsx';
-import {useNavigation} from '@react-navigation/native';
+import {IContact, RootStackParamList} from './ContactApi.tsx';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 
 type Props = {
 	contact: IContact;
 };
 
-export function Contact({contact}: Props) {
-	const navigation = useNavigation();
+export function Contact({contact}: Readonly<Props>) {
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
 	const openContactDetails = () => {
 		navigation.navigate('ContactDetails', {

@@ -4,12 +4,11 @@ import {ContactList} from "./ContactList.tsx";
 import React from "react";
 import {ContactDetails} from "../ContactListNavigation/ContactDetails.tsx";
 
-
 const Stack = createNativeStackNavigator();
 
 export type RootStackParamList = {
 	ContactList: undefined;
-	ContactDetails: { id: string };
+	ContactDetails: { contact: IContact };
 };
 
 export interface IContact {

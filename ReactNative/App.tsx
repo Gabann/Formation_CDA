@@ -1,6 +1,5 @@
-import React from 'react';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {AccuWeatherApi} from "./src/component/AccuWeatherApi/AccuWeatherApi.tsx";
+import {TestRedux} from "./src/component/Redux/TestRedux.tsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +17,6 @@ export default function App() {
 		// <RecipeApp/>
 		// <Async/>
 		// <ContactApi/>
-		<AccuWeatherApi/>
+		<TestRedux/>
 	)
 }
