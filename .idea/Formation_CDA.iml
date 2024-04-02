@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/httpRequests" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint" />
-      <excludeFolder url="file://$MODULE_DIR$/Web/Vue/.idea" />
-      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot" />
-      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/.idea/copilot" />
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/.idea/copilot/chatSessions" />
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/.idea/jsLinters" />
@@ -39,9 +37,8 @@
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/android/app/build/intermediates/stripped_native_libs/debug/out" />
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/android/app/build/intermediates/sub_project_dex_archive/debug/out" />
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/android/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Web/Vue/.idea" />
     </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="6d5a49c6-cf8e-44f9-91f6-8e5a66c1a853" />
