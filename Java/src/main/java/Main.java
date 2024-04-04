@@ -1,4 +1,4 @@
-import Exercices.Exercice18;
+import exercices.Exercice21;
 
 public class Main
 {
@@ -20,6 +20,9 @@ public class Main
 //		Exercice14.Hangman();
 //		Exercice15.DiceRoll();
 //		Exercice17.searchInArray();
-		Exercice18.Memory();
+//		Exercice18.Memory();
+//		Exercice19.seatBooking();
+//		Exercice20.articleInventory();
+		Exercice21.Battleship();
 	}
 }

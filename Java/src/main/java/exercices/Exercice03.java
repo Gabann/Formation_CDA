@@ -1,4 +1,4 @@
-package Exercices;
+package exercices;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

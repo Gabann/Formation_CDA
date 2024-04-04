@@ -1,4 +1,4 @@
-package Exercices;
+package exercices;
 
 import java.util.Scanner;
 
@@ -78,7 +78,7 @@ public class Exercice18
 				System.out.printf("Indexes %d and %d don't have the same values\n", userIndexInput1, userIndexInput2);
 			}
 
-			//Horrible code because we can't use functions...   
+			//Horrible code because we can't use functions...
 			allIndexesFound = true;
 			for (boolean value : foundIndexesArray)
 			{
