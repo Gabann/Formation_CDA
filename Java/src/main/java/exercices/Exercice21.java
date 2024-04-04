@@ -11,29 +11,82 @@ public class Exercice21
 		Random random = new Random();
 
 		int boardSize = 2;
+		int numberOfShips = 2;
 
 		boolean[][] playerBoard = new boolean[boardSize][boardSize];
 		boolean[][] computerBoard = new boolean[boardSize][boardSize];
 
-		computerBoard[random.nextInt(boardSize)][random.nextInt(boardSize)] = true;
+		for (int i = 0; i < numberOfShips; i++)
+		{
+			int shipPlacementIndexLine;
+			int shipPlacementIndexColumn;
+			do
+			{
+				shipPlacementIndexLine = random.nextInt(boardSize);
+				shipPlacementIndexColumn = random.nextInt(boardSize);
+			}
+			while (computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn]);
+
+			computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn] = true;
+		}
+
+		System.out.println("Computer board");
+		for (int j = 0; j < computerBoard.length; j++)
+		{
+			for (int n = 0; n < computerBoard[j].length; n++)
+			{
+				if (computerBoard[j][n])
+				{
+					System.out.print("X ");
+				}
+				else
+				{
+					System.out.print("- ");
+				}
+			}
+			System.out.println();
+		}
 
 		int lineIndexInput;
-		do
-		{
-			System.out.println("Enter the line where you want to place your ship (0 to " + (boardSize - 1) + ")");
-			lineIndexInput = scanner.nextInt();
-		} while (lineIndexInput < 0 || lineIndexInput >= boardSize);
-
 		int columnIndexInput;
-		do
+		for (int i = 0; i < numberOfShips; i++)
 		{
-			System.out.println("Enter the column where you want to place your ship (0 to " + (boardSize - 1) + ")");
-			columnIndexInput = scanner.nextInt();
-		} while (columnIndexInput < 0 || columnIndexInput >= boardSize);
+			do
+			{
+				do
+				{
+					System.out.println("Enter the line where you want to place your ship (0 to " + (boardSize - 1) + ")");
+					lineIndexInput = scanner.nextInt();
+				} while (lineIndexInput < 0 || lineIndexInput >= boardSize);
 
-		playerBoard[lineIndexInput][columnIndexInput] = true;
+				do
+				{
+					System.out.println("Enter the column where you want to place your ship (0 to " + (boardSize - 1) + ")");
+					columnIndexInput = scanner.nextInt();
+				} while (columnIndexInput < 0 || columnIndexInput >= boardSize);
+			}
+			while (playerBoard[lineIndexInput][columnIndexInput]);
 
-		boolean isPlayerTurn = true;
+			playerBoard[lineIndexInput][columnIndexInput] = true;
+
+			System.out.println("Player board");
+			for (int j = 0; j < playerBoard.length; j++)
+			{
+				for (int n = 0; n < playerBoard[j].length; n++)
+				{
+					if (playerBoard[j][n])
+					{
+						System.out.print("X ");
+					}
+					else
+					{
+						System.out.print("- ");
+					}
+				}
+				System.out.println();
+			}
+		}
+
 		boolean doesPlayerHaveShipsLeft = true;
 		boolean doesComputerHaveShipsLeft = true;
 
@@ -63,6 +116,23 @@ public class Exercice21
 			else
 			{
 				System.out.println("You didn't hit anything");
+			}
+
+			System.out.println("Computer board");
+			for (int j = 0; j < computerBoard.length; j++)
+			{
+				for (int n = 0; n < computerBoard[j].length; n++)
+				{
+					if (computerBoard[j][n])
+					{
+						System.out.print("X ");
+					}
+					else
+					{
+						System.out.print("- ");
+					}
+				}
+				System.out.println();
 			}
 
 			doesComputerHaveShipsLeft = false;
@@ -96,6 +166,23 @@ public class Exercice21
 			else
 			{
 				System.out.println("Computer missed");
+			}
+
+			System.out.println("Player board");
+			for (int j = 0; j < playerBoard.length; j++)
+			{
+				for (int n = 0; n < playerBoard[j].length; n++)
+				{
+					if (playerBoard[j][n])
+					{
+						System.out.print("X ");
+					}
+					else
+					{
+						System.out.print("- ");
+					}
+				}
+				System.out.println();
 			}
 
 			doesPlayerHaveShipsLeft = false;
