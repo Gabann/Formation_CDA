@@ -23,6 +23,6 @@ public class Main
 //		Exercice18.Memory();
 //		Exercice19.seatBooking();
 //		Exercice20.articleInventory();
-		Exercice21.Battleship();
+		Exercice21.battleship();
 	}
 }
