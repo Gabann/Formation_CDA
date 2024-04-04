@@ -10,8 +10,8 @@ public class Exercice21
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
 
-		int boardSize = 2;
-		int numberOfShips = 2;
+		int boardSize = 3;
+		int numberOfShips = 1;
 
 		boolean[][] playerBoard = new boolean[boardSize][boardSize];
 		boolean[][] computerBoard = new boolean[boardSize][boardSize];
@@ -20,6 +20,8 @@ public class Exercice21
 		{
 			int shipPlacementIndexLine;
 			int shipPlacementIndexColumn;
+
+			int shipSize = 3;
 			do
 			{
 				shipPlacementIndexLine = random.nextInt(boardSize);
@@ -27,7 +29,76 @@ public class Exercice21
 			}
 			while (computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn]);
 
-			computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn] = true;
+//			computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn] = true;
+			int direction = random.nextInt(3) + 1;
+
+			switch (direction)
+			{
+				//Up
+				case 1:
+				{
+					if (shipPlacementIndexLine - (shipSize - 1) >= 0)
+					{
+						for (int j = 0; j < shipSize; j++)
+						{
+							computerBoard[shipPlacementIndexLine - j][shipPlacementIndexColumn] = true;
+						}
+					}
+					else
+					{
+						System.out.println("You don't have enough space to place your ship");
+					}
+					break;
+				}
+				//Down
+				case 2:
+				{
+					if (shipPlacementIndexLine - (shipSize - 1) <= boardSize)
+					{
+						for (int j = 0; j < shipSize; j++)
+						{
+							computerBoard[shipPlacementIndexLine + j][shipPlacementIndexColumn] = true;
+						}
+					}
+					else
+					{
+						System.out.println("You don't have enough space to place your ship");
+					}
+					break;
+				}
+				//Left
+				case 3:
+				{
+					if (shipPlacementIndexColumn - (shipSize - 1) >= 0)
+					{
+						for (int j = 0; j < shipSize; j++)
+						{
+							computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn - j] = true;
+						}
+					}
+					else
+					{
+						System.out.println("You don't have enough space to place your ship");
+					}
+					break;
+				}
+				//Right
+				case 4:
+				{
+					if (shipPlacementIndexColumn - (shipSize - 1) <= boardSize)
+					{
+						for (int j = 0; j < shipSize; j++)
+						{
+							computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn + j] = true;
+						}
+					}
+					else
+					{
+						System.out.println("You don't have enough space to place your ship");
+					}
+					break;
+				}
+			}
 		}
 
 		System.out.println("Computer board");
