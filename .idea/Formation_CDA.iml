@@ -2,6 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
+      <sourceFolder url="file://$MODULE_DIR$/Java/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/copilot" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
@@ -39,8 +40,5 @@
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/android/build" />
       <excludeFolder url="file://$MODULE_DIR$/Web/Vue/.idea" />
     </content>
-  </component>
-  <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="6d5a49c6-cf8e-44f9-91f6-8e5a66c1a853" />
   </component>
 </module>

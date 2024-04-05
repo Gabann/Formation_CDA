@@ -10,13 +10,16 @@ public class Exercice21
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
 
-		int boardSize = 3;
-		int numberOfShips = 1;
+		int boardSize = 5;
+		int numberOfShips = 3;
 
 		boolean[][] playerBoard = new boolean[boardSize][boardSize];
 		boolean[][] computerBoard = new boolean[boardSize][boardSize];
 
-		for (int i = 0; i < numberOfShips; i++)
+		int computerShipsToPlace = numberOfShips;
+
+
+		while (computerShipsToPlace > 0)
 		{
 			int shipPlacementIndexLine;
 			int shipPlacementIndexColumn;
@@ -29,9 +32,10 @@ public class Exercice21
 			}
 			while (computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn]);
 
-//			computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn] = true;
+
 			int direction = random.nextInt(3) + 1;
 
+			//BUG computer can place ships in top of each others
 			switch (direction)
 			{
 				//Up
@@ -42,7 +46,9 @@ public class Exercice21
 						for (int j = 0; j < shipSize; j++)
 						{
 							computerBoard[shipPlacementIndexLine - j][shipPlacementIndexColumn] = true;
+
 						}
+						computerShipsToPlace--;
 					}
 					else
 					{
@@ -53,12 +59,13 @@ public class Exercice21
 				//Down
 				case 2:
 				{
-					if (shipPlacementIndexLine - (shipSize - 1) <= boardSize)
+					if (shipPlacementIndexLine + (shipSize - 1) <= boardSize - 1)
 					{
 						for (int j = 0; j < shipSize; j++)
 						{
 							computerBoard[shipPlacementIndexLine + j][shipPlacementIndexColumn] = true;
 						}
+						computerShipsToPlace--;
 					}
 					else
 					{
@@ -75,6 +82,7 @@ public class Exercice21
 						{
 							computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn - j] = true;
 						}
+						computerShipsToPlace--;
 					}
 					else
 					{
@@ -85,12 +93,13 @@ public class Exercice21
 				//Right
 				case 4:
 				{
-					if (shipPlacementIndexColumn - (shipSize - 1) <= boardSize)
+					if (shipPlacementIndexColumn + (shipSize - 1) <= boardSize - 1)
 					{
 						for (int j = 0; j < shipSize; j++)
 						{
 							computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn + j] = true;
 						}
+						computerShipsToPlace--;
 					}
 					else
 					{
@@ -99,6 +108,7 @@ public class Exercice21
 					break;
 				}
 			}
+
 		}
 
 		System.out.println("Computer board");
@@ -161,7 +171,7 @@ public class Exercice21
 		boolean doesPlayerHaveShipsLeft = true;
 		boolean doesComputerHaveShipsLeft = true;
 
-		do
+		while (true)
 		{
 			do
 			{
@@ -273,9 +283,7 @@ public class Exercice21
 			{
 				break;
 			}
-
 		}
-		while (doesComputerHaveShipsLeft && doesPlayerHaveShipsLeft);
 
 		String winner = doesPlayerHaveShipsLeft ? "Player" : "Computer";
 

@@ -1,3 +1,5 @@
+package org.example;
+
 import exercices.Exercice21;
 
 public class Main
