@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice07
 {
-	public static void SuggestActivityBasedOnMood()
+	public static void suggestActivityBasedOnMood()
 	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("What's your current mood?");

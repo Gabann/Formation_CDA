@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice01
 {
-	public static void ConvertTemperature()
+	public static void convertTemperature()
 	{
 		Scanner input = new Scanner(System.in);
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice05
 {
-	public static void GuessAnimal()
+	public static void guessAnimal()
 	{
 		Scanner input = new Scanner(System.in);
 

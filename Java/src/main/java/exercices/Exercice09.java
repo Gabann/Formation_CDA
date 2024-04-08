@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice09
 {
-	public static void CountBetweenNumbers()
+	public static void countBetweenNumbers()
 	{
 		Scanner scanner = new Scanner(System.in);
 

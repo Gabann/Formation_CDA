@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice18
 {
-	public static void Memory()
+	public static void memory()
 	{
 		Scanner scanner = new Scanner(System.in);
 

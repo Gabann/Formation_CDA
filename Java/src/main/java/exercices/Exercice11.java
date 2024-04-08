@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice11
 {
-	public static void DrawTriangle()
+	public static void drawTriangle()
 	{
 		Scanner scanner = new Scanner(System.in);
 

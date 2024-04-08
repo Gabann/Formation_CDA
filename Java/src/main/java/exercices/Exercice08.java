@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Exercice08
 {
-	public static void GuessNumber()
+	public static void guessNumber()
 	{
 		Random rand = new Random();
 		Scanner scanner = new Scanner(System.in);

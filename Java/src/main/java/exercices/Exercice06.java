@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice06
 {
-	public static void SuggestSuperhero()
+	public static void suggestSuperhero()
 	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("What's your favorite thing between 'strength', 'speed' and 'intelligence'");

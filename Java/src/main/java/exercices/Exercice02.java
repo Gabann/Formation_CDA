@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice02
 {
-	public static void CalculateCandyCount()
+	public static void calculateCandyCount()
 	{
 		Scanner input = new Scanner(System.in);
 
