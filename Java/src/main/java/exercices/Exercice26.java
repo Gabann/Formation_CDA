@@ -24,7 +24,7 @@ public class Exercice26
 	static String inputAdn()
 	{
 		Scanner scanner = new Scanner(System.in);
-		String input;
+		String input = "";
 
 		do
 		{
@@ -37,9 +37,10 @@ public class Exercice26
 		return input;
 	}
 
-	static double getAdnProportionPercentage(String inputAdn, String adnSequence)
+	public static double getAdnProportionPercentage(String inputAdn, String adnSequence)
 	{
-		adnSequence = adnSequence.toLowerCase();
+		adnSequence = adnSequence.toLowerCase().replaceAll("\\s", "");
+		inputAdn = inputAdn.toLowerCase().replaceAll("\\s", "");
 
 		if (!inputAdn.contains(adnSequence))
 		{
@@ -48,7 +49,7 @@ public class Exercice26
 
 		double percentage = 0;
 
-		for (int i = 0; i < inputAdn.length(); )
+		for (int i = 0; i <= inputAdn.length() - adnSequence.length(); )
 		{
 			String subString = inputAdn.substring(i, adnSequence.length() + i);
 
@@ -70,6 +71,6 @@ public class Exercice26
 	{
 		String adn = inputAdn();
 
-		System.out.println(getAdnProportionPercentage(adn, "ac"));
+		System.out.println(getAdnProportionPercentage(adn, "tgt"));
 	}
 }
