@@ -4,9 +4,9 @@ public class Exercice30
 {
 	public static void playerQuest()
 	{
-		Player player = new Player("Player", 1, 0);
+		Player player = new Player("Player");
 
-		for(int i = 0; i <= 21; i++)
+		for(int i = 1; i <= 1000; i++)
 		{
 			System.out.printf("Player %s do quest %d %n", player.name, i);
 			player.doQuest();
