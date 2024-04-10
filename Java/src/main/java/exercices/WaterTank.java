@@ -47,7 +47,7 @@ public class WaterTank
 		return Math.max(overflowAmount, 0);
 	}
 
-	int removeWatter(int amountLitter)
+	int removeWater(int amountLitter)
 	{
 		int previousCapacity = currentCapacityLitter;
 

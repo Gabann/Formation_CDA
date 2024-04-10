@@ -26,7 +26,7 @@ public class Exercice32
 		System.out.printf("Excessive amount: %d %n", excessiveAmount);
 
 		int removeAmount = 25;
-		int amountRemoved = waterTank2.removeWatter(removeAmount);
+		int amountRemoved = waterTank2.removeWater(removeAmount);
 		System.out.printf("Water tank 2 water level after adding %d litters: ", removeAmount);
 		System.out.printf("%d/%d %n", waterTank2.getCurrentCapacityLitter(), waterTank2.getMaxCapacityLitter());
 		System.out.printf("You got : %d litters %n", amountRemoved);
