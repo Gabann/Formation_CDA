@@ -1,6 +1,6 @@
 package org.example;
 
-import exercices.Exercice30;
+import exercices.Exercice33;
 
 public class Main
 {
@@ -34,7 +34,9 @@ public class Main
 //		Exercice27.festivalFunction();
 //		Exercice28.chairs();
 //		Exercice29.movies();
-		Exercice30.playerQuest();
+//		Exercice30.playerQuest();
 //		Exercice31.hangmanObject();
+//		Exercice32.waterTank();
+		Exercice33.thermometerIhm();
 	}
 }
