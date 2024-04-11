@@ -21,8 +21,8 @@ public class Thermometer
 		switch (temperatureUnit)
 		{
 			case KELVIN -> this.temperatureKelvin = temperature;
-			case CELSIUS -> this.temperatureKelvin = temperature + 273.15;
-			case FAHRENHEIT -> this.temperatureKelvin = (temperature - 32) * 5 / 9 + 273.15;
+			case CELSIUS -> setTemperatureCelsius(temperature);
+			case FAHRENHEIT -> setTemperatureFahrenheit(temperature);
 		}
 	}
 
@@ -31,9 +31,9 @@ public class Thermometer
 		return temperatureKelvin;
 	}
 
-	private void setTemperatureKelvin(double temperatureCelsius)
+	private void setTemperatureKelvin(double temperatureKelvin)
 	{
-		this.temperatureKelvin = temperatureCelsius + 273.15;
+		this.temperatureKelvin = temperatureKelvin;
 	}
 
 	public double getTemperatureCelsius()
@@ -41,14 +41,14 @@ public class Thermometer
 		return temperatureKelvin - 273.15;
 	}
 
-	private void setTemperatureCelsius(double temperatureKelvin)
+	private void setTemperatureCelsius(double temperatureCelsius)
 	{
-		this.temperatureKelvin = temperatureKelvin;
+		this.temperatureKelvin = temperatureCelsius + 273.15;
 	}
 
 	public double getTemperatureFahrenheit()
 	{
-		return (temperatureKelvin - 273.15) * 9.0 / 5 + 32.0;
+		return getTemperatureCelsius() * 9.0 / 5 + 32.0;
 	}
 
 	private void setTemperatureFahrenheit(double temperatureFahrenheit)

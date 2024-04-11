@@ -1,6 +1,6 @@
 package org.example;
 
-import exercices.Exercice33;
+import exercices.Exercice35;
 
 public class Main
 {
@@ -37,6 +37,8 @@ public class Main
 //		Exercice30.playerQuest();
 //		Exercice31.hangmanObject();
 //		Exercice32.waterTank();
-		Exercice33.thermometerIhm();
+//		Exercice33.thermometerIhm();
+//		Exercice34.IHM();
+		Exercice35.IHM();
 	}
 }
