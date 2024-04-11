@@ -12,19 +12,23 @@ public class Exercice21
 
 		int boardSize = 5;
 		int numberOfShips = 3;
-
+		int minShipSize = 2;
+		int maxShipSize = 3;
+		int[] shipsSizes = new int[numberOfShips];
 		boolean[][] playerBoard = new boolean[boardSize][boardSize];
 		boolean[][] computerBoard = new boolean[boardSize][boardSize];
 
-		int computerShipsToPlace = numberOfShips;
+		for (int i = 0; i < numberOfShips; i++)
+		{
+			shipsSizes[i] = random.nextInt(minShipSize, maxShipSize);
+		}
 
-
-		while (computerShipsToPlace > 0)
+		for (int i = 0; i < numberOfShips; )
 		{
 			int shipPlacementIndexLine;
 			int shipPlacementIndexColumn;
 
-			int shipSize = 3;
+			int shipSize = shipsSizes[i];
 			do
 			{
 				shipPlacementIndexLine = random.nextInt(boardSize);
@@ -33,7 +37,7 @@ public class Exercice21
 			while (computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn]);
 
 
-			int direction = random.nextInt(3) + 1;
+			int direction = random.nextInt(1, 4);
 
 			//BUG computer can place ships in top of each others
 			switch (direction)
@@ -48,7 +52,7 @@ public class Exercice21
 							computerBoard[shipPlacementIndexLine - j][shipPlacementIndexColumn] = true;
 
 						}
-						computerShipsToPlace--;
+						i++;
 					}
 					else
 					{
@@ -65,7 +69,7 @@ public class Exercice21
 						{
 							computerBoard[shipPlacementIndexLine + j][shipPlacementIndexColumn] = true;
 						}
-						computerShipsToPlace--;
+						i++;
 					}
 					else
 					{
@@ -82,7 +86,7 @@ public class Exercice21
 						{
 							computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn - j] = true;
 						}
-						computerShipsToPlace--;
+						i++;
 					}
 					else
 					{
@@ -99,7 +103,7 @@ public class Exercice21
 						{
 							computerBoard[shipPlacementIndexLine][shipPlacementIndexColumn + j] = true;
 						}
-						computerShipsToPlace--;
+						i++;
 					}
 					else
 					{

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Exercice03
 {
-	public static void CalculateTimeBetweenInputs()
+	public static void calculateTimeBetweenInputs()
 	{
 		Scanner input = new Scanner(System.in);
 

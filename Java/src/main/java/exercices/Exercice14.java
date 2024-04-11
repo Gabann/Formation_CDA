@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice14
 {
-	public static void Hangman()
+	public static void hangman()
 	{
 		Scanner scanner = new Scanner(System.in);
 		String wordToGuess = "computer".toLowerCase();

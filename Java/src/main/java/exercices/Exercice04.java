@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice04
 {
-	public static void LeftOrRight()
+	public static void leftOrRight()
 	{
 		Scanner input = new Scanner(System.in);
 

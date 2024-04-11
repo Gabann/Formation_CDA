@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Exercice13
 {
-	public static void RockPaperScissorsV1()
+	public static void rockPaperScissorsV1()
 	{
 		Scanner scanner = new Scanner(System.in);
 		int rng = (int) (Math.random() * 3) + 1;
@@ -122,7 +122,7 @@ public class Exercice13
 		}
 	}
 
-	public static void RockPaperScissorsV2()
+	public static void rockPaperScissorsV2()
 	{
 		Scanner scanner = new Scanner(System.in);
 

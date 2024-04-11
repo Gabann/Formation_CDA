@@ -2,7 +2,7 @@ package exercices;
 
 public class Exercice15
 {
-	public static void DiceRoll()
+	public static void diceRoll()
 	{
 		int userScore = 0, computerScore = 0, scoreToWin = 20;
 
