@@ -1,4 +1,4 @@
-import exercices.Exercice26;
+import exercices.Adn;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -36,7 +36,7 @@ class Exercice26Test
 	@MethodSource("provideAdnSequences")
 	void testGetAdnProportionPercentage(String inputAdn, String adnSequence, double expected)
 	{
-		double actual = Exercice26.getAdnProportionPercentage(inputAdn, adnSequence);
+		double actual = Adn.getAdnProportionPercentage(inputAdn, adnSequence);
 		assertEquals(expected, actual, 0.00001, "Wrong proportion");
 	}
 }
