@@ -50,6 +50,6 @@ public class Plant
 						"Name: %s%n" +
 						"Height: %.2f%n" +
 						"Color: %s%n"
-				, this.getClass().getName(), getName(), getHeightCentimeter(), getColor());
+				, this.getClass().getSimpleName(), getName(), getHeightCentimeter(), getColor());
 	}
 }

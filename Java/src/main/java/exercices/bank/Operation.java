@@ -1,14 +1,8 @@
 package exercices.bank;
 
-enum OperationType
-{
-	DEPOSIT,
-	WITHDRAWAL
-}
-
 public class Operation
 {
-	static int operationCount;
+	static int operationCount = 0;
 	int id;
 	double amount;
 	OperationType operationType;
@@ -19,5 +13,11 @@ public class Operation
 		this.amount = amount;
 		this.operationType = operationType;
 		operationCount++;
+	}
+
+	public enum OperationType
+	{
+		DEPOSIT,
+		WITHDRAWAL
 	}
 }

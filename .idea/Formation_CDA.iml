@@ -40,6 +40,7 @@
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/android/app/build/intermediates/sub_project_dex_archive/debug/out" />
       <excludeFolder url="file://$MODULE_DIR$/ReactNative/android/build" />
       <excludeFolder url="file://$MODULE_DIR$/Web/Vue/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/inspectionProfiles" />
     </content>
   </component>
 </module>

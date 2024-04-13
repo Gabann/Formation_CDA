@@ -5,24 +5,37 @@ import java.util.List;
 
 public abstract class BankAccount
 {
-	double balance;
+	double maxOverdraft = -200;
+	double balance = 0;
 	Client client;
 
 	List<Operation> operationList = new ArrayList<>();
 
 	protected BankAccount(Client client)
 	{
+		this(client, 0);
+	}
+
+	protected BankAccount(Client client, double initialBalance)
+	{
 		this.client = client;
+		deposit(initialBalance);
 		client.addBankAccount(this);
 	}
 
-	private double getBalance()
+	protected double getBalance()
 	{
 		return balance;
 	}
 
-	private void setBalance(double balance)
+	public List<Operation> getOperationList()
 	{
+		return operationList;
+	}
+
+	private void setBalance(double balance, Operation.OperationType operationType)
+	{
+		operationList.add(new Operation(Math.abs(this.balance - balance), operationType));
 		this.balance = balance;
 	}
 
@@ -34,25 +47,24 @@ public abstract class BankAccount
 			return;
 		}
 
-		operationList.add(new Operation(amount, OperationType.DEPOSIT));
-		setBalance(getBalance() + amount);
+		setBalance(getBalance() + amount, Operation.OperationType.DEPOSIT);
 	}
 
-	public void withDraw(double amount)
+	public void withdraw(double amount)
 	{
-		if (amount <= 0)
+		if (amount == 0)
 		{
-			System.out.println("You can't withdraw a null or negative value");
+			System.out.println("You can't withdraw an amount of 0");
 			return;
 		}
 
-		if (balance < amount)
+		if (balance - amount < maxOverdraft)
 		{
-			System.out.printf("You only have %.2f and tried to withdraw %.2f %n", getBalance(), amount);
+			System.out.printf("This withdraw would make you have %.2f but you're only allowed to have an overdraft of %.2f %n",
+					balance - amount, maxOverdraft);
 			return;
 		}
 
-		operationList.add(new Operation(amount, OperationType.WITHDRAWAL));
-		setBalance(getBalance() - amount);
+		setBalance(getBalance() - amount, Operation.OperationType.WITHDRAWAL);
 	}
 }
