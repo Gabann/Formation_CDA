@@ -24,11 +24,6 @@ public class Thermometer
 		return temperatureKelvin;
 	}
 
-	private void setTemperatureKelvin(double temperatureKelvin)
-	{
-		this.temperatureKelvin = temperatureKelvin;
-	}
-
 	public double getTemperatureCelsius()
 	{
 		return temperatureKelvin - 273.15;

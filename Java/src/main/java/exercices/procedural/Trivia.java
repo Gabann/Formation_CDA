@@ -21,14 +21,18 @@ public class Trivia
 				true
 		};
 
-		for (int i = 0; i < questions.length; i++)
+		int index = 0;
+		while (index < questions.length)
 		{
-			System.out.println(questions[i]);
-			if (scanner.nextBoolean() != answers[i])
+			System.out.println(questions[index]);
+			if (scanner.nextBoolean() != answers[index])
 			{
 				System.out.println(wrongAnswer);
-				i = -1;
+				index = 0;
+				continue;
 			}
+
+			index++;
 		}
 
 		System.out.println("You won");

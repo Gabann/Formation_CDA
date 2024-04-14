@@ -388,7 +388,8 @@ output.json
 
 # IntelliJ
 *.iml
-.idea/
+.idea/*
+!.idea/rcb-settings.xml
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml

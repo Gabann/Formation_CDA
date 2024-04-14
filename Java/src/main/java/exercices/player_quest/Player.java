@@ -14,16 +14,6 @@ public class Player
 		this.experiencePoints = 0;
 	}
 
-	private String getName()
-	{
-		return name;
-	}
-
-	private void setName(String name)
-	{
-		this.name = name;
-	}
-
 	private double getExperiencePoints()
 	{
 		return experiencePoints;

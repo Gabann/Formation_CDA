@@ -7,7 +7,7 @@ public abstract class Person
 	String phoneNumber;
 	String email;
 
-	public Person(String firstName, String lastName, String phoneNumber, String email)
+	protected Person(String firstName, String lastName, String phoneNumber, String email)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;

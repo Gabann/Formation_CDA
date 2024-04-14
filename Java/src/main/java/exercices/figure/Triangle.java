@@ -1,6 +1,6 @@
 package exercices.figure;
 
-public class Triangle extends Figure
+public class Triangle extends exercices.figure.Figure
 {
 	double base;
 	double height;

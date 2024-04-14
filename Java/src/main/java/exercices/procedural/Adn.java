@@ -49,18 +49,20 @@ public class Adn
 
 		double percentage = 0;
 
-		for (int i = 0; i <= inputAdn.length() - adnSequence.length(); )
+		int index = 0;
+
+		while (index <= inputAdn.length() - adnSequence.length())
 		{
-			String subString = inputAdn.substring(i, adnSequence.length() + i);
+			String subString = inputAdn.substring(index, adnSequence.length() + index);
 
 			if (subString.equals(adnSequence))
 			{
 				percentage += (double) adnSequence.length() / inputAdn.length();
-				i += adnSequence.length();
+				index += adnSequence.length();
 			}
 			else
 			{
-				i++;
+				index++;
 			}
 		}
 

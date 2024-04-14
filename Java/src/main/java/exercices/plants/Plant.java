@@ -18,29 +18,14 @@ public class Plant
 		return name;
 	}
 
-	private void setName(String name)
-	{
-		this.name = name;
-	}
-
 	private double getHeightCentimeter()
 	{
 		return heightCentimeter;
 	}
 
-	private void setHeightCentimeter(double heightCentimeter)
-	{
-		this.heightCentimeter = heightCentimeter;
-	}
-
 	private String getColor()
 	{
 		return color;
-	}
-
-	private void setColor(String color)
-	{
-		this.color = color;
 	}
 
 	@Override
