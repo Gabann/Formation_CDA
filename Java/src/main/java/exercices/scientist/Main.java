@@ -21,13 +21,13 @@ public class Main
 		System.out.println(scientist);
 
 		Worker worker = new Worker(
-				"John", // firstName
-				"Doe", // lastName
-				"1234567890", // phoneNumber
-				"john.doe@example.com", // email
-				"Some Company", // companyName
-				"1 Some St, Some City, Some State", // companyAddress
-				"0987654321" // professionalPhoneNumber
+				"John",
+				"Doe",
+				"1234567890",
+				"john.doe@example.com",
+				"Some Company",
+				"1 Some St, Some City, Some State",
+				"0987654321"
 		);
 
 		System.out.println(worker);
