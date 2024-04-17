@@ -3,28 +3,28 @@ package exercices.stationery;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class Invoice
+public class CustomerInvoice
 {
 	static int invoiceCount = 0;
 	int id;
 	String client;
 	LocalDate localDate;
-	InvoiceLine[] invoiceLinesArray;
+	InvoiceItem[] invoiceLinesArray;
 
-	public Invoice(String client)
+	public CustomerInvoice(String client)
 	{
 		this(client, 10);
 	}
 
-	public Invoice(String client, int numberOfLines)
+	public CustomerInvoice(String client, int numberOfLines)
 	{
 		this.id = ++invoiceCount;
 		this.client = client;
 		this.localDate = LocalDate.now();
-		this.invoiceLinesArray = new InvoiceLine[numberOfLines];
+		this.invoiceLinesArray = new InvoiceItem[numberOfLines];
 	}
 
-	void addLine(InvoiceLine invoiceLine)
+	void addLine(InvoiceItem invoiceLine)
 	{
 		for (int i = 0; i < invoiceLinesArray.length; i++)
 		{

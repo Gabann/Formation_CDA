@@ -14,7 +14,7 @@ public abstract class SoldItem
 		articleHashMap.put(id, this);
 	}
 
-	public static SoldItem getArticleById(int id)
+	public static SoldItem getItemById(int id)
 	{
 		return articleHashMap.get(id);
 	}
