@@ -7,10 +7,9 @@ public class Main
 		Product product = new Product();
 		StockObserver stockObserver = new StockObserver();
 		StockSupplier stockSupplier = new StockSupplier();
-		StockChangeManager.addListener(stockObserver);
-		StockChangeManager.addListener(stockSupplier);
 
 		product.setStockLevel(50);
+		StockChangeManager.removeListener(stockSupplier);
 		product.setStockLevel(9);
 	}
 }

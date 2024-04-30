@@ -4,6 +4,11 @@ public class StockObserver implements StockChangeListener
 {
 	int stockCriticalLevel = 10;
 
+	public StockObserver()
+	{
+		StockChangeManager.addListener(this);
+	}
+
 	@Override
 	public void onStockChange(Product product)
 	{

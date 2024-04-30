@@ -2,6 +2,10 @@ package exercices.stock;
 
 public class StockSupplier implements StockChangeListener
 {
+	public StockSupplier()
+	{
+		StockChangeManager.addListener(this);
+	}
 
 	@Override
 	public void onStockChange(Product product)

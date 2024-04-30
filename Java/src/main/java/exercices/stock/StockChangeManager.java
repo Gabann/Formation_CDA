@@ -3,7 +3,7 @@ package exercices.stock;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockChangeManager
+public final class StockChangeManager
 {
 	private static final List<StockChangeListener> listeners = new ArrayList<>();
 
