@@ -5,15 +5,15 @@ public class Main
 	public static void main(String[] args)
 	{
 		RealBook book1 = new RealBook("book1", "book1");
-		var proxy = new SecuredBookProxy(false);
+		var proxy = new SecuredBookProxy(book1, true);
 
-		proxy = new SecuredBookProxy(true);
-		proxy.read(book1);
+		proxy.read();
+
+		proxy.setUserConnected(false);
 
 		try
 		{
-			proxy = new SecuredBookProxy(false);
-			proxy.read(book1);
+			proxy.read();
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);

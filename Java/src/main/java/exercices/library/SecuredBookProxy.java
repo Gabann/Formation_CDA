@@ -3,18 +3,25 @@ package exercices.library;
 public class SecuredBookProxy implements BookReader
 {
 	boolean isUserConnected;
+	RealBook book;
 
-	public SecuredBookProxy(boolean isUserConnected)
+	public SecuredBookProxy(RealBook book, boolean isUserConnected)
 	{
 		this.isUserConnected = isUserConnected;
+		this.book = book;
+	}
+
+	public void setUserConnected(boolean userConnected)
+	{
+		isUserConnected = userConnected;
 	}
 
 	@Override
-	public void read(RealBook book)
+	public void read()
 	{
 		if (isUserConnected)
 		{
-			book.read(book);
+			book.read();
 		}
 		else
 		{

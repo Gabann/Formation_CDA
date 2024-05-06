@@ -12,9 +12,9 @@ public class RealBook implements BookReader
 	}
 
 	@Override
-	public void read(RealBook book)
+	public void read()
 	{
-		System.out.println("Title: " + book.title);
-		System.out.println("Content: " + book.content);
+		System.out.println("Title: " + this.title);
+		System.out.println("Content: " + this.content);
 	}
 }
