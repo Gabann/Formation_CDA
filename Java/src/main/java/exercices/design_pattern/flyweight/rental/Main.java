@@ -7,5 +7,8 @@ public class Main
 		FlyWeightFactory factory = new FlyWeightFactory();
 		Vehicle vehicle1 = new Vehicle(factory.getFlyweight("Audi", "Black"), "TT");
 		Vehicle vehicle2 = new Vehicle(factory.getFlyweight("Audi", "Black"), "ZZ");
+
+		vehicle1.display();
+		vehicle2.display();
 	}
 }

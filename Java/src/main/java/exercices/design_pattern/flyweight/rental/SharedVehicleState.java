@@ -12,9 +12,10 @@ public class SharedVehicleState implements VehicleFlyWeight
 	}
 
 	@Override
-	public void displayInfo(String color, String brand)
+	public void displayInfo(String model)
 	{
 		System.out.println(color);
 		System.out.println(brand);
+		System.out.println(model);
 	}
 }
