@@ -1,0 +1,14 @@
+package exercices.design_pattern.bridge.refactoring_guru.remotes;
+
+public interface Remote
+{
+	void power();
+
+	void volumeDown();
+
+	void volumeUp();
+
+	void channelDown();
+
+	void channelUp();
+}
