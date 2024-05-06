@@ -1,4 +1,4 @@
-package exercices.design_pattern.singleton.refactoring_guru.thread_safe;
+package exercices.design_pattern.singleton.refactoring_guru;
 
 public class DemoMultiThread
 {
