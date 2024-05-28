@@ -1,17 +1,15 @@
-package jpa.entity;
+package jpa.tp_product.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Test
 {
+	String name;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
 	private int id;
-	private String name;
 
 	public Test()
 	{
@@ -19,23 +17,15 @@ public class Test
 
 	public Test(Builder builder)
 	{
-		id = builder.id;
 		name = builder.name;
 	}
 
 	public static final class Builder
 	{
-		private int id;
 		private String name;
 
 		public Builder()
 		{
-		}
-
-		public Builder id(int val)
-		{
-			id = val;
-			return this;
 		}
 
 		public Builder name(String val)

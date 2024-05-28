@@ -1,8 +1,6 @@
 package jpa.tp_computer.entity;
 
-import javax.persistence.Entity;
-
-@Entity
+//@Entity
 public class OperatingSystem
 {
 
