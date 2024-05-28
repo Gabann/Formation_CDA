@@ -9,10 +9,12 @@ import java.util.List;
 public class AbstractDao<T>
 {
 	private final SessionFactory sessionFactory;
+	Class<T> c;
 
-	public AbstractDao(SessionFactory sessionFactory)
+	public AbstractDao(SessionFactory sessionFactory, Class<T> c)
 	{
 		this.sessionFactory = sessionFactory;
+		this.c = c;
 	}
 
 	public void saveOrUpdate(T entity)
@@ -24,7 +26,7 @@ public class AbstractDao<T>
 		session.close();
 	}
 
-	public T findById(Class<T> c, Long id)
+	public T findById(Long id)
 	{
 		Session session = sessionFactory.openSession();
 		T entity = session.get(c, id);
@@ -32,7 +34,7 @@ public class AbstractDao<T>
 		return entity;
 	}
 
-	public List<T> findAll(Class<T> c)
+	public List<T> findAll()
 	{
 		Session session = sessionFactory.openSession();
 		List<T> entities = session.createQuery("from " + c.getName(), c).list();
@@ -58,11 +60,11 @@ public class AbstractDao<T>
 		}
 	}
 
-	public void deleteById(Class<T> c, Long id)
+	public void deleteById(Long id)
 	{
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
-		delete(findById(c, id));
+		delete(findById(id));
 		transaction.commit();
 		session.close();
 	}

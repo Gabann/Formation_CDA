@@ -20,7 +20,7 @@ public class Main
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Scanner scanner = new Scanner(System.in);
 
-		var productDAO = new AbstractDao<Product>(sessionFactory);
+		var productDAO = new AbstractDao<Product>(sessionFactory, Product.class);
 
 
 		//Créer cinq produits
@@ -39,13 +39,13 @@ public class Main
 		}
 
 		//Afficher les informations du produit dont id = 2
-		System.out.println(productDAO.findById(Product.class, 2L));
+		System.out.println(productDAO.findById(2L));
 
 		//Supprimer le produit dont id = 3
-		productDAO.deleteById(Product.class, 3L);
+		productDAO.deleteById(3L);
 
 		//Modifier les informations du produit dont id = 1,
-		Product product1 = productDAO.findById(Product.class, 1L);
+		Product product1 = productDAO.findById(1L);
 		if (product1 != null)
 		{
 			product1.setPrice(999999);
@@ -53,7 +53,7 @@ public class Main
 		}
 
 		//Afficher la totalité des produits
-		System.out.println(productDAO.findAll(Product.class));
+		System.out.println(productDAO.findAll());
 
 		//Afficher la liste des produits dont le prix est supérieur à 100 euros
 		Query<Product> query1 = session.createNamedQuery("Product.findByPriceGreaterThan", Product.class);
@@ -99,12 +99,14 @@ public class Main
 
 		Query<Product> query4 = session.createQuery("select id,reference from Product where stock < :stock");
 		query4.setParameter("stock", stockInput);
-		List result = query4.getResultList();
+		List<Product> result = query4.getResultList();
 
 		for (Object o : result)
 		{
 			Object[] res = (Object[]) o;
 			System.out.println("id: " + res[0] + " reference: " + res[1]);
 		}
+
+		session.close();
 	}
 }
