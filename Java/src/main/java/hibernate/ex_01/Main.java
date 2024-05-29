@@ -2,14 +2,14 @@ package hibernate.ex_01;
 
 
 import hibernate.ex_01.dao.AbstractDao;
+import hibernate.ex_01.dao.ProductDao;
+import hibernate.ex_01.entity.Comment;
+import hibernate.ex_01.entity.Image;
 import hibernate.ex_01.entity.Product;
 import hibernate.ex_01.util.HibernateUtil;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main
@@ -17,10 +17,11 @@ public class Main
 	public static void main(String[] args)
 	{
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = HibernateUtil.getSessionFactory().openSession();
 		Scanner scanner = new Scanner(System.in);
 
-		var productDAO = new AbstractDao<Product>(sessionFactory, Product.class);
+		var productDAO = new ProductDao(sessionFactory);
+		var commentDAO = new AbstractDao<>(sessionFactory, Comment.class);
+		var imageDAO = new AbstractDao<>(sessionFactory, Image.class);
 
 
 		//Créer cinq produits
@@ -56,24 +57,22 @@ public class Main
 		System.out.println(productDAO.findAll());
 
 		//Afficher la liste des produits dont le prix est supérieur à 100 euros
-		Query<Product> query1 = session.createNamedQuery("Product.findByPriceGreaterThan", Product.class);
-		query1.setParameter("price", 1.0);
-		System.out.println(query1.getResultList());
+		System.out.println(productDAO.getPriceGreaterThan(100));
 
 		//Afficher la liste des produits achetés entre deux dates.
-		product1.setPurchaseDate(LocalDate.now().minusDays(5));
-		productDAO.saveOrUpdate(product1);
+		Product product2 = productDAO.findById(1L);
 
-		Query<Product> query2 = session.createNamedQuery("Product.findByPurchaseDateBetween", Product.class);
-		query2.setParameter("purchaseDate", LocalDate.now().minusDays(100));
-		query2.setParameter("purchaseDateEnd", LocalDate.now().minusDays(1));
-		System.out.println(query2.getResultList());
+		if (product2 != null)
+		{
+			product2.setPurchaseDate(LocalDate.now().minusDays(5));
+			productDAO.saveOrUpdate(product2);
+
+			System.out.println(productDAO.getBetweenTwoDates(LocalDate.now().minusDays(100), LocalDate.now()));
+		}
 
 
 		//Afficher la liste des produits commandés entre deux dates lus au clavier.
-//		Query<Product> query3 = session.createNamedQuery("Product.findByPurchaseDateBetween", Product.class);
 //		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//
 //		System.out.println("Enter start date in format 'dd-MM-yyyy'");
 //		String startDateString = scanner.nextLine();
 //
@@ -84,29 +83,57 @@ public class Main
 //
 //		LocalDate endDate = LocalDate.parse(endDateString, formatter);
 //
-//
-//		query3.setParameter("purchaseDate", startDate);
-//		query3.setParameter("purchaseDateEnd", endDate);
-//		System.out.println(query3.getResultList());
+//		System.out.println(productDAO.findBetweenTwoDates(startDate, endDate));
 
 
 		//Retourner les numéros et reference des articles dont le stock est inférieur à une valeur lue au clavier.
-		product1.setStock(3);
-		productDAO.saveOrUpdate(product1);
+		Product product3 = productDAO.findById(1L);
 
-		System.out.println("Enter stock amount");
-		int stockInput = scanner.nextInt();
-
-		Query<Product> query4 = session.createQuery("select id,reference from Product where stock < :stock");
-		query4.setParameter("stock", stockInput);
-		List<Product> result = query4.getResultList();
-
-		for (Object o : result)
+		if (product3 != null)
 		{
-			Object[] res = (Object[]) o;
-			System.out.println("id: " + res[0] + " reference: " + res[1]);
+			product3.setStock(3);
+			productDAO.saveOrUpdate(product3);
+
+			System.out.println("Enter stock amount");
+			int stockInput = scanner.nextInt();
+
+			System.out.println(productDAO.getStockLessThan(stockInput));
 		}
 
-		session.close();
+		//Afficher la valeur du stock des produits d'une marque choisie.
+		System.out.println(productDAO.getStockByBrand("brand"));
+
+		//Calculer le prix moyen des produits.
+		System.out.println(productDAO.getAveragePrice());
+
+		//Récupérer la liste des produits d'une marque choisie.
+		System.out.println(productDAO.getByBrand("brand"));
+
+		//Supprimer les produits d'une marque choisie de la table produit.
+//		productDAO.deleteByBrand("brand");
+
+		//Adding image
+		Image image = new Image.Builder().url("a.com").build();
+		imageDAO.saveOrUpdate(image);
+
+		Product product4 = productDAO.findById(1L);
+		if (product4 != null)
+		{
+			product4.addImage(image);
+			productDAO.saveOrUpdate(product4);
+		}
+
+		//Adding comment
+
+		Product product5 = productDAO.findById(1L);
+		if (product5 != null)
+		{
+			Comment comment = new Comment.Builder(product5).content("Comment").score(5).build();
+
+			commentDAO.saveOrUpdate(comment);
+		}
+
+		//Afficher les produits ave une note de 4 ou plus.
+		System.out.println(productDAO.getWithAverageScoreGreaterThan(4));
 	}
 }
