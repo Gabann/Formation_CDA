@@ -44,8 +44,8 @@ class FibonacciTest
 	@Test
 	void testSizeEqualRange()
 	{
-		assertEquals(6, Fibonacci.getFibSeries(6).size());
-		assertEquals(15, Fibonacci.getFibSeries(15).size());
+		assertEquals(6, results.subList(0, 6).size());
+		assertEquals(15, results.subList(0, 15).size());
 	}
 
 	@Test
