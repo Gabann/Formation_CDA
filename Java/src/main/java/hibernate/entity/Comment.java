@@ -7,8 +7,11 @@ import java.time.LocalDate;
 public class Comment
 {
 	String content;
+
 	LocalDate commentDate = LocalDate.now();
+
 	double score;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
@@ -38,8 +41,11 @@ public class Comment
 	public static final class Builder
 	{
 		private String content;
+
 		private LocalDate commentDate = LocalDate.now();
+
 		private double score;
+
 		private Product product;
 
 		public Builder(Product product)

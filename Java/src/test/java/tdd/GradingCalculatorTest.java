@@ -42,6 +42,13 @@ class GradingCalculatorTest
 	}
 
 	@Test
+	void testScore65Attendance55()
+	{
+		GradingCalculator gradingCalculator = new GradingCalculator(65, 55);
+		assertEquals('F', gradingCalculator.getGrade());
+	}
+
+	@Test
 	void testScore50Attendance90()
 	{
 		GradingCalculator gradingCalculator = new GradingCalculator(50, 90);
