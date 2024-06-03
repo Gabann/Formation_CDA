@@ -16,6 +16,11 @@ public class CitySearch
 
 	static List<String> searchCity(String query)
 	{
+		if (query.equals("*"))
+		{
+			return cityList;
+		}
+		
 		return Collections.emptyList();
 	}
 
