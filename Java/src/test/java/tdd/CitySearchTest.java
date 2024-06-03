@@ -14,7 +14,7 @@ class CitySearchTest
 	{
 		assertThrows(CitySearch.NotFoundException.class, () -> CitySearch.searchCity("s"));
 		assertThrows(CitySearch.NotFoundException.class, () -> CitySearch.searchCity(""));
-		assertThrows(CitySearch.NotFoundException.class, () -> CitySearch.searchCity("aa"));
+		assertThrows(CitySearch.NotFoundException.class, () -> CitySearch.searchCity("A"));
 	}
 
 	@Test

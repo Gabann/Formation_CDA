@@ -1,7 +1,6 @@
 package tdd;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class CitySearch
@@ -26,7 +25,9 @@ public class CitySearch
 			throw new NotFoundException();
 		}
 
-		return Collections.emptyList();
+		return cityList.stream()
+				.filter(s -> s.toLowerCase().contains(query.toLowerCase()))
+				.toList();
 	}
 
 	public static class NotFoundException extends RuntimeException
