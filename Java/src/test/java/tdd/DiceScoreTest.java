@@ -10,7 +10,7 @@ class DiceScoreTest
 	private final Dice dice = Mockito.mock(Dice.class);
 
 	@Test
-	void testBothDiceRoll5()
+	void testBothDiceRoll5ShouldReturn22()
 	{
 		Mockito.when(dice.getRoll()).thenReturn(5);
 
@@ -18,7 +18,7 @@ class DiceScoreTest
 	}
 
 	@Test
-	void testBothDiceRoll6()
+	void testBothDiceRoll6ShouldReturn30()
 	{
 		Mockito.when(dice.getRoll()).thenReturn(6);
 
@@ -26,7 +26,7 @@ class DiceScoreTest
 	}
 
 	@Test
-	void testDice1And6()
+	void testDice1And6ShouldReturn6()
 	{
 		Mockito.when(dice.getRoll()).thenReturn(6, 1);
 
@@ -34,7 +34,7 @@ class DiceScoreTest
 	}
 
 	@Test
-	void testDice3And4()
+	void testDice3And4ShouldReturn4()
 	{
 		Mockito.when(dice.getRoll()).thenReturn(3, 4);
 
