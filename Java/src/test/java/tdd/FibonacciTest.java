@@ -3,6 +3,7 @@ package tdd;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,6 +22,24 @@ class FibonacciTest
 	void testNotNull()
 	{
 		assertNotNull(results);
+	}
+
+	@Test
+	void testRange0()
+	{
+		assertEquals(Collections.emptyList(), Fibonacci.getFibSeries(0));
+	}
+
+	@Test
+	void testRange1()
+	{
+		assertEquals(List.of(0), Fibonacci.getFibSeries(1));
+	}
+
+	@Test
+	void testNegativeInput()
+	{
+		assertThrows(Fibonacci.NegativeInputException.class, () -> Fibonacci.getFibSeries(-5));
 	}
 
 	@Test
