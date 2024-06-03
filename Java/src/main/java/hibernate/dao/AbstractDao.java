@@ -1,4 +1,4 @@
-package hibernate.ex_01.dao;
+package hibernate.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -45,9 +45,9 @@ public class AbstractDao<T>
 	public void delete(T entity)
 	{
 		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
 		try
 		{
+			Transaction transaction = session.beginTransaction();
 			session.delete(entity);
 			transaction.commit();
 

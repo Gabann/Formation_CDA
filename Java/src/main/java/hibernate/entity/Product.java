@@ -1,4 +1,4 @@
-package hibernate.ex_01.entity;
+package hibernate.entity;
 
 import lombok.Setter;
 

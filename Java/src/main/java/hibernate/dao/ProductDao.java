@@ -1,6 +1,6 @@
-package hibernate.ex_01.dao;
+package hibernate.dao;
 
-import hibernate.ex_01.entity.Product;
+import hibernate.entity.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

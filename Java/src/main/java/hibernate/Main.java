@@ -1,12 +1,12 @@
-package hibernate.ex_01;
+package hibernate;
 
 
-import hibernate.ex_01.dao.AbstractDao;
-import hibernate.ex_01.dao.ProductDao;
-import hibernate.ex_01.entity.Comment;
-import hibernate.ex_01.entity.Image;
-import hibernate.ex_01.entity.Product;
-import hibernate.ex_01.util.HibernateUtil;
+import hibernate.dao.AbstractDao;
+import hibernate.dao.ProductDao;
+import hibernate.entity.Comment;
+import hibernate.entity.Image;
+import hibernate.entity.Product;
+import hibernate.util.HibernateUtil;
 import org.hibernate.SessionFactory;
 
 import java.time.LocalDate;
@@ -135,5 +135,7 @@ public class Main
 
 		//Afficher les produits ave une note de 4 ou plus.
 		System.out.println(productDAO.getWithAverageScoreGreaterThan(4));
+
+		HibernateUtil.close();
 	}
 }

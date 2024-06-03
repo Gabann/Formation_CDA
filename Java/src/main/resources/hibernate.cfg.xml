@@ -4,8 +4,8 @@
         " http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <mapping class="hibernate.ex_01.entity.Product"/>
-        <mapping class="hibernate.ex_01.entity.Image"/>
-        <mapping class="hibernate.ex_01.entity.Comment"/>
+        <mapping class="hibernate.entity.Product"/>
+        <mapping class="hibernate.entity.Image"/>
+        <mapping class="hibernate.entity.Comment"/>
     </session-factory>
 </hibernate-configuration>

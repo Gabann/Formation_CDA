@@ -1,4 +1,4 @@
-package hibernate.ex_01.util;
+package hibernate.util;
 
 
 import org.hibernate.SessionFactory;
