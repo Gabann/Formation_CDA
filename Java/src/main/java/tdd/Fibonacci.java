@@ -3,9 +3,9 @@ package tdd;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fibonaci
+public class Fibonacci
 {
-	private Fibonaci()
+	private Fibonacci()
 	{
 	}
 
