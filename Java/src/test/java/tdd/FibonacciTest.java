@@ -37,15 +37,15 @@ class FibonacciTest
 	}
 
 	@Test
-	void testNegativeInput()
-	{
-		assertThrows(Fibonacci.NegativeInputException.class, () -> Fibonacci.getFibSeries(-5));
-	}
-
-	@Test
 	void testRange6()
 	{
 		assertEquals(List.of(0, 1, 1, 2, 3, 5), Fibonacci.getFibSeries(6));
+	}
+
+	@Test
+	void testNegativeInput()
+	{
+		assertThrows(Fibonacci.NegativeInputException.class, () -> Fibonacci.getFibSeries(-5));
 	}
 
 	@Test
