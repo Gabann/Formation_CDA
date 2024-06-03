@@ -1,6 +1,5 @@
 package tdd;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,7 +13,7 @@ class FibonaciTest
 	{
 		List<Integer> results = Fibonaci.getFibSeries(1);
 
-		Assertions.assertNotNull(results);
+		assertNotNull(results);
 		assertEquals(List.of(0), results);
 	}
 
@@ -27,8 +26,7 @@ class FibonaciTest
 		assertEquals(6, results.size());
 		assertFalse(results.contains(4));
 		assertEquals(results.stream().sorted().toList(), results);
-
-		Assertions.assertNotNull(results);
+		assertNotNull(results);
 		assertEquals(List.of(0, 1, 1, 2, 3, 5), results);
 	}
 }
