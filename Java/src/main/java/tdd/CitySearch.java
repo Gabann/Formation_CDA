@@ -20,7 +20,12 @@ public class CitySearch
 		{
 			return cityList;
 		}
-		
+
+		if (query.length() < 2)
+		{
+			throw new NotFoundException();
+		}
+
 		return Collections.emptyList();
 	}
 
