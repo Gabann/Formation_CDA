@@ -29,12 +29,11 @@ class ProductTest
 		assertEquals(50, product.getQuality());
 	}
 
-	@Test
-	void dairyProductShouldDegradeTwiceAsFast()
+	void qualityDegradeTwiceAsFastWhenDaysLeftIsLessThan0()
 	{
-		product.type = "Dairy";
+		product.daysLeftToSell = -1;
 		product.setQuality(10);
-		product.updateProduct();
+		product.update();
 		assertEquals(8, product.getQuality());
 	}
 }

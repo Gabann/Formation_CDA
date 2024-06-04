@@ -3,7 +3,6 @@ package tdd.shop;
 public class Product implements ProductInterface
 {
 	String name;
-	String type;
 	int maxQuality = 50;
 	int minQuality = 0;
 	int daysLeftToSell;
@@ -28,14 +27,9 @@ public class Product implements ProductInterface
 	}
 
 	@Override
-	public void updateProduct()
+	public void update()
 	{
 		this.daysLeftToSell--;
 		this.quality--;
-
-		if (this.type.equalsIgnoreCase("dairy"))
-		{
-			this.quality--;
-		}
 	}
 }
