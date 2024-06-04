@@ -28,6 +28,7 @@ class CitySearchTest
 	{
 		assertEquals(List.of("Sydney"), CitySearch.searchCity("Sy"));
 		assertEquals(List.of("Sydney"), CitySearch.searchCity("SY"));
+		assertEquals(List.of("Sydney"), CitySearch.searchCity("sy"));
 	}
 
 	@Test
