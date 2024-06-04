@@ -8,6 +8,15 @@ public class Product implements ProductInterface
 	int daysLeftToSell;
 	private int quality;
 
+	@Override
+	public void update()
+	{
+		int qualityIncrement = daysLeftToSell < 0 ? -2 : -1;
+
+		this.daysLeftToSell--;
+		setQuality(this.getQuality() + qualityIncrement);
+	}
+
 	public int getQuality()
 	{
 		return quality;
@@ -24,12 +33,5 @@ public class Product implements ProductInterface
 		{
 			this.quality = maxQuality;
 		}
-	}
-
-	@Override
-	public void update()
-	{
-		this.daysLeftToSell--;
-		this.quality--;
 	}
 }

@@ -29,6 +29,7 @@ class ProductTest
 		assertEquals(50, product.getQuality());
 	}
 
+	@Test
 	void qualityDegradeTwiceAsFastWhenDaysLeftIsLessThan0()
 	{
 		product.daysLeftToSell = -1;
