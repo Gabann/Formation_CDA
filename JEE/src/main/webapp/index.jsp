@@ -7,7 +7,13 @@
 <body>
 <br/>
 <a href="TextServlet">Servlet text</a>
+<br>
 <a href="HtmlServlet">Servlet html</a>
+<br>
 <a href="JspServlet">Servlet jsp</a>
+<br>
+<a href="BootstrapServlet">Servlet bootstrap</a>
+<br>
+<a href="BootstrapServlet2">Servlet bootstrap 2</a>
 </body>
 </html>
