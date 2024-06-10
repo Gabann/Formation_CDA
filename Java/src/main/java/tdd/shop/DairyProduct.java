@@ -3,8 +3,8 @@ package tdd.shop;
 public class DairyProduct extends Product
 {
 	@Override
-	public void update()
+	public void updateQuality()
 	{
-		setQuality(this.getQuality() - 2);
+		incrementQuality(-2);
 	}
 }

@@ -3,8 +3,8 @@ package tdd.shop;
 public class BrieVielli extends Product
 {
 	@Override
-	public void update()
+	public void updateQuality()
 	{
-		setQuality(this.getQuality() + 1);
+		incrementQuality(1);
 	}
 }

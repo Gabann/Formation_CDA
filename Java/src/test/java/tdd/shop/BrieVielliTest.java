@@ -4,8 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BrieVielliTest
+class BrieVielliTest extends ProductTest
 {
+	@Override
+	protected BrieVielli createProduct()
+	{
+		return new BrieVielli();
+	}
+
 	@Test
 	void brieVielliQualityShouldIncreaseInsteadOfDecreaseOverTime()
 	{

@@ -5,14 +5,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ProductTest
+public class ProductTest
 {
-	Product product;
+	protected Product product;
 
 	@BeforeEach
 	void init()
 	{
-		product = new Product();
+		product = createProduct();
+	}
+
+	protected Product createProduct()
+	{
+		return new Product();
 	}
 
 	@Test
@@ -30,7 +35,15 @@ class ProductTest
 	}
 
 	@Test
-	void qualityDegradeTwiceAsFastWhenDaysLeftIsLessThan0()
+	void productLeftDaysShouldDecrementAfterUpdate()
+	{
+		product.daysLeftToSell = 5;
+		product.update();
+		assertEquals(4, product.daysLeftToSell);
+	}
+
+	@Test
+	void productQualityShouldDecrementTwiceAsFastWhenDaysLeftIsLessThan0()
 	{
 		product.daysLeftToSell = -1;
 		product.setQuality(10);
