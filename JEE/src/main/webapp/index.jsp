@@ -17,5 +17,7 @@
 <a href="BootstrapServlet2">Servlet bootstrap 2</a>
 <br>
 <a href="VarServlet">Servlet variable table</a>
+<br>
+<a href="CatServlet">Cat servlet</a>
 </body>
 </html>
