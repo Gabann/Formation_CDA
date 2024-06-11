@@ -1,4 +1,4 @@
-package org.example.jee.ex_01;
+package org.example.jee.ex_02;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,13 +8,19 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "BootstrapServlet2", value = "/BootstrapServlet2")
-public class BootstrapServlet2 extends HttpServlet
+@WebServlet(name = "BootstrapServlet", value = "/BootstrapServlet")
+public class BootstrapServlet extends HttpServlet
 {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		getServletContext().getRequestDispatcher("/pages/page3.jsp").forward(request, response);
+		try
+		{
+			getServletContext().getRequestDispatcher("/pages/page2.jsp").forward(request, response);
+		} catch (ServletException | IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	@Override
