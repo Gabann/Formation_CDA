@@ -23,6 +23,23 @@ public class CatServlet extends HttpServlet
 	}
 
 	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		LocalDate dateOfBirth = LocalDate.parse(request.getParameter("dob"));
+
+		catList.add(new Cat(request.getParameter("name"), request.getParameter("species"), request.getParameter("favorite-meal"),
+				dateOfBirth));
+
+		try
+		{
+			doGet(request, response);
+		} catch (Exception e)
+		{
+			System.out.println("Something went wrong: " + e);
+		}
+	}
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		request.setAttribute("catList", catList);
@@ -33,24 +50,5 @@ public class CatServlet extends HttpServlet
 		{
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		System.out.println("post");
-		LocalDate birthDate = LocalDate.parse(request.getParameter("dob"));
-
-		catList.add(new Cat(request.getParameter("name"), request.getParameter("species"), request.getParameter("favorite-meal"),
-				birthDate));
-
-		try
-		{
-			doGet(request, response);
-		} catch (Exception e)
-		{
-			System.out.println("Something went wrong: " + e);
-		}
-
 	}
 }

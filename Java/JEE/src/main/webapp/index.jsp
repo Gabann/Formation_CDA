@@ -19,5 +19,9 @@
 <a href="VarServlet">Servlet variable table</a>
 <br>
 <a href="CatServlet">Cat servlet</a>
+<br>
+<a href="DogServlet">Dog servlet</a>
+<br>
+<a href="dogDetailsServlet">Dog details servlet</a>
 </body>
 </html>

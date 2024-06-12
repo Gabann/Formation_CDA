@@ -15,6 +15,7 @@
         <!--        <class>org.example.Entity.Plante</class>-->
         <class>jpa.entity.Test</class>
         <class>jpa.tp_computer.entity.Computer</class>
+        <class>org.example.jee.ex_05.entity.Dog</class>
 
 
         <properties>
