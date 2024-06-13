@@ -19,5 +19,7 @@
         <property name="hibernate.connection.autocommit">false</property>
 
         <mapping class="org.example.jee.ex_05.entity.Dog"/>
+        <mapping class="org.example.jee.ex_06.entity.User"/>
+        <mapping class="org.example.jee.ex_06.entity.Product"/>
     </session-factory>
 </hibernate-configuration>

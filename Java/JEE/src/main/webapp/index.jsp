@@ -22,6 +22,14 @@
 <br>
 <a href="DogServlet">Dog servlet</a>
 <br>
-<a href="dogDetailsServlet">Dog details servlet</a>
+<a href="dogDetailsServlet/1">Dog details servlet</a>
+<br>
+<a href="loginServlet">Login servlet</a>
+<br>
+<a href="signupServlet">Signup servlet</a>
+<br>
+<a href="secured/productListServlet">Product list</a>
+<br>
+<a href="secured/addProductServlet">Add product</a>
 </body>
 </html>
