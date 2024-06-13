@@ -27,7 +27,7 @@ public class SignupServlet extends HttpServlet
 	{
 		try
 		{
-			request.getRequestDispatcher("/pages/signupPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/ex_06/signupPage.jsp").forward(request, response);
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);
@@ -50,7 +50,7 @@ public class SignupServlet extends HttpServlet
 
 		try
 		{
-			request.getRequestDispatcher("pages/login.jsp").forward(request, response);
+			request.getRequestDispatcher("pages/ex_06/login.jsp").forward(request, response);
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);

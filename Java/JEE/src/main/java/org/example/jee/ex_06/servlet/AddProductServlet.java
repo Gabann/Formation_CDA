@@ -28,7 +28,7 @@ public class AddProductServlet extends HttpServlet
 	{
 		try
 		{
-			request.getRequestDispatcher("/pages/secured/addProduct.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/ex_06/secured/addProduct.jsp").forward(request, response);
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);
@@ -52,7 +52,7 @@ public class AddProductServlet extends HttpServlet
 				Product newProduct = new Product(brand, reference, purchaseDate, price, stock);
 				productDao.saveOrUpdate(newProduct);
 			}
-			response.sendRedirect("./pages/secured/productList.jsp");
+			response.sendRedirect("./pages/ex_06/secured/productList.jsp");
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);

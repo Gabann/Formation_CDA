@@ -37,7 +37,7 @@ public class AuthFilterServlet extends HttpServlet implements Filter
 			System.out.println("Not logged and trying to access secured page");
 			try
 			{
-				((HttpServletResponse) servletResponse).sendRedirect("../pages/login.jsp");
+				((HttpServletResponse) servletResponse).sendRedirect("../pages/ex_06/login.jsp");
 			} catch (Exception e)
 			{
 				System.out.println("Something went wrong: " + e);

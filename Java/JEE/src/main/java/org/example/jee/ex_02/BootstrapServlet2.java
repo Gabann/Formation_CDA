@@ -16,7 +16,7 @@ public class BootstrapServlet2 extends HttpServlet
 	{
 		try
 		{
-			getServletContext().getRequestDispatcher("/pages/page3.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/pages/ex_02/page3.jsp").forward(request, response);
 		} catch (ServletException | IOException e)
 		{
 			e.printStackTrace();

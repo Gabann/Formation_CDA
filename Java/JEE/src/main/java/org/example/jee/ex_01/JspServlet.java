@@ -16,7 +16,7 @@ public class JspServlet extends HttpServlet
 	{
 		try
 		{
-			getServletContext().getRequestDispatcher("/pages/JspServlet.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/pages/ex_01/JspServlet.jsp").forward(request, response);
 		} catch (ServletException | IOException e)
 		{
 			e.printStackTrace();

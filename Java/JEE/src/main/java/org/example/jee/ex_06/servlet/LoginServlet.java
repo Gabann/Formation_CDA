@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet
 			System.out.println("already logged in");
 			try
 			{
-				response.sendRedirect("./pages/secured/productList.jsp");
+				response.sendRedirect(request.getContextPath() + "/secured/productListServlet");
 			} catch (Exception e)
 			{
 				System.out.println("Something went wrong: " + e);
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet
 		{
 			try
 			{
-				request.getRequestDispatcher("pages/login.jsp").forward(request, response);
+				request.getRequestDispatcher("pages/ex_06/login.jsp").forward(request, response);
 			} catch (Exception e)
 			{
 				System.out.println("Something went wrong: " + e);
@@ -101,7 +101,7 @@ public class LoginServlet extends HttpServlet
 				response.addCookie(cookie);
 				try
 				{
-					response.sendRedirect("./pages/secured/productList.jsp");
+					response.sendRedirect(request.getContextPath() + "/secured/productListServlet");
 				} catch (Exception e)
 				{
 					System.out.println("Something went wrong: " + e);

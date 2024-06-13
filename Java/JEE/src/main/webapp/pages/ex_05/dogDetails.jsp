@@ -22,3 +22,4 @@ DoB: <%= dog.getDateOfBirth() %><br>
 <%} %>
 </body>
 </html>
+<%@include file="../../WEB-INF/bootstrapImport.jsp" %>

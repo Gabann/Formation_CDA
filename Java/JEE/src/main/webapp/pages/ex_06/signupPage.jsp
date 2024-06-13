@@ -21,4 +21,4 @@
 </div>
 </body>
 </html>
-<%@include file="../WEB-INF/bootstrapImport.jsp" %>
+<%@include file="../../WEB-INF/bootstrapImport.jsp" %>

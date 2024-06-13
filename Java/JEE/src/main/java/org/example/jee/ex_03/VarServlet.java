@@ -28,7 +28,7 @@ public class VarServlet extends HttpServlet
 		request.setAttribute("personList", personList);
 		try
 		{
-			getServletContext().getRequestDispatcher("/pages/personList.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/pages/ex_03/personList.jsp").forward(request, response);
 		} catch (ServletException | IOException e)
 		{
 			e.printStackTrace();

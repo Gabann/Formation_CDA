@@ -45,7 +45,7 @@ public class CatServlet extends HttpServlet
 		request.setAttribute("catList", catList);
 		try
 		{
-			getServletContext().getRequestDispatcher("/pages/catList.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/pages/ex_04/catList.jsp").forward(request, response);
 		} catch (ServletException | IOException e)
 		{
 			e.printStackTrace();

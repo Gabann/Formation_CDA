@@ -7,7 +7,7 @@
 <body>
 <button type="button" class="btn btn-primary">Primary</button>
 
-<%@include file="../WEB-INF/bootstrapImport.jsp" %>
+<%@include file="../../WEB-INF/bootstrapImport.jsp" %>
 </body>
 </html>
 

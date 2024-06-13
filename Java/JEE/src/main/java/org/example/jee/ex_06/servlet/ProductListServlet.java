@@ -33,12 +33,11 @@ public class ProductListServlet extends HttpServlet
 		request.setAttribute("productList", productList);
 		try
 		{
-			request.getRequestDispatcher("/pages/secured/productList.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/ex_06/secured/productList.jsp").forward(request, response);
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);
 		}
-
 	}
 
 	@Override

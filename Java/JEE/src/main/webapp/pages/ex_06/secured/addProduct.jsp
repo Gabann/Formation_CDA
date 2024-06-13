@@ -23,7 +23,9 @@
             <input type="number" id="stock" name="stock">
         </label>
         <button>Submit</button>
+
     </form>
 </div>
 </body>
 </html>
+<%@include file="../../../WEB-INF/bootstrapImport.jsp" %>

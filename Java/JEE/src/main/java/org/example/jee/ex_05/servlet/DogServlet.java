@@ -51,7 +51,14 @@ public class DogServlet extends HttpServlet implements ServletContextListener
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		request.setAttribute("dogList", dogList);
-		request.getRequestDispatcher("/pages/dogList.jsp").forward(request, response);
+		try
+		{
+			request.getRequestDispatcher("/pages/ex_05/dogList.jsp").forward(request, response);
+		} catch (Exception e)
+		{
+			System.out.println("Something went wrong: " + e);
+		}
+
 	}
 
 	@Override

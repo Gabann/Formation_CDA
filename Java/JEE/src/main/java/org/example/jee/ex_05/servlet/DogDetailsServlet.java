@@ -27,16 +27,23 @@ public class DogDetailsServlet extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		Dog dog;
-		String pathInfo = (request.getPathInfo() != null && !request.getPathInfo().isEmpty()) ? request.getPathInfo() : "";
-		Long id;
-		id = Long.parseLong(pathInfo.substring(1));
-		dog = dogDao.getById(id);
-		request.setAttribute("dog", dog);
-		System.out.println(dog);
-		request.setAttribute("pathInfo", pathInfo);
+		try
+		{
+			Dog dog;
+			String pathInfo = (request.getPathInfo() != null && !request.getPathInfo().isEmpty()) ? request.getPathInfo() : "";
+			long id;
+			id = Long.parseLong(pathInfo.substring(1));
+			dog = dogDao.getById(id);
+			request.setAttribute("dog", dog);
+			System.out.println(dog);
+			request.setAttribute("pathInfo", pathInfo);
 
-		request.getRequestDispatcher("/pages/dogDetails.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/ex_05/dogDetails.jsp").forward(request, response);
+		} catch (Exception e)
+		{
+			System.out.println("Something went wrong: " + e);
+		}
+
 	}
 
 	@Override

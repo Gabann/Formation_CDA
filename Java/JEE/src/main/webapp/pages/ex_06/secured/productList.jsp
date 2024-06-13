@@ -1,4 +1,3 @@
-<%@ page import="org.example.jee.ex_05.entity.Dog" %>
 <%@ page import="org.example.jee.ex_06.entity.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="productList" type="java.util.ArrayList<org.example.jee.ex_06.entity.Product>" scope="request"/>
@@ -50,3 +49,4 @@ else
 </table>
 </body>
 </html>
+<%@include file="../../../WEB-INF/bootstrapImport.jsp" %>
