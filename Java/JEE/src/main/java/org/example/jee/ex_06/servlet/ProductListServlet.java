@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "productListServlet", value = "/secured/productListServlet")
+
 public class ProductListServlet extends HttpServlet
 {
 	GenericDao<Product> productDao;
@@ -29,7 +30,6 @@ public class ProductListServlet extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		System.out.println("product list");
 		request.setAttribute("productList", productList);
 		try
 		{

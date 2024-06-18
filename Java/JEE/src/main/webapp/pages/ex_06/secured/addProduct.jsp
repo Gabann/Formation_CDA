@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <label for="brand">Brand:
             <input type="text" id="brand" name="brand">
         </label>
@@ -21,6 +21,9 @@
         </label>
         <label for="stock">Stock:
             <input type="number" id="stock" name="stock">
+        </label>
+        <label for="image">Image:
+            <input type="file" accept="image/*" id="image" name="image">
         </label>
         <button>Submit</button>
 

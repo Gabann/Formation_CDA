@@ -13,6 +13,7 @@ public class Product
 	LocalDate purchaseDate;
 	double price;
 	int stock;
+	String imagePath;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
@@ -22,13 +23,14 @@ public class Product
 	{
 	}
 
-	public Product(String brand, String reference, LocalDate purchaseDate, double price, int stock)
+	public Product(String brand, String reference, LocalDate purchaseDate, double price, int stock, String imagePath)
 	{
 		this.brand = brand;
 		this.reference = reference;
 		this.purchaseDate = purchaseDate;
 		this.price = price;
 		this.stock = stock;
+		this.imagePath = imagePath;
 	}
 
 	public String getBrand()
@@ -54,6 +56,11 @@ public class Product
 	public int getStock()
 	{
 		return stock;
+	}
+
+	public String getImagePath()
+	{
+		return imagePath;
 	}
 
 	public Long getId()

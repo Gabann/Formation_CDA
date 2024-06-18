@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-    if (productList.size() < 1)
+    if (productList.isEmpty())
     { %>
 There are no products in the list
 <% }
@@ -23,6 +23,7 @@ else
             <th scope="col">Purchase date</th>
             <th scope="col">Price</th>
             <th scope="col">Stock</th>
+            <th scope="col">Image</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,10 @@ else
             <td><%= product.getPrice()%>
             </td>
             <td><%= product.getStock()%>
+            </td>
+            <td><img style="max-width: 100%; max-height: 20vh" src="${pageContext.request.contextPath}/assets/images/<%=
+            product.getImagePath()%>"
+                     alt="product visual">
             </td>
             <% } %>
             <% } %>
