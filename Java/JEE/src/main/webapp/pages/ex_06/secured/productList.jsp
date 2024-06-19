@@ -50,6 +50,7 @@ else
             <% } %>
             <% } %>
         </tr>
+
     </tbody>
 </table>
 </body>
