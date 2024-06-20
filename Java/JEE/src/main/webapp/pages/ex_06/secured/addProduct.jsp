@@ -26,7 +26,6 @@
             <input type="file" accept="image/*" id="image" name="image">
         </label>
         <button>Submit</button>
-
     </form>
 </div>
 </body>
