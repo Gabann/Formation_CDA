@@ -6,6 +6,7 @@
 </head>
 <body>
 <div class="container-fluid">
+    <h2>Add patient</h2>
     <form method="post" enctype="multipart/form-data">
         <label for="first-name">First name:
             <input type="text" id="first-name" name="first-name">
@@ -13,7 +14,7 @@
         <label for="last-name">Last name:
             <input type="text" id="last-name" name="last-name">
         </label>
-        <label for="birth-date">Birth date:
+        <label for="birth-date">Birthdate:
             <input type="date" id="birth-date" name="birth-date">
         </label>
         <label for="photo">Photo:

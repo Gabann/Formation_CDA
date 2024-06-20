@@ -8,19 +8,17 @@
 <h1><%= "Index" %>
 </h1>
 <br/>
-<a href="loginServlet">Login servlet</a>
+<a href="login">Login servlet</a>
 <br>
-<a href="signupServlet">Signup Servlet</a>
+<a href="signup">Signup Servlet</a>
 <br>
-<a href="AddPatientServlet">Add patient Servlet</a>
+<a href="addPatient">Add patient Servlet</a>
 <br>
-<a href="PatientListServlet">Patient list Servlet</a>
+<a href="patientList">Patient list Servlet</a>
 <br>
-<a href="signupServlet">Signup Servlet</a>
+<a href="patientDetails">Patient details Servlet</a>
 <br>
-<a href="signupServlet">Signup Servlet</a>
-<br>
-<a href="signupServlet">Signup Servlet</a>
+<a href="careSheetDetails">Care sheet details Servlet</a>
 
 </body>
 </html>

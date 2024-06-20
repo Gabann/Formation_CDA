@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="container-fluid">
+    <h2>Patient list</h2>
     <table class="table">
         <thead>
             <tr>
@@ -16,6 +17,7 @@
                 <th scope="col">Last name</th>
                 <th scope="col">Birth date</th>
                 <th scope="col">Photo</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,9 +39,13 @@
                         <img style="max-width: 100%; max-height: 20vh"
                              src="${pageContext.request.contextPath}/assets/images/${patient.imagePath}" alt="patient photo">
                     </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/patientDetails?id=${patient.id}">
+                            <button>Patient details</button>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
-
         </tbody>
     </table>
 </div>

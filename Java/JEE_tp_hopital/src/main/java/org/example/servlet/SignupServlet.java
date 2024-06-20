@@ -11,7 +11,7 @@ import org.example.util.HibernateUtil;
 
 import java.io.IOException;
 
-@WebServlet(name = "signupServlet", value = "/signupServlet")
+@WebServlet(name = "signupServlet", value = "/signup")
 public class SignupServlet extends HttpServlet
 {
 	@Override

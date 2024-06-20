@@ -1,6 +1,5 @@
 package org.example.servlet;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,21 +12,18 @@ import org.example.util.HibernateUtil;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "PatientListServlet", value = "/PatientListServlet")
+@WebServlet(name = "PatientListServlet", value = "/patientList")
 public class PatientListServlet extends HttpServlet
 {
 	List<Patient> patientList;
-
-	@Override
-	public void init(ServletConfig config) throws ServletException
-	{
-		var patientDao = new GenericDao<Patient>(HibernateUtil.getSessionFactory(), Patient.class);
-		patientList = patientDao.getAll();
-	}
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		var patientDao = new GenericDao<Patient>(HibernateUtil.getSessionFactory(), Patient.class);
+		patientList = patientDao.getAll();
+
 		request.setAttribute("patientList", patientList);
 
 		try

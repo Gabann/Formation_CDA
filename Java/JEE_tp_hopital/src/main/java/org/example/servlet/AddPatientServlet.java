@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
-@WebServlet(name = "AddPatientServlet", value = "/AddPatientServlet")
+@WebServlet(name = "AddPatientServlet", value = "/addPatient")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
                  maxFileSize = 1024 * 1024 * 5,
                  maxRequestSize = 1024 * 1024 * 5 * 5)
@@ -33,7 +33,6 @@ public class AddPatientServlet extends HttpServlet
 		{
 			System.out.println("Something went wrong: " + e);
 		}
-
 	}
 
 	@Override
@@ -76,7 +75,7 @@ public class AddPatientServlet extends HttpServlet
 
 		try
 		{
-			response.sendRedirect(request.getContextPath() + "/PatientListServlet");
+			response.sendRedirect(request.getContextPath() + "/patientList");
 		} catch (Exception e)
 		{
 			System.out.println("Something went wrong: " + e);

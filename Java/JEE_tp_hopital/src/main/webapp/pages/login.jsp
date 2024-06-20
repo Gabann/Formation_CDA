@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="container-fluid">
+    <h2>Log in</h2>
     <form method="post">
         <label for="name">Username:
             <input type="text" id="name" name="username">

@@ -2,8 +2,15 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "meds")
+@NamedQueries({
+		@NamedQuery(name = "Meds.findByCareSheets_Id",
+		            query = "select m from Meds m inner join m.careSheets careSheets where careSheets.id = :id")
+})
 public class Meds
 {
 	String medsType;
@@ -13,22 +20,41 @@ public class Meds
 	@Column(name = "id", nullable = false)
 	private Long id;
 
-	@ManyToOne
-	@JoinColumn(name = "patient_id")
-	private Patient patient;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "meds_careSheets",
+	           joinColumns = @JoinColumn(name = "meds_id"),
+	           inverseJoinColumns = @JoinColumn(name = "careSheets_id"))
+	private Set<CareSheet> careSheets = new LinkedHashSet<>();
 
 	public Meds()
 	{
 	}
 
-	public Patient getPatient()
+	public Meds(String medsType, int durationDays, Set<CareSheet> careSheets)
 	{
-		return patient;
+		this.medsType = medsType;
+		this.durationDays = durationDays;
+		this.careSheets = careSheets;
 	}
 
-	public void setPatient(Patient patient)
+	public Set<CareSheet> getCareSheets()
 	{
-		this.patient = patient;
+		return careSheets;
+	}
+
+	public void setCareSheets(Set<CareSheet> careSheets)
+	{
+		this.careSheets = careSheets;
+	}
+
+	public String getMedsType()
+	{
+		return medsType;
+	}
+
+	public int getDurationDays()
+	{
+		return durationDays;
 	}
 
 	public Long getId()

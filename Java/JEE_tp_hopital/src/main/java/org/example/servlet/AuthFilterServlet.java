@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "AuthFilterServlet", value = "/AuthFilterServlet")
+@WebServlet(name = "AuthFilterServlet", value = "/authFilter")
 public class AuthFilterServlet extends HttpServlet implements Filter
 {
 	@Override

@@ -19,8 +19,6 @@ public class Patient
 	@Column(name = "id", nullable = false)
 	private Long id;
 	@OneToMany(mappedBy = "patient", orphanRemoval = true)
-	private Set<Meds> meds = new LinkedHashSet<>();
-	@OneToMany(mappedBy = "patient", orphanRemoval = true)
 	private Set<CareSheet> careSheets = new LinkedHashSet<>();
 
 	public Patient(String firstName, String lastName, LocalDate birthDate, String imagePath)
@@ -33,16 +31,6 @@ public class Patient
 
 	public Patient()
 	{
-	}
-
-	public Set<Meds> getMeds()
-	{
-		return meds;
-	}
-
-	public void setMeds(Set<Meds> meds)
-	{
-		this.meds = meds;
 	}
 
 	public String getFirstName()
