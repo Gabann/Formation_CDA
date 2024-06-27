@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Category list</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="category : ${categoryList}">
+				<td th:text="${category.id}"></td>
+				<td th:text="${category.name}"></td>
+				<td th:text="${category.description}"></td>
+				<td>
+					<a th:href="@{'/cooking/editCategory?categoryId=' + ${category.getId()}}">
+						<Button>Edit</Button>
+					</a>
+					<form method="post" th:action="@{'/cooking/deleteCategory/' + ${category.getId()}}">
+						<button type="submit">Delete</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/cooking/addCategory}">Add category</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit recipe</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<form method="post" th:action="@{/cooking/editRecipe}" th:object="${recipe}">
+		<!--		<div>-->
+		<!--			<label for="name">Name:</label>-->
+		<!--			<input id="name" th:field="*{name}" type="text">-->
+		<!--		</div>-->
+		<!--		<div>-->
+		<!--			<label for="description">Description:</label>-->
+		<!--			<textarea id="description" rows="3" th:field="*{description}"></textarea>-->
+		<!--		</div>-->
+		<!--		<div>-->
+		<!--			<label for="category">Category:</label>-->
+		<!--			<select id="category" th:field="*{category.id}">-->
+		<!--				<option th:each="category : ${categoryList}" th:text="${category.name}" th:value="${category.id}"></option>-->
+		<!--			</select>-->
+		<!--		</div>-->
+		<!--		<button>Send</button>-->
+	</form>
+</div>
+</body>
+</html>

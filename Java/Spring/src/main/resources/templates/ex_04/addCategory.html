@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Add category</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<form method="post" th:action="@{/cooking/addCategory}" th:object="${category}">
+
+		<div>
+			<label for="name">Name:</label>
+			<input id="name" th:field="*{name}" type="text">
+		</div>
+		<div>
+			<label for="description">Description:</label>
+			<textarea id="description" rows="3" th:field="*{description}">
+			</textarea>
+		</div>
+
+		<button>Send</button>
+	</form>
+</div>
+</body>
+</html>

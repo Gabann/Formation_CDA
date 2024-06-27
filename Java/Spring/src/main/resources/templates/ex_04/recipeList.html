@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>RecipeList</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Category</th>
+				<th>Instructions</th>
+				<th>Ingredients</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="recipe : ${recipeList}">
+				<td th:text="${recipe.name}"></td>
+				<td th:text="${recipe.category.name}"></td>
+				<td th:text="${recipe.instructions}"></td>
+				<td>
+					<ul>
+						<li th:each="ingredient : ${recipe.ingredientsList}" th:text="${ingredient}"></li>
+					</ul>
+				<td>
+					<a th:href="@{/cooking/editRecipe/{id}(id=${recipe.id})}">
+						<button>Edit</button>
+					</a>
+					<form method="post" th:action="@{/cooking/deleteRecipe/{id}(id=${recipe.id})}">
+						<button type="submit">Delete</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/cooking/addRecipe}">Add recipe</a>
+</div>
+</body>
+</html>
