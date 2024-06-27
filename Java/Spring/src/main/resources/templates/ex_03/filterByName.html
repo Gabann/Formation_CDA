@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Search by Id</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">First name</th>
+				<th scope="col">Last name</th>
+				<th scope="col">Age</th>
+				<th scope="col">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="student : ${studentList}">
+				<th scope="row" th:text="${student.getId}"></th>
+				<td th:text="${student.getFirstName()}"></td>
+				<td th:text="${student.getLastName()}"></td>
+				<td th:text="${student.getAge()}"></td>
+				<td th:text="${student.getEmail()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Student Detail</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<p>First name: <span th:text="${student.getFirstName()}"></span></p>
+	<p>Last name: <span th:text="${student.getLastName()}"></span></p>
+	<p>Age name: <span th:text="${student.getAge()}"></span></p>
+	<p>Email name: <span th:text="${student.getEmail()}"></span></p>
+</div>
+</body>
+</html>

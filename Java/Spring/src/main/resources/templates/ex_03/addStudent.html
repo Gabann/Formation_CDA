@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Add student</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container-fluid">
+	<form method="post" th:action="@{/student/add}" th:object="${student}">
+
+		<div>
+			<label for="first-name">First name:</label>
+			<input id="first-name" th:field="*{firstName}" type="text">
+		</div>
+		<div>
+			<label for="last-name">Last name:</label>
+			<input id="last-name" th:field="*{lastName}" type="text">
+		</div>
+		<div>
+			<label for="age">Age:</label>
+			<input id="age" th:field="*{age}" type="number">
+		</div>
+		<div>
+			<label for="email">Email:</label>
+			<input id="email" th:field="*{email}" type="email">
+		</div>
+
+		<button>Send</button>
+	</form>
+</div>
+</body>
+</html>
