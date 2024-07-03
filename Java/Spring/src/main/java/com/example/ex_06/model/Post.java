@@ -23,7 +23,7 @@ public class Post
 	@JoinColumn(name = "author_id")
 	private User author;
 
-	@OneToOne(orphanRemoval = true)
+	@ManyToOne
 	@JoinColumn(name = "topic_id")
 	private Topic topic;
 
