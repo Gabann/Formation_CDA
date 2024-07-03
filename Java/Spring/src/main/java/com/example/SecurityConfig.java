@@ -25,7 +25,8 @@ public class SecurityConfig
 {
 
 	@Bean
-	public UserDetailsService userDetailsService(PasswordEncoder encoder) {
+	public UserDetailsService userDetailsService(PasswordEncoder encoder)
+	{
 		UserDetails userDetails =
 				User.builder().passwordEncoder(encoder::encode)
 						.username("user")
@@ -36,12 +37,14 @@ public class SecurityConfig
 	}
 
 	@Bean
-	public PasswordEncoder getPasswordEncoder() {
+	public PasswordEncoder getPasswordEncoder()
+	{
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 
 	@Bean
-	public AuthenticationManager authenticationManager(CustomUserDetailsService customUserDetailsService, PasswordEncoder passwordEncoder) {
+	public AuthenticationManager authenticationManager(CustomUserDetailsService customUserDetailsService, PasswordEncoder passwordEncoder)
+	{
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setUserDetailsService(customUserDetailsService);
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
@@ -50,20 +53,21 @@ public class SecurityConfig
 	}
 
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-			http
-					.authorizeHttpRequests(requests -> requests
-							.requestMatchers("/forum/secured/**").authenticated()
-							.anyRequest().permitAll()
-					)
-					.formLogin(form -> form
-							.loginPage("/forum/login")
-							.loginProcessingUrl("/forum/login")
-							.defaultSuccessUrl("/forum/secured", true)
-							.failureUrl("/forum/login?error=true")
-							.permitAll()
-					)
-					.logout(LogoutConfigurer::permitAll);
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
+	{
+		http
+				.authorizeHttpRequests(requests -> requests
+						.requestMatchers("/forum/**").authenticated()
+						.anyRequest().permitAll()
+				)
+				.formLogin(form -> form
+						.loginPage("/forum/login")
+						.loginProcessingUrl("/forum/login")
+						.defaultSuccessUrl("/forum/secured", true)
+						.failureUrl("/forum/login?error=true")
+						.permitAll()
+				)
+				.logout(LogoutConfigurer::permitAll);
 
 		return http.build();
 	}

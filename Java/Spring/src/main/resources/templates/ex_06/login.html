@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
 </head>
 <body>
-<form th:action="@{/forum/login}" method="post">
-	<div>
-		<input type="text" name="username" placeholder="Username"/>
-	</div>
-	<div>
-		<input type="password" name="password" placeholder="Password"/>
-	</div>
-	<input type="submit" value="Log in"/>
-</form>
+<div class="container-fluid">
+	<form method="post" th:action="@{/forum/login}">
+		<div>
+			<input name="username" placeholder="Username" type="text"/>
+		</div>
+		<div>
+			<input name="password" placeholder="Password" type="password"/>
+		</div>
+
+		<input type="submit" value="Log in"/>
+	</form>
+</div>
 </body>
 </html>

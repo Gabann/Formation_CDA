@@ -15,8 +15,8 @@ public class UserService
 	{
 		this.repository = userRepository;
 
-		userRepository.save(new User("username", "password"));
-		userRepository.save(new User("admin", "admin"));
+		repository.save(new User("username", "password"));
+		repository.save(new User("admin", "admin"));
 	}
 
 	public List<User> getAll()

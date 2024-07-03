@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Add post</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container">
+	<h1>Add post</h1>
+	<form method="post" th:action="@{/forum/post/add}" th:object="${post}">
+		<div class="form-group">
+			<label for="content">Content</label>
+			<input th:field="*{postingDate}" type="hidden">
+			<input th:field="*{author}" type="hidden">
+			<input th:field="*{topic}" type="hidden">
+			<textarea class="form-control" id="content" name="content" rows="3"></textarea>
+		</div>
+		<button class="btn btn-primary" type="submit">Submit</button>
+	</form>
+</div>
+</body>
+</html>

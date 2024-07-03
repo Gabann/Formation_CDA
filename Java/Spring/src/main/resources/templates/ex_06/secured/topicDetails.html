@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<div th:replace="~{fragments :: bootstrapImport}"></div>
+</head>
+<body>
+<div class="container">
+	<h1>Topic details</h1>
+	<div>
+		<p>Title: <span th:text="${topic.getTitle()}"/></p>
+		<p>Author: <span th:text="${topic.getAuthor().getUsername()}"/></p>
+		<p>Creation date: <span th:text="${topic.getCreationDate()}"/></p>
+	</div>
+	<div>
+		<h2>Posts</h2>
+		<div>
+			<a th:href="@{/forum/post/add(topicId=${topic.getId()})}">New post</a>
+		</div>
+		<div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Author</th>
+						<th>Creation date</th>
+						<th>Content</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="post : ${posts}">
+						<td th:text="${post.getAuthor().getUsername()}"></td>
+						<td th:text="${post.getPostingDate()}"></td>
+						<td th:text="${post.getContent()}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -16,7 +16,7 @@ public class UserController
 	private final UserService userService;
 
 	@Autowired
-	UserController (UserService userService)
+	UserController(UserService userService)
 	{
 		this.userService = userService;
 	}
@@ -32,7 +32,7 @@ public class UserController
 		}
 
 		model.addAttribute("user", user);
-		return "ex_06/userDetails";
+		return "ex_06/secured/userDetails";
 
 	}
 }
