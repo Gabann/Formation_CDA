@@ -25,7 +25,6 @@ public class DateTimeAutoConfiguration
 	{
 		return new Jackson2ObjectMapperBuilderCustomizer()
 		{
-
 			@Override
 			public void customize(
 					Jackson2ObjectMapperBuilder jacksonObjectMapperBuilder)

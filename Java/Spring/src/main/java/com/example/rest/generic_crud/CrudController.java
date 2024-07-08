@@ -43,7 +43,7 @@ public abstract class CrudController<T, ID>
 		service.update(id, entity);
 		return new ResponseEntity<>(entity, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable ID id)
 	{
