@@ -1,4 +1,4 @@
-package com.example.rest.ex_03.entity;
+package com.example.rest.ex_03.back.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,25 +10,27 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "employee")
-public class Employee
+@Table(name = "candidate")
+public class Candidate
 {
 	String name;
 	String address;
 	String phoneNumber;
 	String email;
 	LocalDate birthDate;
-	LocalDate contractStart;
-	LocalDate contractEnd;
-	String occupation;
-	String password;
-	boolean admin;
-	int salary;
+	int rating;
 
 	@ElementCollection
-	@CollectionTable(name = "employee_observation", joinColumns = @JoinColumn(name = "employee_id"))
+	@CollectionTable(name = "candidate_observation", joinColumns = @JoinColumn(name = "candidate_id"))
 	@Column(name = "observations")
 	List<String> observation;
+
+	@ElementCollection
+	@CollectionTable(name = "candidate_skills", joinColumns = @JoinColumn(name = "candidate_id"))
+	@Column(name = "skills")
+	List<String> skills;
+	String technicalArea;
+	LocalDate jobInterviewDate;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

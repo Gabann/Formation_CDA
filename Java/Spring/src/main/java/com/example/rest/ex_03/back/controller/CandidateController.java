@@ -1,7 +1,7 @@
-package com.example.rest.ex_03.controller;
+package com.example.rest.ex_03.back.controller;
 
-import com.example.rest.ex_03.entity.Candidate;
-import com.example.rest.ex_03.service.CandidateService;
+import com.example.rest.ex_03.back.entity.Candidate;
+import com.example.rest.ex_03.back.service.CandidateService;
 import com.example.rest.generic_crud.CrudController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
