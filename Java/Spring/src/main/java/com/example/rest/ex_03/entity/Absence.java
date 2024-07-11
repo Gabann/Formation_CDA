@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -16,9 +14,11 @@ public class Absence
 {
 	LocalDate startDate;
 	LocalDate entDate;
-	@OneToMany(orphanRemoval = true)
-	@JoinColumn(name = "candidate_id")
-	private Set<Employee> employees = new LinkedHashSet<>();
+
+	@ManyToOne
+	@JoinColumn(name = "employee_id")
+	private Employee employee;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
