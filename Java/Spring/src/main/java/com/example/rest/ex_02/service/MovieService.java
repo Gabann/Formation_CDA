@@ -8,6 +8,8 @@ import com.example.rest.ex_02.repository.MovieRepository;
 import com.example.rest.generic_crud.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MovieService extends CrudServiceImpl<Movie, Long>
 {
@@ -31,5 +33,10 @@ public class MovieService extends CrudServiceImpl<Movie, Long>
 		newMovie.setDirector(director);
 
 		return movieRepository.save(newMovie);
+	}
+
+	public List<Movie> getMovieByDirector(Long directorId)
+	{
+		return movieRepository.findByDirector_Id(directorId);
 	}
 }

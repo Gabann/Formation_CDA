@@ -5,7 +5,6 @@ import com.example.rest.ex_02.entity.Movie;
 import com.example.rest.ex_02.service.DirectorService;
 import com.example.rest.ex_02.service.MovieService;
 import com.example.rest.generic_crud.CrudController;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,11 +30,6 @@ public class DirectorController extends CrudController<Director, Long>
 	@GetMapping("/{directorId}/movies")
 	public ResponseEntity<List<Movie>> getMoviesByDirector(@PathVariable String directorId)
 	{
-		List<Movie> movieList = (List<Movie>) movieService.getAll();
-
-		List<Movie> directorMovies = movieList.stream()
-				.filter(movie -> movie.getDirector() == directorService.getById(Long.valueOf(directorId)).orElse(null)).toList();
-
-		return new ResponseEntity<>(directorMovies, HttpStatus.OK);
+		return ResponseEntity.ok(movieService.getMovieByDirector(Long.valueOf(directorId)));
 	}
 }
