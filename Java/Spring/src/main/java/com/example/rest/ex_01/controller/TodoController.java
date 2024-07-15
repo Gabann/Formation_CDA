@@ -1,9 +1,9 @@
 package com.example.rest.ex_01.controller;
 
 
+import com.example.generic_crud.CrudController;
 import com.example.rest.ex_01.entity.Todo;
 import com.example.rest.ex_01.service.TodoService;
-import com.example.rest.generic_crud.CrudController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

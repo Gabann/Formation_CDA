@@ -1,10 +1,10 @@
 package com.example.rest.ex_02.controller;
 
+import com.example.generic_crud.CrudController;
 import com.example.rest.ex_02.entity.Director;
 import com.example.rest.ex_02.entity.Movie;
 import com.example.rest.ex_02.service.DirectorService;
 import com.example.rest.ex_02.service.MovieService;
-import com.example.rest.generic_crud.CrudController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

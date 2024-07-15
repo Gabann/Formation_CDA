@@ -1,8 +1,8 @@
 package com.example.rest.ex_03.back.service;
 
+import com.example.generic_crud.CrudServiceImpl;
 import com.example.rest.ex_03.back.entity.Absence;
 import com.example.rest.ex_03.back.repository.AbsenceRepository;
-import com.example.rest.generic_crud.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

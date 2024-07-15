@@ -1,9 +1,9 @@
 package com.example.rest.ex_02.controller;
 
+import com.example.generic_crud.CrudController;
 import com.example.rest.ex_02.dto.MovieDto;
 import com.example.rest.ex_02.entity.Movie;
 import com.example.rest.ex_02.service.MovieService;
-import com.example.rest.generic_crud.CrudController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

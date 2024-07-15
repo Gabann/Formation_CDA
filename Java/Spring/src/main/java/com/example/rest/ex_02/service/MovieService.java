@@ -1,11 +1,11 @@
 package com.example.rest.ex_02.service;
 
+import com.example.generic_crud.CrudServiceImpl;
 import com.example.rest.ex_02.dto.MovieDto;
 import com.example.rest.ex_02.entity.Director;
 import com.example.rest.ex_02.entity.Movie;
 import com.example.rest.ex_02.repository.DirectorRepository;
 import com.example.rest.ex_02.repository.MovieRepository;
-import com.example.rest.generic_crud.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

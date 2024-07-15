@@ -1,4 +1,4 @@
-package com.example.rest.generic_crud;
+package com.example.generic_crud;
 
 import org.springframework.data.repository.CrudRepository;
 
