@@ -1,0 +1,32 @@
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "password"
+}
+
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "password",
+  "roles": "USER"
+}
+
+###
+### GET request to example server
+GET http://localhost:8080/api/products/all
+
+###
+
+POST http://localhost:8080/api/products/
+Content-Type: application/json
+
+{
+  "name": "testName",
+  "priceCents": 1
+}
+

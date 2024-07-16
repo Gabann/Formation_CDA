@@ -1,5 +1,6 @@
-package com.example.mvc;
+package com.example;
 
+import com.example.config.security.SecurityConfig;
 import jakarta.servlet.ServletContext;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -8,11 +9,9 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 public class AppInitializer implements WebApplicationInitializer
 {
-
 	@Override
 	public void onStartup(ServletContext sc)
 	{
-
 		AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
 		root.register(SecurityConfig.class);
 

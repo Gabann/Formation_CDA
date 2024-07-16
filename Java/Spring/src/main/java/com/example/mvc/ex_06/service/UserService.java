@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("mvcUserService")
 public class UserService
 {
 	private final UserRepository repository;
