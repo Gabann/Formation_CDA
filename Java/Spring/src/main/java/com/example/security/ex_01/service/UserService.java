@@ -36,18 +36,22 @@ public class UserService implements UserDetailsService
 //		this.jwtTokenProvider = jwtTokenProvider;
 //	}
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder;
+
+	private final UserRepository userRepository;
+
+	private final JwtTokenProvider jwtTokenProvider;
 
 	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
-	private JwtTokenProvider jwtTokenProvider;
-
 	@Lazy
-	@Autowired
 	private AuthenticationManager authenticationManager;
+
+	public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository, JwtTokenProvider jwtTokenProvider)
+	{
+		this.passwordEncoder = passwordEncoder;
+		this.userRepository = userRepository;
+		this.jwtTokenProvider = jwtTokenProvider;
+	}
 
 	public String generateToken(String username, String password)
 	{

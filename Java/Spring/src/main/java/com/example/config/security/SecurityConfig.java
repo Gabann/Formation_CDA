@@ -44,8 +44,12 @@ public class SecurityConfig
 	{
 		http
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers("/forum/**").authenticated()
-						.anyRequest().permitAll()
+								.requestMatchers("/forum/**").authenticated()
+								.requestMatchers("/api/auth/**").permitAll()
+								.requestMatchers("/api/products").hasAnyRole("USER", "ADMIN")
+								.requestMatchers("/api/products/admin/create").hasRole("ADMIN")
+//						.requestMatchers("*").authenticated()
+								.anyRequest().permitAll()
 				)
 				.formLogin(form -> form
 						.loginPage("/forum/login")
