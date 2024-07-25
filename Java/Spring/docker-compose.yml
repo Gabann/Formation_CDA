@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql
+    container_name: local_mysql
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_USER: ${DATABASE_USERNAME}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - local_mysql_data:/etc/mysql/
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      db:
+        condition: service_started
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "9846:80"
+
+
+volumes:
+  local_mysql_data:
