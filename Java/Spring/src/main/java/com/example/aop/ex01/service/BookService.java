@@ -1,7 +1,7 @@
-package com.example.aop.service;
+package com.example.aop.ex01.service;
 
-import com.example.aop.entity.Book;
-import com.example.aop.repository.BookRepository;
+import com.example.aop.ex01.entity.Book;
+import com.example.aop.ex01.repository.BookRepository;
 import com.example.generic_crud.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 

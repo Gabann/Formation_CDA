@@ -1,8 +1,8 @@
-package com.example.aop.controller;
+package com.example.aop.ex01.controller;
 
-import com.example.aop.annotation.AspectAnnotation;
-import com.example.aop.entity.Book;
-import com.example.aop.service.BookService;
+import com.example.aop.ex01.annotation.AspectAnnotation;
+import com.example.aop.ex01.entity.Book;
+import com.example.aop.ex01.service.BookService;
 import com.example.generic_crud.CrudController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

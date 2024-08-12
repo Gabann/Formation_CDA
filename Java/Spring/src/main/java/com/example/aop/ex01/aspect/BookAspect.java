@@ -1,4 +1,4 @@
-package com.example.aop.aspect;
+package com.example.aop.ex01.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookAspect
 {
-	@Pointcut("@annotation(com.example.aop.annotation.AspectAnnotation)")
+	@Pointcut("@annotation(com.example.aop.ex01.annotation.AspectAnnotation)")
 	public void annotationPointcut()
 	{
 	}
