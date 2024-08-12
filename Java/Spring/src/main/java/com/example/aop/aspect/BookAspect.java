@@ -8,40 +8,52 @@ import org.springframework.stereotype.Component;
 @Component
 public class BookAspect
 {
-	@Pointcut("execution (* com.example.aop.controller.BookController+.*(..)) ||" +
-			" execution(* com.example.generic_crud.CrudController.*(..))")
-	public void bookControllerMethods()
+	@Pointcut("@annotation(com.example.aop.annotation.AspectAnnotation)")
+	public void annotationPointcut()
 	{
 	}
+//
+//	@Pointcut("execution (* com.example.aop.controller.BookController+.*(..))")
+//	public void bookControllerMethods()
+//	{
+//	}
 
-	@Before("bookControllerMethods()")
+	@Before("annotationPointcut()")
 	public void beforeReturningEveryMethod()
 	{
 		System.out.println("Before method");
 	}
 
-	@After("bookControllerMethods()")
+	@After("annotationPointcut()")
 	public void afterReturningEveryMethod()
 	{
 		System.out.println("After method");
 	}
 
-	@Around("bookControllerMethods()")
-	public void around(ProceedingJoinPoint proceedingJoinPoint)
+	@Around("annotationPointcut()")
+	public Object around(ProceedingJoinPoint proceedingJoinPoint)
 	{
 		double msBeforeCall = System.currentTimeMillis();
 
-		Object[] args = proceedingJoinPoint.getArgs();
 		try
 		{
-			proceedingJoinPoint.proceed(args);
+			Object[] args = proceedingJoinPoint.getArgs();
+			Object result = proceedingJoinPoint.proceed(args);
+
+			double executionTime = System.currentTimeMillis() - msBeforeCall;
+			System.out.printf("Method took %s ms to execute %n", executionTime);
+			return result;
+		}
+		catch (Exception ex)
+		{
+			System.out.println("Catch exception with around cut");
 		}
 		catch (Throwable e)
 		{
 			throw new RuntimeException(e);
+		} finally
+		{
+			return null;
 		}
-
-		double executionTime = System.currentTimeMillis() - msBeforeCall;
-		System.out.printf("Method took %s ms to execute %n", executionTime);
 	}
 }
