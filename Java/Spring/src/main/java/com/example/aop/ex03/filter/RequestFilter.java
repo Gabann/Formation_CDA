@@ -26,7 +26,10 @@ public class RequestFilter extends OncePerRequestFilter
 		String timestamp = String.valueOf(System.currentTimeMillis());
 		Date date = new Date(Long.parseLong(timestamp));
 
-		FileWriter fw = new FileWriter("logs.txt", true);
+		String currentDir = System.getProperty("user.dir");
+		String filePath = currentDir + "/src/main/java/com/example/aop/ex03/filter/logs.txt";
+		FileWriter fw = new FileWriter(filePath, true);
+		
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write("Request from " + requestIp + " at " + date);
 		bw.newLine();

@@ -1,0 +1,6 @@
+Request from 127.0.0.1 at Mon Aug 12 16:50:11 CEST 2024
+URI: /book/sub | Method: GET
+--------------------------------------------
+Request from 127.0.0.1 at Mon Aug 12 16:50:34 CEST 2024
+URI: /book/sub | Method: GET
+--------------------------------------------
