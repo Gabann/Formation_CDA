@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("catalog/directors")
+@RequestMapping("/catalog/directors")
 public class DirectorController extends CrudController<Director, Long>
 {
 	private final MovieService movieService;
