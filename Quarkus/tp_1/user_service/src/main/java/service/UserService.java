@@ -48,7 +48,7 @@ public class UserService
 	public boolean updateById(Long id, User newUser)
 	{
 		User existingUser = repository.findById(id);
-		if (existingUser != null)
+		if (existingUser == null)
 		{
 			return false;
 		}

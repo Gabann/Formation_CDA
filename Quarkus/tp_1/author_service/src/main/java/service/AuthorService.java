@@ -48,7 +48,7 @@ public class AuthorService
 	public boolean updateById(Long id, Author newAuthor)
 	{
 		Author existingAuthor = repository.findById(id);
-		if (existingAuthor != null)
+		if (existingAuthor == null)
 		{
 			return false;
 		}

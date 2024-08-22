@@ -95,7 +95,7 @@ public class BorrowService
 	public boolean updateById(Long id, Borrow newBorrow)
 	{
 		Borrow existingBorrow = repository.findById(id);
-		if (existingBorrow != null)
+		if (existingBorrow == null)
 		{
 			return false;
 		}

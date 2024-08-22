@@ -94,7 +94,7 @@ public class ReviewService
 	public boolean updateById(Long id, Review newReview)
 	{
 		Review existingReview = repository.findById(id);
-		if (existingReview != null)
+		if (existingReview == null)
 		{
 			return false;
 		}

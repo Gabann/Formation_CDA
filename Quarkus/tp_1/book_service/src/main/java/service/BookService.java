@@ -80,7 +80,7 @@ public class BookService
 	public boolean updateById(Long id, Book newBook)
 	{
 		Book existingBook = repository.findById(id);
-		if (existingBook != null)
+		if (existingBook == null)
 		{
 			return false;
 		}
