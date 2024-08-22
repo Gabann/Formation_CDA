@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BookDto
 {
+	Long id;
 	String title;
 	String isbn;
 }

@@ -66,4 +66,25 @@ public class ReviewRessource
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
 	}
+
+	@GET
+	@Path("/score/{score}")
+	public Response getByScore(@PathParam("score") int score)
+	{
+		return Response.ok(service.getByScore(score)).status(200).build();
+	}
+
+	@GET
+	@Path("/user/{userId}")
+	public Response getByUserId(@PathParam("userId") Long userId)
+	{
+		return Response.ok(service.getByUserId(userId)).status(200).build();
+	}
+
+	@GET
+	@Path("/isbn/{isbn}")
+	public Response getByBookIsbn(@PathParam("isbn") String isbn)
+	{
+		return Response.ok(service.getByBookIsbn(isbn)).status(200).build();
+	}
 }

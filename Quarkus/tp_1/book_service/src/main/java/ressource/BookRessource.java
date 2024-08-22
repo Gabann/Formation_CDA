@@ -7,6 +7,8 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import service.BookService;
 
+import java.util.List;
+
 @Path("/api/book")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -65,5 +67,32 @@ public class BookRessource
 		{
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
+	}
+
+	@GET
+	@Path("/notBorrowed")
+	public Response getBooksNotBorrowed() {
+		List<Book> books = service.getBooksNotBorrowed();
+		return Response.ok(books).status(200).build();
+	}
+
+	@GET
+	@Path("/isBorrowed/{id}")
+	public Response isBorrowed(@PathParam("id") Long id) {
+		boolean isBorrowed = service.isBookBorrowedById(id);
+		return Response.ok(isBorrowed).status(200).build();
+	}
+
+	@GET
+	@Path("/available")
+	public Response getAvailableBooks() {
+		List<Book> books = service.getAvailableBooks();
+		return Response.ok(books).status(200).build();
+	}
+
+	@GET
+	@Path("/isbn/{isbn}")
+	public Response getByIsbn(@PathParam("isbn") String isbn) {
+		return Response.ok(service.getByIsbn(isbn)).status(200).build();
 	}
 }

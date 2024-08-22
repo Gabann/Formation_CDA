@@ -106,4 +106,35 @@ public class ReviewService
 		repository.persist(existingReview);
 		return true;
 	}
+
+	public List<Review> getByScore(int score)
+	{
+		List<Review> reviews = repository.getByScore(score);
+		return reviews.stream()
+				.map(review -> this.enrichWithDtoDetails(review))
+				.toList();
+	}
+
+	public List<Review> getByUserId(Long userId)
+	{
+		List<Review> reviews = repository.getByUserId(userId);
+		return reviews.stream()
+				.map(review -> this.enrichWithDtoDetails(review))
+				.toList();
+	}
+
+	public List<Review> getByBookIsbn(String isbn)
+	{
+		BookDto bookDto = bookServiceClient.getBookByIsbn(isbn);
+
+		if (bookDto == null)
+		{
+			throw new WebApplicationException("Book not found for ISBN " + isbn, 404);
+		}
+
+		List<Review> reviews = repository.getByBookId(bookDto.getId());
+		return reviews.stream()
+				.map(review -> this.enrichWithDtoDetails(review))
+				.toList();
+	}
 }

@@ -9,6 +9,7 @@ import jakarta.ws.rs.WebApplicationException;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import repository.BookRepository;
 import rest_client.AuthorServiceClient;
+import rest_client.BorrowServiceClient;
 
 import java.util.List;
 
@@ -21,6 +22,10 @@ public class BookService
 	@Inject
 	@RestClient
 	AuthorServiceClient authorServiceClient;
+
+	@Inject
+	@RestClient
+	BorrowServiceClient borrowServiceClient;
 
 	private Book enrichWithDtoDetails(Book book)
 	{
@@ -89,5 +94,23 @@ public class BookService
 		existingBook.setIsbn(newBook.getIsbn());
 		repository.persist(existingBook);
 		return true;
+	}
+
+	public List<Book> getBooksNotBorrowed() {
+		return repository.getBooksNotBorrowed();
+	}
+
+	public boolean isBookBorrowedById(Long id) {
+		return borrowServiceClient.isBookBorrowedById(id);
+	}
+
+	public List<Book> getAvailableBooks() {
+		return this.getAll().stream()
+				.filter(book -> !this.isBookBorrowedById(book.getId()))
+				.toList();
+	}
+
+	public Book getByIsbn(String isbn) {
+		return repository.getByIsbn(isbn);
 	}
 }

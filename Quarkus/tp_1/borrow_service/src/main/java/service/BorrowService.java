@@ -13,6 +13,7 @@ import rest_client.BookServiceClient;
 import rest_client.UserServiceClient;
 
 import java.awt.print.Book;
+import java.time.LocalDate;
 import java.util.List;
 
 @ApplicationScoped
@@ -106,5 +107,29 @@ public class BorrowService
 		existingBorrow.setUserId(newBorrow.getUserId());
 		repository.persist(existingBorrow);
 		return true;
+	}
+
+	public List<Borrow> getCurrentBorrows()
+	{
+		return repository.getCurrentBorrows().stream()
+				.map(borrow -> this.enrichWithDtoDetails(borrow))
+				.toList();
+	}
+
+	public List<Borrow> getBorrowsBetweenDates(LocalDate startDate, LocalDate endDate)
+	{
+		return repository.getBorrowsBetweenDates(startDate, endDate);
+	}
+
+	public List<Borrow> getBorrowsByUserId(Long userId)
+	{
+		return repository.getBorrowsByUserId(userId).stream()
+				.map(borrow -> this.enrichWithDtoDetails(borrow))
+				.toList();
+	}
+
+	public boolean isBookBorrowed(Long bookId)
+	{
+		return repository.isBookBorrowed(bookId);
 	}
 }
