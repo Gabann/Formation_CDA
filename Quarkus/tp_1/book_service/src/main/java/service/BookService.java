@@ -29,7 +29,7 @@ public class BookService
 			return null;
 		}
 
-		AuthorDto authorDto = authorServiceClient.getAuthorById(book.getId());
+		AuthorDto authorDto = authorServiceClient.getAuthorById(book.getAuthorId());
 
 		if (authorDto == null)
 		{

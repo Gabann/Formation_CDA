@@ -35,14 +35,14 @@ public class ReviewService
 			return null;
 		}
 
-		BookDto bookDto = bookServiceClient.getBookById(review.getId());
+		BookDto bookDto = bookServiceClient.getBookById(review.getBookId());
 
 		if (bookDto == null)
 		{
 			throw new WebApplicationException("Book not found for ID " + review.getBookId(), 404);
 		}
 
-		UserDto userDto = userServiceClient.getUserById(review.getId());
+		UserDto userDto = userServiceClient.getUserById(review.getUserId());
 
 		if (userDto == null)
 		{

@@ -36,14 +36,14 @@ public class BorrowService
 			return null;
 		}
 
-		BookDto bookDto = bookServiceClient.getBookById(borrow.getId());
+		BookDto bookDto = bookServiceClient.getBookById(borrow.getBookId());
 
 		if (bookDto == null)
 		{
 			throw new WebApplicationException("Book not found for ID " + borrow.getBookId(), 404);
 		}
 
-		UserDto userDto = userServiceClient.getUserById(borrow.getId());
+		UserDto userDto = userServiceClient.getUserById(borrow.getUserId());
 
 		if (userDto == null)
 		{
