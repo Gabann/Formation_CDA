@@ -1,17 +1,17 @@
 package org.example.ex_01.layout;
 
-import lombok.Data;
+import lombok.Getter;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 import javax.swing.*;
 import java.awt.*;
 
-@Data
+@Getter
 public class Calculator
 {
+	private final JLabel label;
+	private final JPanel panel;
 	String expression = "";
-	JLabel label;
-	private JPanel panel;
 
 	public Calculator()
 	{
