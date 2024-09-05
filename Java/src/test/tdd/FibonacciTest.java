@@ -1,8 +1,7 @@
-package test.tdd;
+package tdd;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import tdd.Fibonacci;
 
 import java.util.Collections;
 import java.util.List;

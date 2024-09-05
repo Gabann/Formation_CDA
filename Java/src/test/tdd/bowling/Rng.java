@@ -1,4 +1,4 @@
-package test.tdd.bowling;
+package tdd.bowling;
 
 import java.util.Random;
 

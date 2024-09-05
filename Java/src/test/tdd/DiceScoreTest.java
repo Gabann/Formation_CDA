@@ -1,9 +1,9 @@
-package test.tdd;
+package tdd;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import tdd.Dice;
-import tdd.DiceScore;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DiceScoreTest
 {

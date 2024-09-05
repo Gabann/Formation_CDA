@@ -1,9 +1,11 @@
-package test.tdd.shop;
+package tdd.shop;
+
 
 import org.junit.jupiter.api.Test;
-import tdd.shop.BrieVielli;
 
-class BrieVielliTest extends test.tdd.shop.HibernateProductTest
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class BrieVielliTest extends ProductTest
 {
 	@Override
 	protected BrieVielli createProduct()

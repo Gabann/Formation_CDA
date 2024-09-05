@@ -1,4 +1,4 @@
-package test.tdd.bowling;
+package tdd.bowling;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FrameTest
@@ -23,7 +24,7 @@ class FrameTest
 	{
 		if (frame.currentRound != 10)
 		{
-			Mockito.when(test.tdd.bowling.Rng.getRng()).thenReturn(10);
+			Mockito.when(Rng.getRng()).thenReturn(10);
 			frame.throwBall();
 
 			assertEquals(2, frame.currentRound);
@@ -33,12 +34,12 @@ class FrameTest
 	@Test
 	void throwsShouldAppearInThrowHistory()
 	{
-		Mockito.when(test.tdd.bowling.Rng.getRng()).thenReturn(10);
+		Mockito.when(Rng.getRng()).thenReturn(10);
 		frame.throwBall();
 
 		assertEquals(frame.throwHistory, List.of(new Integer[]{10}));
 
-		Mockito.when(test.tdd.bowling.Rng.getRng()).thenReturn(3, 7);
+		Mockito.when(Rng.getRng()).thenReturn(3, 7);
 		frame.throwBall();
 		assertEquals(frame.throwHistory, List.of(new Integer[]{10}, new Integer[]{3, 7}));
 	}
@@ -46,7 +47,7 @@ class FrameTest
 	@Test
 	void shouldNotHitMoreThan10Quills()
 	{
-		Mockito.when(test.tdd.bowling.Rng.getRng()).thenReturn(5, 6);
+		Mockito.when(Rng.getRng()).thenReturn(5, 6);
 		frame.throwBall();
 
 		assertThrows(RuntimeException.class, () -> frame.throwBall());
@@ -56,11 +57,11 @@ class FrameTest
 	void lastRoundShouldAllow2ThrowsIfStrike()
 	{
 		frame.currentRound = 10;
-		Mockito.when(test.tdd.bowling.Rng.getRng()).thenReturn(10);
+		Mockito.when(Rng.getRng()).thenReturn(10);
 		frame.throwBall();
 
 		frame.throwBall();
 
-		assertEquals(frame.throwHistory.get(10), new Integer[]{10, 10});
+		assertEquals(new Integer[]{10, 10}, frame.throwHistory.get(10));
 	}
 }

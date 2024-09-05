@@ -1,4 +1,4 @@
-package test;
+package algo;
 
 import algo.procedural.Adn;
 import org.junit.jupiter.api.DisplayName;
@@ -27,7 +27,6 @@ class AdnTest
 	private static Stream<Arguments> testSequenceRepeatingWithBreak()
 	{
 		return Stream.of(
-				//Checks for sequence repeating multiple times but with non-matching sequence in the middle
 				Arguments.of("acatac", "ac", 4.0 / 6)
 		);
 	}
@@ -35,8 +34,6 @@ class AdnTest
 	private static Stream<Arguments> testCaseInsensitivity()
 	{
 		return Stream.of(
-
-				//Checks for case insensitivity
 				Arguments.of("ACaTaC", "ac", 4.0 / 6)
 		);
 	}
@@ -56,18 +53,21 @@ class AdnTest
 	@MethodSource("testBase")
 	void testGetAdnProportionPercentage(String inputAdn, String adnSequence, double expected)
 	{
+		Test(inputAdn, adnSequence, expected);
+	}
+
+	public void Test(String inputAdn, String adnSequence, double expected)
+	{
 		double actual = Adn.getAdnProportionPercentage(inputAdn, adnSequence);
 		assertEquals(expected, actual, 0.00001, "Wrong proportion");
 	}
-
 
 	@ParameterizedTest
 	@MethodSource("testSequenceRepeatingWithBreak")
 	@DisplayName("Test Sequence Repeating With Break")
 	void testSequenceRepeatingWithBreak(String inputAdn, String adnSequence, double expected)
 	{
-		double actual = Adn.getAdnProportionPercentage(inputAdn, adnSequence);
-		assertEquals(expected, actual, 0.00001, "Wrong proportion");
+		Test(inputAdn, adnSequence, expected);
 	}
 
 	@ParameterizedTest
@@ -75,8 +75,7 @@ class AdnTest
 	@DisplayName("Test Case Insensitivity")
 	void testCaseInsensitivity(String inputAdn, String adnSequence, double expected)
 	{
-		double actual = Adn.getAdnProportionPercentage(inputAdn, adnSequence);
-		assertEquals(expected, actual, 0.00001, "Wrong proportion");
+		Test(inputAdn, adnSequence, expected);
 	}
 
 	@ParameterizedTest
@@ -84,7 +83,6 @@ class AdnTest
 	@DisplayName("Test White Space Removal")
 	void testWhiteSpaceRemoval(String inputAdn, String adnSequence, double expected)
 	{
-		double actual = Adn.getAdnProportionPercentage(inputAdn, adnSequence);
-		assertEquals(expected, actual, 0.00001, "Wrong proportion");
+		Test(inputAdn, adnSequence, expected);
 	}
 }

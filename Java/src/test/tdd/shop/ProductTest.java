@@ -1,9 +1,11 @@
-package test.tdd.shop;
+package tdd.shop;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class HibernateProductTest
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class ProductTest
 {
 	protected Product product;
 

@@ -5,7 +5,6 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class Environment
 {
 	private static final Dotenv dotenv = Dotenv.configure()
-//			.directory("./src/main/java/ex_05")
 			.load();
 
 	private Environment()

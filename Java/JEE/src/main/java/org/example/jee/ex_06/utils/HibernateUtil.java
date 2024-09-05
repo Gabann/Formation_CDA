@@ -1,6 +1,7 @@
 package org.example.jee.ex_06.utils;
 
 
+import org.example.jee.ex_05.util.Environment;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -24,7 +25,8 @@ public final class HibernateUtil
 			try
 			{
 				sessionFactory = buildSessionFactory();
-			} catch (RuntimeException e)
+			}
+			catch (RuntimeException e)
 			{
 				throw new ExceptionInInitializerError(e);
 			}
@@ -37,11 +39,12 @@ public final class HibernateUtil
 		try
 		{
 			Configuration configuration = new Configuration();
-//			configuration.setProperty("hibernate.connection.url", Environment.getEnv("DB_URL"));
-//			configuration.setProperty("hibernate.connection.username", Environment.getEnv("DB_USER"));
-//			configuration.setProperty("hibernate.connection.password", Environment.getEnv("DB_PASSWORD"));
+			configuration.setProperty("hibernate.connection.url", Environment.getEnv("DB_URL"));
+			configuration.setProperty("hibernate.connection.username", Environment.getEnv("DB_USER"));
+			configuration.setProperty("hibernate.connection.password", Environment.getEnv("DB_PASSWORD"));
 			return configuration.configure().buildSessionFactory();
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			throw new ExceptionInInitializerError(e);
 		}

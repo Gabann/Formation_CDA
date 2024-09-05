@@ -1,9 +1,10 @@
-package test.tdd.shop;
+package tdd.shop;
 
 import org.junit.jupiter.api.Test;
-import tdd.shop.DairyProduct;
 
-public class DairyHibernateProductTest extends test.tdd.shop.HibernateProductTest
+import static org.junit.Assert.assertEquals;
+
+class DairyProductTest extends ProductTest
 {
 	@Override
 	protected DairyProduct createProduct()
