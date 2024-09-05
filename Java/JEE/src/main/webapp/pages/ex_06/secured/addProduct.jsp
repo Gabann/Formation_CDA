@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Add product</title>
+    <title>Add hibernateProduct</title>
 </head>
 <body>
 <div class="container-fluid">

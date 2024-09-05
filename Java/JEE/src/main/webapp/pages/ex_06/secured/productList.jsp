@@ -28,24 +28,24 @@ else
     </thead>
     <tbody>
         <%
-            for (Product product : productList)
+            for (Product hibernateProduct : productList)
             {%>
         <tr>
-            <th scope="row"><%= product.getId()%>
+            <th scope="row"><%= hibernateProduct.getId()%>
             </th>
-            <td><%= product.getBrand()%>
+            <td><%= hibernateProduct.getBrand()%>
             </td>
-            <td><%= product.getReference()%>
+            <td><%= hibernateProduct.getReference()%>
             </td>
-            <td><%= product.getPurchaseDate()%>
+            <td><%= hibernateProduct.getPurchaseDate()%>
             </td>
-            <td><%= product.getPrice()%>
+            <td><%= hibernateProduct.getPrice()%>
             </td>
-            <td><%= product.getStock()%>
+            <td><%= hibernateProduct.getStock()%>
             </td>
             <td><img style="max-width: 100%; max-height: 20vh" src="${pageContext.request.contextPath}/assets/images/<%=
-            product.getImagePath()%>"
-                     alt="product visual">
+            hibernateProduct.getImagePath()%>"
+                     alt="hibernateProduct visual">
             </td>
             <% } %>
             <% } %>

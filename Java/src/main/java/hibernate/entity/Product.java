@@ -9,23 +9,21 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "product")
 @Setter
 @NamedQueries({
 		@NamedQuery(name = "Product.findByPurchaseDateBetween",
-				query = "select p from Product p where p.purchaseDate between :purchaseDateStart and :purchaseDateEnd"),
+		            query = "select p from Product p where p.purchaseDate between :purchaseDateStart and :purchaseDateEnd"),
 		@NamedQuery(name = "Product.findByPriceGreaterThan",
-				query = "select p from Product p where p.price > :price"),
+		            query = "select p from Product p where p.price > :price"),
 		@NamedQuery(name = "Product.findStockByBrand",
-				query = "select p.stock from Product p where p.brand = :brand"),
+		            query = "select p.stock from Product p where p.brand = :brand"),
 		@NamedQuery(name = "Product.findAveragePrice",
-				query = "select avg(p.price) from Product p"),
+		            query = "select avg(p.price) from Product p"),
 		@NamedQuery(name = "Product.findByBrand",
-				query = "select p from Product p where p.brand = :brand"),
+		            query = "select p from Product p where p.brand = :brand"),
 		@NamedQuery(name = "Product.deleteByBrand",
-				query = "delete from Product p where p.brand = :brand"),
+		            query = "delete from Product p where p.brand = :brand"),
 })
-
 public class Product
 {
 	@Id

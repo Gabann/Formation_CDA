@@ -170,7 +170,7 @@
 			name = ReactNativeTests;
 			productName = ReactNativeTests;
 			productReference = 00E356EE1AD99517003FC87E /* ReactNativeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productType = "com.apple.hibernateProduct-type.bundle.unit-test";
 		};
 		13B07F861A680F5B00A75B9A /* ReactNative */ = {
 			isa = PBXNativeTarget;
@@ -191,7 +191,7 @@
 			name = ReactNative;
 			productName = ReactNative;
 			productReference = 13B07F961A680F5B00A75B9A /* ReactNative.app */;
-			productType = "com.apple.product-type.application";
+			productType = "com.apple.hibernateProduct-type.application";
 		};
 /* End PBXNativeTarget section */
 

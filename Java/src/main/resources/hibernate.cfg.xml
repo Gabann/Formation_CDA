@@ -4,8 +4,23 @@
         " http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <mapping class="hibernate.entity.Product"/>
-        <mapping class="hibernate.entity.Image"/>
-        <mapping class="hibernate.entity.Comment"/>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?createDatabaseIfNotExist=true</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">qwfpgj</property>
+
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.highlight_sql">true</property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.autocommit">false</property>
+
+        <!--        <mapping class="hibernate.entity.Product"/>-->
+        <!--        <mapping class="hibernate.entity.Image"/>-->
+        <!--        <mapping class="hibernate.entity.Comment"/>-->
     </session-factory>
+
 </hibernate-configuration>

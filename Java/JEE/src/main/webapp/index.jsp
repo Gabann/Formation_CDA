@@ -30,6 +30,6 @@
 <br>
 <a href="secured/productListServlet">Product list</a>
 <br>
-<a href="secured/addProductServlet">Add product</a>
+<a href="secured/addProductServlet">Add hibernateProduct</a>
 </body>
 </html>

@@ -3,7 +3,7 @@ package jpa.tp_product.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product")
+@Table(name = "Test")
 public class Test
 {
 	String name;

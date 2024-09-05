@@ -6,7 +6,7 @@
 #     signup_date date,
 #     country varchar(30)
 # );
-# 
+#
 # CREATE TABLE Music
 # (
 #     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,7 +17,7 @@
 #     genre varchar(30),
 #     release_year year
 # );
-# 
+#
 # CREATE TABLE Playlist(
 #     id INT AUTO_INCREMENT PRIMARY KEY,
 #     name varchar(30),
@@ -25,7 +25,7 @@
 #     creation_date date,
 #     FOREIGN KEY (user_id) REFERENCES User_playlist(id)
 # );
-# 
+#
 # CREATE TABLE Students (
 #                           student_id INT PRIMARY KEY AUTO_INCREMENT,
 #                           first_name VARCHAR(50) NOT NULL,
@@ -33,53 +33,53 @@
 #                           age INT,
 #                           grade VARCHAR(10)
 # );
-# 
-# INSERT INTO Students(first_name, last_name, age, grade) 
+#
+# INSERT INTO Students(first_name, last_name, age, grade)
 # VALUES ('Maria', 'Rodriguez', 21, 'B'),
 #        ('Ahmed', 'Khan', 19, 'A'),
 #        ('Emily', 'Baker', 22, 'C');
-# 
+#
 # UPDATE Students
 # SET grade = 'A'
 # WHERE first_name = 'Maria' AND last_name = 'Rodriguez';
-# 
+#
 # UPDATE Students
 # SET age = age + 1;
-# 
-# DELETE 
+#
+# DELETE
 # FROM students
 # WHERE first_name = 'Emily';
-# 
+#
 # DELETE
 # FROM students
 # WHERE age < 20;
-# 
+#
 # TRUNCATE students;
-# 
+#
 # CREATE TABLE Customers(
 #     id int PRIMARY KEY AUTO_INCREMENT,
 #     first_name varchar(50),
 #     last_name varchar(50),
 #     city varchar(50)
 # );
-# 
+#
 # CREATE TABLE Purchases(
 #     id int PRIMARY KEY AUTO_INCREMENT,
 #     customer_id int,
-#     product varchar(50),
+#     hibernateProduct varchar(50),
 #     amount varchar(50),
-#     
-#     FOREIGN KEY (customer_id) REFERENCES Customers(id) 
+#
+#     FOREIGN KEY (customer_id) REFERENCES Customers(id)
 # );
-# 
+#
 # INSERT INTO Customers(first_name, last_name, city)
 # VALUES ('John', 'Doe', 'New York'),
 #        ('Jane', 'Doe', 'Los Angeles'),
 #        ('Alice', 'Johnson', 'Chicago'),
 #        ('Bob', 'Smith', 'Houston'),
 #        ('Charlie', 'Brown', 'Phoenix');
-# 
-# INSERT INTO Purchases(customer_id, product, amount)
+#
+# INSERT INTO Purchases(customer_id, hibernateProduct, amount)
 # VALUES (1, 'Product1', '100'),
 #        (2, 'Product2', '200'),
 #        (2, 'Product3', '300'),
@@ -90,40 +90,40 @@
 #        (4, 'Product8', '800'),
 #        (4, 'Product9', '900'),
 #        (null, 'Product10', '1000');
-# 
+#
 # TRUNCATE Purchases;
-# 
+#
 # -- Sélectionnez les noms et prénoms des clients ainsi que les détails de leurs achats (si disponibles).
 # SELECT Customers.first_name, Customers.last_name, Purchases.*
 # FROM Customers
 # JOIN Purchases on Customers.id = Purchases.customer_id;
-# 
+#
 # -- Sélectionnez tous les clients et les détails de leurs achats s'ils ont effectué des achats, sinon affichez les colonnes des achats avec des valeurs NULL.
 # SELECT *
 # FROM Customers
-# LEFT JOIN Purchases 
+# LEFT JOIN Purchases
 # ON Customers.id = Purchases.customer_id;
-# 
+#
 # -- Sélectionnez tous les achats et les détails des clients correspondants, même s'il n'y a pas de correspondance pour certains achats.
 # SELECT *
 # FROM Customers
 # RIGHT JOIN  Purchases
 # ON Customers.id = Purchases.customer_id;
-# 
+#
 # -- Sélectionnez tous les clients et tous les achats, en affichant les détails des clients même s'ils n'ont pas effectué d'achats, et vice versa.
 # SELECT *
 # FROM Customers
-#          LEFT JOIN Purchases 
+#          LEFT JOIN Purchases
 #          ON Customers.id = Purchases.customer_id
-# 
+#
 # UNION
-# 
+#
 # SELECT *
 # FROM Customers
-#          RIGHT JOIN Purchases 
+#          RIGHT JOIN Purchases
 #          ON Customers.id = Purchases.customer_id;
 
-# ---------------------------------------------------------------------------------------------------------------------------------- 
+# ----------------------------------------------------------------------------------------------------------------------------------
 
 # Modélisation
 CREATE DATABASE IF NOT EXISTS tabletoptreasures_database;
