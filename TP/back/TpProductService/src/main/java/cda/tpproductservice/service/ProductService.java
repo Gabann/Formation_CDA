@@ -16,11 +16,6 @@ public class ProductService
 		this.repository = repository;
 	}
 
-	public Product getById(Long id)
-	{
-		return repository.findById(id).orElse(null);
-	}
-
 	public Product create(Product product)
 	{
 		return repository.save(product);
@@ -57,5 +52,32 @@ public class ProductService
 			repository.save(newProduct);
 			return true;
 		}
+	}
+
+	public boolean decrementStockById(Long id)
+	{
+		return setStockById(id, getById(id).getStock() - 1);
+	}
+
+	public boolean setStockById(Long id, int stock)
+	{
+		Product product = repository.findById(id).orElse(null);
+		if (product == null)
+		{
+			return false;
+		}
+		product.setStock(stock);
+		repository.save(product);
+		return true;
+	}
+
+	public Product getById(Long id)
+	{
+		return repository.findById(id).orElse(null);
+	}
+
+	public boolean decrementStockById(Long id, int quantity)
+	{
+		return setStockById(id, getById(id).getStock() - quantity);
 	}
 }

@@ -2,6 +2,8 @@ package cda.tporderservice.controller;
 
 import cda.tporderservice.entity.Order;
 import cda.tporderservice.service.OrderService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,32 +20,48 @@ public class OrderController
 	}
 
 	@GetMapping("/all")
-	public List<Order> getAllOrders()
+	public ResponseEntity<List<Order>> getAllOrders()
 	{
-		return service.getAll();
+		List<Order> orders = service.getAll();
+		return ResponseEntity.ok(orders);
 	}
 
 	@GetMapping("/{id}")
-	public Order getOrderById(@PathVariable Long id)
+	public ResponseEntity<Order> getOrderById(@PathVariable Long id)
 	{
-		return service.getById(id);
+		Order order = service.getById(id);
+		if (order == null)
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		return ResponseEntity.ok(order);
 	}
 
 	@PostMapping("/add")
-	public Order addOrder(@RequestBody Order order)
+	public ResponseEntity<?> addOrder(@RequestBody Order order)
 	{
 		return service.create(order);
 	}
 
 	@DeleteMapping("/{id}")
-	public boolean deleteOrder(@PathVariable Long id)
+	public ResponseEntity<Boolean> deleteOrder(@PathVariable Long id)
 	{
-		return service.deleteById(id);
+		boolean deleted = service.deleteById(id);
+		if (!deleted)
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(false);
+		}
+		return ResponseEntity.ok(true);
 	}
 
 	@PutMapping("/{id}")
-	public boolean updateOrder(@PathVariable Long id, @RequestBody Order order)
+	public ResponseEntity<Boolean> updateOrder(@PathVariable Long id, @RequestBody Order order)
 	{
-		return service.updateById(id, order);
+		boolean updated = service.updateById(id, order);
+		if (!updated)
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(false);
+		}
+		return ResponseEntity.ok(true);
 	}
 }

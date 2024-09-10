@@ -17,7 +17,7 @@ public class OrderServiceClient
 
 	public OrderDto getOrderById(Long id)
 	{
-		String url = BASE_URL + "/" + id;
+		String url = BASE_URL + "/api/orders/" + id;
 		return restTemplate.getForObject(url, OrderDto.class);
 	}
 }

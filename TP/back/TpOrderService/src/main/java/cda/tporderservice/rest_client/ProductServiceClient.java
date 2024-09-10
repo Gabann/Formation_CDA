@@ -17,7 +17,19 @@ public class ProductServiceClient
 
 	public ProductDto getProductById(Long id)
 	{
-		String url = BASE_URL + "/" + id;
+		String url = BASE_URL + "/api/products/" + id;
 		return restTemplate.getForObject(url, ProductDto.class);
+	}
+
+	public void decrementProductStock(Long id)
+	{
+		String url = BASE_URL + "/api/products/" + id + "/decrement";
+		restTemplate.put(url, null);
+	}
+
+	public void decrementProductStock(Long id, int quantity)
+	{
+		String url = BASE_URL + "/api/products/" + id + "/decrement";
+		restTemplate.put(url, quantity);
 	}
 }

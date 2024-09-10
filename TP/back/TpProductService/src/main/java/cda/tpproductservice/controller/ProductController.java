@@ -46,4 +46,23 @@ public class ProductController
 	{
 		return service.updateById(id, product);
 	}
+
+	@PutMapping("/{id}/decrement")
+	public boolean decrementStock(@PathVariable Long id, @RequestBody(required = false) Integer quantity)
+	{
+		if (quantity != null)
+		{
+			return service.decrementStockById(id, quantity);
+		}
+		else
+		{
+			return service.decrementStockById(id);
+		}
+	}
+
+	@PutMapping("/{id}/setStock")
+	public boolean setStock(@PathVariable Long id, @RequestBody int stock)
+	{
+		return service.setStockById(id, stock);
+	}
 }

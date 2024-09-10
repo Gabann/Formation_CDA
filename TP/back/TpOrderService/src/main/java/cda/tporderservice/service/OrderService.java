@@ -6,11 +6,15 @@ import cda.tporderservice.entity.Order;
 import cda.tporderservice.repository.OrderRepository;
 import cda.tporderservice.rest_client.ProductServiceClient;
 import cda.tporderservice.rest_client.UserServiceClient;
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class OrderService
@@ -48,8 +52,9 @@ public class OrderService
 
 		order.setUserDto(userDto);
 
-		for (Long productId : order.getProductIds())
+		for (Map.Entry<Long, Integer> entry : order.getProductQuantities().entrySet())
 		{
+			Long productId = entry.getKey();
 			ProductDto productDto = productServiceClient.getProductById(productId);
 
 			if (productDto == null)
@@ -65,9 +70,44 @@ public class OrderService
 		return order;
 	}
 
-	public Order create(Order order)
+
+	@Transactional
+	public ResponseEntity<?> create(Order order)
 	{
-		return repository.save(order);
+		//We use a double for because the stock decrement is made in a separate microservice and does not get rolled back if the method fails
+		//TODO check for kafka saga pattern to handle this better
+		for (Map.Entry<Long, Integer> entry : order.getProductQuantities().entrySet())
+		{
+			Long productId = entry.getKey();
+			int quantity = entry.getValue();
+
+			ProductDto productDto = productServiceClient.getProductById(productId);
+
+			if (productDto == null)
+			{
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+				return ResponseEntity.status(HttpStatus.NOT_FOUND)
+						.body("Product not found for ID " + productId);
+			}
+
+			if (productDto.getStock() < quantity)
+			{
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+						.body("Not enough stock for product ID " + productId);
+			}
+
+		}
+
+		for (Map.Entry<Long, Integer> entry : order.getProductQuantities().entrySet())
+		{
+			Long productId = entry.getKey();
+			int quantity = entry.getValue();
+
+			productServiceClient.decrementProductStock(productId, quantity);
+		}
+
+		return ResponseEntity.ok(repository.save(order));
 	}
 
 	public List<Order> getAll()
@@ -82,6 +122,7 @@ public class OrderService
 		return orders;
 	}
 
+	@Transactional
 	public boolean deleteById(Long id)
 	{
 		if (repository.findById(id).isPresent())
@@ -95,6 +136,7 @@ public class OrderService
 		}
 	}
 
+	@Transactional
 	public boolean updateById(Long id, Order newOrder)
 	{
 		Order existingOrder = repository.findById(id).orElse(null);

@@ -13,4 +13,5 @@ public class ProductDto
 	String description;
 	double price;
 	String category;
+	int stock;
 }

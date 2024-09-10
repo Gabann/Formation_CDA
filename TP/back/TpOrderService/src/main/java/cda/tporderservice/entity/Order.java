@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -25,11 +27,12 @@ public class Order
 
 	@ElementCollection
 	@CollectionTable(
-			name = "order_product_ids",
+			name = "order_product_quantities",
 			joinColumns = @JoinColumn(name = "order_id")
 	)
-	@Column(name = "product_id")
-	List<Long> productIds;
+	@MapKeyColumn(name = "product_id")
+	@Column(name = "quantity")
+	Map<Long, Integer> productQuantities = new HashMap<>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

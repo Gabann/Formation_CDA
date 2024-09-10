@@ -17,7 +17,7 @@ public class UserServiceClient
 
 	public UserDto getUserById(Long id)
 	{
-		String url = BASE_URL + "/" + id;
+		String url = BASE_URL + "/api/users/" + id;
 		return restTemplate.getForObject(url, UserDto.class);
 	}
 }
