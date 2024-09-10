@@ -15,6 +15,10 @@
         <class>jpa.tp_product.entity.Test</class>
         <class>jpa.tp_computer.entity.Computer</class>
         <class>jpa.tp_computer.entity.Processor</class>
+        <class>cda.tpuserservice.entity.User</class>
+        <class>cda.tpproductservice.entity.Product</class>
+        <class>cda.tporderservice.entity.Order</class>
+        <class>cda.tpdeliveryservice.entity.Delivery</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
