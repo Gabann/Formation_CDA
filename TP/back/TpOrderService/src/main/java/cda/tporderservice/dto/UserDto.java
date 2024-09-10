@@ -1,4 +1,4 @@
-package dto;
+package cda.tporderservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class UserDto
 {
 	String username;
-
 }

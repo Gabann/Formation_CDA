@@ -12,12 +12,16 @@ public class Product
 {
 	@Column(name = "name", nullable = false)
 	String name;
+
 	@Column(name = "description", nullable = false)
 	String description;
+
 	@Column(name = "price", nullable = false)
 	double price;
+
 	@Column(name = "stock", nullable = false)
 	int stock;
+	
 	@Column(name = "category", nullable = false)
 	@Enumerated(EnumType.STRING)
 	ProductCategory category;

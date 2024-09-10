@@ -1,4 +1,4 @@
-package dto;
+package cda.tporderservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto
+public class ProductDto
 {
-	String username;
-
+	String name;
+	String description;
+	double price;
+	String category;
 }
