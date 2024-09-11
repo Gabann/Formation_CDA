@@ -16,7 +16,7 @@ import java.util.Collection;
 @Table(name = "user")
 public class User implements UserDetails
 {
-	@Column(name = "email", nullable = false)
+	@Column(name = "email", nullable = false, unique = true)
 	String email;
 	@Column(name = "password", nullable = false)
 	String password;

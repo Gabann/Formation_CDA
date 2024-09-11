@@ -61,6 +61,7 @@ public class OrderService
 			{
 				throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found for ID " + productId);
 			}
+			productDto.setQuantity(entry.getValue());
 
 			order.getProductsDto().add(productDto);
 		}
