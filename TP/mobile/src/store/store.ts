@@ -1,7 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
+import productApiSlice from '@/src/store/productApiSlice';
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        productApiSlice: productApiSlice,
+    },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,

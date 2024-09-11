@@ -21,7 +21,10 @@ public class Product
 
 	@Column(name = "stock", nullable = false)
 	int stock;
-	
+
+	@Column(name = "imageUrl", nullable = false)
+	String imageUrl;
+
 	@Column(name = "category", nullable = false)
 	@Enumerated(EnumType.STRING)
 	ProductCategory category;

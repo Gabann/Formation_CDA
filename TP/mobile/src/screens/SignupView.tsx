@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import LoginComponent from '@/src/components/LoginComponent';
+import SignupComponent from '@/src/components/SignupComponent';
 
-const MyComponent = () => {
+const SignupView = () => {
     return (
         <View style={styles.container}>
-            <LoginComponent/>
+            <SignupComponent/>
         </View>
     );
 };
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default MyComponent;
+export default SignupView;

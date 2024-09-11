@@ -1,8 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import LoginView from '@/src/screens/LogView';
-import SignupComponent from '@/src/components/SignupComponent';
+import AuthComponent from '@/src/components/AuthComponent';
+import {ProductListView} from '@/src/screens/ProductListView';
+import {store} from '@/src/store/store';
+import {Provider} from 'react-redux';
 
 const CollectionStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -12,17 +14,30 @@ export type RootStackParamList = {
     LoginComponent: undefined;
 };
 
-function LogStackScreen() {
+function AuthStackScreen() {
     return (
         <CollectionStack.Navigator>
             <CollectionStack.Screen
                 name="LoginComponent"
-                component={LoginView}
+                component={() => <AuthComponent isLogin={true}/>}
                 options={{headerShown: false}}
             />
             <CollectionStack.Screen
                 name="SignupComponent"
-                component={SignupComponent}
+                component={() => <AuthComponent isLogin={false}/>}
+                options={{headerShown: false}}
+            />
+        </CollectionStack.Navigator>
+    );
+}
+
+
+function ProductStackScreen() {
+    return (
+        <CollectionStack.Navigator>
+            <CollectionStack.Screen
+                name="ProductList"
+                component={() => <ProductListView/>}
                 options={{headerShown: false}}
             />
         </CollectionStack.Navigator>
@@ -31,28 +46,28 @@ function LogStackScreen() {
 
 export default function Index() {
     return (
-        // <Provider store={store}>
-        <Tab.Navigator screenOptions={{
-            tabBarActiveTintColor: 'orange',
-            headerShown: false,
-        }}>
-            <Tab.Screen
-                name="Log"
-                component={LogStackScreen}
-                options={{
-                    tabBarLabel: 'Log',
-                    tabBarIcon: ({color, size}) => (<Icon name="login" size={size} color={color}/>),
-                }}
-            />
-            <Tab.Screen
-                name="Tab 2"
-                component={SignupComponent}
-                options={{
-                    tabBarLabel: 'Tab 2',
-                    tabBarIcon: ({color, size}) => (<Icon name="shopping" size={size} color={color}/>),
-                }}
-            />
-        </Tab.Navigator>
-        // </Provider>
+        <Provider store={store}>
+            <Tab.Navigator screenOptions={{
+                tabBarActiveTintColor: 'orange',
+                headerShown: false,
+            }}>
+                <Tab.Screen
+                    name="Auth"
+                    component={AuthStackScreen}
+                    options={{
+                        tabBarLabel: 'Auth',
+                        tabBarIcon: ({color, size}) => (<Icon name="login" size={size} color={color}/>),
+                    }}
+                />
+                <Tab.Screen
+                    name="Tab 2"
+                    component={ProductStackScreen}
+                    options={{
+                        tabBarLabel: 'Tab 2',
+                        tabBarIcon: ({color, size}) => (<Icon name="shopping" size={size} color={color}/>),
+                    }}
+                />
+            </Tab.Navigator>
+        </Provider>
     );
 }
