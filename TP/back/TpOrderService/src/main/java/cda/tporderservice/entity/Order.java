@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ import java.util.Map;
 public class Order
 {
 	@Transient
-	public List<ProductDto> productsDto;
+	public List<ProductDto> productsDto = new ArrayList<>();
 
 	@Transient
 	public UserDto userDto;

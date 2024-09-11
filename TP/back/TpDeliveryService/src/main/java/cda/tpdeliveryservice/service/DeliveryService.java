@@ -35,7 +35,7 @@ public class DeliveryService
 			return null;
 		}
 
-		OrderDto orderDto = orderServiceClient.getOrderById(order.getId());
+		OrderDto orderDto = orderServiceClient.getOrderById(order.getOrderId());
 
 		if (orderDto == null)
 		{

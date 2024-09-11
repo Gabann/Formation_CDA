@@ -33,10 +33,21 @@ public class Delivery
 	@Enumerated(EnumType.STRING)
 	private DeliveryStatus deliveryStatus;
 
+	@Column(name = "delivery_type", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private DeliveryType deliveryType;
+
 	public enum DeliveryStatus
 	{
 		DELIVERED,
 		IN_DELIVERY,
 		NOT_DELIVERED
+	}
+
+	public enum DeliveryType
+	{
+		EXPRESS,
+		NORMAL,
+		LOW_COST
 	}
 }
