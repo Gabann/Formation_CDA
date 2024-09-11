@@ -3,6 +3,8 @@ package cda.tpuserservice.controller;
 import cda.tpuserservice.dto.LoginDto;
 import cda.tpuserservice.entity.User;
 import cda.tpuserservice.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,14 +51,14 @@ public class UserController
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestBody LoginDto loginDto)
+	public ResponseEntity<String> login(@RequestBody LoginDto loginDto)
 	{
 		if (!service.doesEmailExists(loginDto.getEmail())
 				|| !service.verifyCredentials(loginDto.getEmail(), loginDto.getPassword()))
 		{
-			return "Wrong email or password";
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Wrong email or password");
 		}
 
-		return service.generateToken(loginDto.getEmail(), loginDto.getPassword());
+		return ResponseEntity.ok(service.generateToken(loginDto.getEmail(), loginDto.getPassword()));
 	}
 }

@@ -26,7 +26,7 @@ public class User implements UserDetails
 	private Long id;
 
 	@Column(nullable = false)
-	private String roles;
+	private String roles = "user";
 
 	private boolean isEnabled = true;
 
