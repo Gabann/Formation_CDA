@@ -5,6 +5,9 @@ import AuthComponent from '@/src/components/AuthComponent';
 import {ProductListView} from '@/src/screens/ProductListView';
 import {store} from '@/src/store/store';
 import {Provider} from 'react-redux';
+import {useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AppState, AppStateStatus} from 'react-native';
 
 const CollectionStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,32 +22,48 @@ function AuthStackScreen() {
         <CollectionStack.Navigator>
             <CollectionStack.Screen
                 name="LoginComponent"
-                component={() => <AuthComponent isLogin={true}/>}
                 options={{headerShown: false}}
-            />
+            >
+                {() => <AuthComponent isLogin={true}/>}
+            </CollectionStack.Screen>
             <CollectionStack.Screen
                 name="SignupComponent"
-                component={() => <AuthComponent isLogin={false}/>}
                 options={{headerShown: false}}
-            />
+            >
+                {() => <AuthComponent isLogin={false}/>}
+            </CollectionStack.Screen>
         </CollectionStack.Navigator>
     );
 }
-
 
 function ProductStackScreen() {
     return (
         <CollectionStack.Navigator>
             <CollectionStack.Screen
                 name="ProductList"
-                component={() => <ProductListView/>}
                 options={{headerShown: false}}
-            />
+            >
+                {() => <ProductListView/>}
+            </CollectionStack.Screen>
         </CollectionStack.Navigator>
     );
 }
 
 export default function Index() {
+
+    useEffect(() => {
+        const handleAppStateChange = async (nextAppState: AppStateStatus) => {
+            if (nextAppState === 'background') {
+                await AsyncStorage.removeItem('allProducts');
+            }
+        };
+        const subscription = AppState.addEventListener('change', handleAppStateChange);
+
+        return () => {
+            subscription.remove();
+        };
+    }, []);
+
     return (
         <Provider store={store}>
             <Tab.Navigator screenOptions={{
@@ -52,19 +71,27 @@ export default function Index() {
                 headerShown: false,
             }}>
                 <Tab.Screen
+                    name="Shop"
+                    component={ProductStackScreen}
+                    options={{
+                        tabBarLabel: 'Shop',
+                        tabBarIcon: ({color, size}) => (<Icon name="shopping" size={size} color={color}/>),
+                    }}
+                />
+                <Tab.Screen
+                    name="Cart"
+                    component={ProductStackScreen}
+                    options={{
+                        tabBarLabel: 'Cart',
+                        tabBarIcon: ({color, size}) => (<Icon name="cart" size={size} color={color}/>),
+                    }}
+                />
+                <Tab.Screen
                     name="Auth"
                     component={AuthStackScreen}
                     options={{
                         tabBarLabel: 'Auth',
                         tabBarIcon: ({color, size}) => (<Icon name="login" size={size} color={color}/>),
-                    }}
-                />
-                <Tab.Screen
-                    name="Tab 2"
-                    component={ProductStackScreen}
-                    options={{
-                        tabBarLabel: 'Tab 2',
-                        tabBarIcon: ({color, size}) => (<Icon name="shopping" size={size} color={color}/>),
                     }}
                 />
             </Tab.Navigator>

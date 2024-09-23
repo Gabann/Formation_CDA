@@ -19,6 +19,8 @@
         <class>cda.tpproductservice.entity.Product</class>
         <class>cda.tporderservice.entity.Order</class>
         <class>cda.tpdeliveryservice.entity.Delivery</class>
+        <class>cda.tp_global.entity.Account</class>
+        <class>cda.tp_global.entity.User</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
